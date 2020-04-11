@@ -1,0 +1,44 @@
+.card {
+  min-width: 200px;
+  min-height: 300px;
+  width: 250px;
+  height: 350px;
+  background: #ecf0f3;
+  transition: background 0.3s;
+  border-radius: 20px;
+  position: relative;
+  margin: 10px;
+  // box-shadow fallback
+  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
+              -4px -4px 5px 0px rgba(255,255,255,0.60),
+              7px 7px 20px 0px rgba(0,0,0,0.13), 
+              4px 4px 5px 0px rgba(0,0,0,0.067);
+  box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001;
+  &:hover {
+    background: #e8ecee;
+    // box-shadow fallback
+    box-shadow: -9px -9px 20px 0px rgba(255,255,255,0.60),
+                -6px -6px 5px 0px rgba(255,255,255,0.60),
+                9px 9px 20px 0px rgba(0,0,0,0.13),
+                6px 6px 5px 0px rgba(0,0,0,0.067);
+    box-shadow: -9px -9px 20px 0px #fff9,
+                -6px -6px 5px 0px #fff9,
+                9px 9px 20px 0px #0002,
+                6px 6px 5px 0px #0001;
+  }
+
+  .content {
+    padding: 20px;
+  }
+  .interactions {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+

@@ -1,0 +1,63 @@
+.bar {
+  margin: 10px;
+  width: 100%;
+  min-height: 20px;
+  height: 30px;
+  background: #ecf0f3;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  //Fallback
+  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
+              -4px -4px 5px 0px rgba(255,255,255,0.60),
+              7px 7px 20px 0px rgba(0,0,0,0.13), 
+              4px 4px 5px 0px rgba(0,0,0,0.067);
+  box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001;
+  .frame {
+    position: absolute;
+    overflow: hidden;
+    left: 3px;
+    bottom: 3px;
+    top: 3px;
+    right: 3px;
+    border-radius: 7px;
+    //Fallback
+    box-shadow: inset -7px -7px 20px 0px rgba(255,255,255,0.60), 
+                inset -4px -4px 5px 0px rgba(255,255,255,0.60),
+                inset 7px 7px 20px 0px rgba(0,0,0,0.13), 
+                inset 4px 4px 5px 0px rgba(0,0,0,0.067);
+    box-shadow: inset -7px -7px 20px 0px #fff9,
+                inset -4px -4px 5px 0px #fff9,
+                inset 7px 7px 20px 0px #0003,
+                inset 4px 4px 5px 0px #0001;
+
+    .fill {
+      width: 0%;
+      height: 100%;
+      background: coral;
+      
+      // text
+      font-weight: 200;
+      font-size: small;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: width 0.05s;
+      transform: translateX(0px);
+
+      &.indeterminate {
+        background: linear-gradient(90deg, deeppink, deepskyblue);
+        transition: width 0.05s;
+        // transform: translateX(100px);
+      }
+    }
+  }
+}
+
+
+

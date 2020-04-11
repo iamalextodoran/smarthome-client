@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  background: #ecf0f3;
+}
+
+a, a:link, a:hover, a:focus, a:visited, a:active {
+  color: none;
+  text-decoration: none;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 3.400rem;
+  font-weight: 400;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 2.400rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+}
+
+h3 {
+  font-size: 2.000rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+h4 {
+  font-size: 1.600rem;
+  font-weight: 400;
+  letter-spacing: 0.010em;
+  line-height: 2.4rem;
+}
+
+p {
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.010em;
+  line-height: 1.6em;
+  margin: 0.8em 0 1.6em;
+}
+
+strong {
+  font-weight: 500;
+}
+
+blockquote {
+  border-left: 3px solid rgba(0, 0, 0, 0.12);
+  font-style: italic;
+  margin-left: 0;
+  padding-left: 16px;
+}
+
+.container {
+  width: 50%;
+}
+
+
+//////////////////////////////
+////                      ////
+////   Flexbox classes    ////
+////                      ////
+//////////////////////////////
+
+$flex-directions: (
+    row,
+    column
+  );
+
+$justify-positions: (
+  none: none,
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  space-around: space-around,
+  space-between: space-between,
+  space-evenly: space-evenly
+);
+$align-positions: (
+  none: none,
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+  baseline: baseline
+);
+  
+@mixin flex-layout($direction, $justify, $align) {
+  @each $direction-name in $direction{
+    .layout-#{$direction-name} {
+      display: flex;
+      flex-direction: #{$direction-name};
+      @each $justify-name, $justify-property in $justify {
+        @each $align-name, $align-property in $align {
+          &.layout-align-#{$justify-name}-#{$align-name} {
+            align-items: #{$align-property};
+            justify-content: #{$justify-property};
+          }
+        }
+      }
+    }
+  }
+}
+@mixin flex-order(){
+  .flex {
+    flex: auto;
+      @for $i from -20 through 20 {
+      &.flex-order-#{$i} {
+        order: $i;
+      }
+    }
+  }
+};
+
+@mixin flex-percent {
+  @for $i from 1 through 20 {
+    .flex-#{$i*5} {
+      flex: #{$i*5 + "%"};
+    }
+  }
+  @for $i from 1 through 3 {
+    .flex-#{$i*33} {
+      flex: #{$i*33 + "%"};
+    }
+  }
+}
+@include flex-order();
+@include flex-percent();
+@include flex-layout($flex-directions, $justify-positions, $align-positions);
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.layout-xs-column {
+  @media(max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+
+// $devices: (
+//   xs,
+//   gt-xs,
+//   sm,
+//   gt-sm,
+//   md,
+//   gt-md,
+//   lg,
+//   gt-lg,
+//   xl
+// );
+
+// $device-values: (
+//   none: 599px,
+//   600px: none,
+//   600px: 959px,
+//   960px: none,
+//   960px: 1279px,
+//   1280px: none,
+//   1280px: 1919px,
+//   1920px: none,
+//   1920px: none
+// );
+
+// @mixin flex-devices {
+//   @each $device in $devices {
+//     @each $min, $max in $device-values {
+//       .layout-#{$device}-column {
+//         @media(min-width: #{$min}) and (max-width: #{$max}) {
+//           flex-direction: column;
+//         }
+//       };
+//     }
+//   }
+// }
+
+// /* default styles here for older browsers. 
+//        I tend to go for a 600px - 960px width max but using percentages
+//     */
+//   @media only screen and (min-width: 960px) {
+//       /* styles for browsers larger than 960px; */
+//   }
+//   @media only screen and (min-width: 1440px) {
+//       /* styles for browsers larger than 1440px; */
+//   }
+//   @media only screen and (min-width: 2000px) {
+//       /* for sumo sized (mac) screens */
+//   }
+//   @media only screen and (max-device-width: 480px) {
+//      /* styles for mobile browsers smaller than 480px; (iPhone) */
+//   }
+//   @media only screen and (device-width: 768px) {
+//      /* default iPad screens */
+//   }
+//   /* different techniques for iPad screening */
+//   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+//     /* For portrait layouts only */
+//   }
+
+//   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+//     /* For landscape layouts only */
+//   }

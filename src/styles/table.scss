@@ -1,0 +1,53 @@
+table{
+  border-radius: 15px;
+  min-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  border-spacing: 0;
+  // box-shadow fallback
+  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
+              -4px -4px 5px 0px rgba(255,255,255,0.60),
+              7px 7px 20px 0px rgba(0,0,0,0.13), 
+              4px 4px 5px 0px rgba(0,0,0,0.067);
+
+  box-shadow: -7px -7px 20px 0px #fff9, 
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002, 
+              4px 4px 5px 0px #0001, 
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0002, 
+              inset 0px 0px 0px 0px #0001;
+}
+
+td, th {
+  padding: 8px;
+}
+
+tr:nth-child(odd){
+  background-color: rgba(255, 127, 80, 0.5);
+}
+
+tr:hover {
+  box-shadow: inset -7px -7px 20px 0px rgba(255,255,255,0.60), 
+              inset -4px -4px 5px 0px rgba(255,255,255,0.60),
+              inset 7px 7px 20px 0px rgba(0,0,0,0.13), 
+              inset 4px 4px 5px 0px rgba(0,0,0,0.067);
+  box-shadow: inset -7px -7px 20px 0px #fff9, 
+              inset -4px -4px 5px 0px #fff9,
+              inset 7px 7px 20px 0px #0002, 
+              inset 4px 4px 5px 0px #0001;
+}
+
+tr {
+  margin: 0;
+  padding: 0;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: coral;
+  color: white;
+}
