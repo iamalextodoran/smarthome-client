@@ -1,0 +1,30 @@
+.profile {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
+              -4px -4px 5px 0px rgba(255,255,255,0.60),
+              7px 7px 20px 0px rgba(0,0,0,0.13), 
+              4px 4px 5px 0px rgba(0,0,0,0.067);
+  box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001;
+}
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: deeppink;
+  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
+            -4px -4px 5px 0px rgba(255,255,255,0.60),
+            7px 7px 20px 0px rgba(0,0,0,0.13), 
+            4px 4px 5px 0px rgba(0,0,0,0.067);
+box-shadow: -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+}
