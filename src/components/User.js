@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import '../styles/user.scss'
 
 export default class User extends Component {
