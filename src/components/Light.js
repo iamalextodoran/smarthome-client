@@ -11,7 +11,10 @@ export default class Light extends Component {
         {/* <h4>Lights</h4>         */}
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
           <Icon icon="fas fa-lightbulb" size="40" color="gold"/>
-          <p style={{marginLeft: "10px", marginTop: "20px"}}>21/30 lights on</p>
+          <div>
+            <h4>Lights</h4>
+            <p style={{marginLeft: "0px", marginTop: "-25px"}}>21 out of 30</p>
+          </div>
           <Toggle />
         </div>
       </div>

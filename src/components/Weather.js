@@ -8,42 +8,39 @@ export default class Weather extends Component {
     super(props);
     this.state = {
       weather: '',
-      country: '',
-      icon: '',
-      main: ''
+      bit: ''
     };
   }
 
   componentDidMount() {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Baia Mare&units=metric&appid=339f5ad1d5cab08963ebfc85eb910ab7')
-      .then(response => response.json())
-      .then(data => this.setState({weather: data.main, icon: data.weather[0], country: data.sys, main: data}));
 
-    // fetch('https://api.weatherbit.io/v2.0/current?city=London&key=d50c57c063ec458dab88e7a1c530219c')
-    //   .then(response => response.json())
-    //   .then(data => this.setState({weather: data}));
+    fetch('https://api.weatherbit.io/v2.0/current?city=Baia-Mare&key=d50c57c063ec458dab88e7a1c530219c')
+      .then(response => response.json())
+      .then(data => this.setState({bit: data.data[0], weather: data.data[0].weather}));
+  
   }
 
   render() {
     return (
       <div className="mini-card">
-        {/* <h4>Weather</h4> */}
-        {/* <p>@{this.state.main.name}</p> */}
 
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  marginTop: "0px"}}>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+          <h4>{this.state.bit.city_name}</h4>
+          <p style={{marginTop: "-25px"}}>{this.state.bit.country_code}</p>
+        </div>
 
-          <div style={{display: "flex", flexDirection: "row", justifyContent: "start", alignItems: "center", marginLeft: "-20px"}}>
-            <img src={"http://openweathermap.org/img/wn/" + this.state.icon.icon + "@2x.png"} alt={this.state.icon.description}/>
-            <p>{this.state.icon.main}</p>
+        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: "-50px"}}>
+          <div  style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+            <img src={"https://www.weatherbit.io/static/img/icons/" + this.state.weather.icon + ".png"} alt={this.state.weather.description} width="80px" />
+            <p style={{marginTop: "-25px"}}>{this.state.weather.description}</p>
           </div>
-          <h4><strong>{this.state.weather.temp} °C</strong></h4>
-
+          <div></div>
+          <div  style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "end"}}>
+            <h4 style={{justifyContent: "end"}}><strong>{this.state.bit.temp} °C</strong></h4>
+            <p style={{marginTop: "-25px"}}>Feels like {this.state.bit.app_temp} °C</p>
+          </div>
         </div>
 
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: "-35px"}}>
-          <p><Moment format="MMM Do YYYY, h:mm a"></Moment></p>          
-          <p>Feels like {this.state.weather.feels_like} °C</p>
-        </div>
       </div>
     )
   }
