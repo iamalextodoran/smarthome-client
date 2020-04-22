@@ -20,7 +20,8 @@ import Devices from './pages/Devices';
 import Settings from './pages/Settings';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import Page404 from './pages/Page404';
 
 function App() {
   return (
@@ -47,13 +48,16 @@ function App() {
 
           <div className="layout-row layout-align-space-between-start flex-70">
 
-            <Route exact path="/" component={Home}/>
-            <Route path="/rooms" component={Rooms}/>
-            <Route path="/devices" component={Devices}/>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/rooms" component={Rooms}/>
+              <Route path="/devices" component={Devices}/>
 
-            <Route path="/settings" component={Settings}/>
-            <Route path="/register" component={Register}/>
-            <Route path="/login" component={Login}/>
+              <Route path="/settings" component={Settings}/>
+              <Route path="/register" component={Register}/>
+              <Route path="/login" component={Login}/>
+              <Route component={Page404}/>
+            </Switch>
 
           </div>
           
