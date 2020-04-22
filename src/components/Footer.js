@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div style={{marginTop: 25 + 'px'}}>
-        <p><span><Icon icon="fas fa-copyright"/></span>Todoran Industries</p>
+        <p><span><Icon icon="far fa-copyright"/></span>TODD SOLUTIONS SRL</p>
       </div>
     )
   }

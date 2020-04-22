@@ -14,9 +14,12 @@ import Weather from './components/Weather';
 import Light from './components/Light';
 import Temperature from './components/Temperature';
 import Music from './components/Music';
-import Home from './Home';
-import Rooms from './Rooms';
-import Devices from './Devices';
+import Home from './pages/Home';
+import Rooms from './pages/Rooms';
+import Devices from './pages/Devices';
+import Settings from './pages/Settings';
+import Register from './pages/Register';
+import Login from './pages/Login';
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 function App() {
@@ -45,10 +48,12 @@ function App() {
           <div className="layout-row layout-align-space-between-start flex-70">
 
             <Route exact path="/" component={Home}/>
-
             <Route path="/rooms" component={Rooms}/>
-
             <Route path="/devices" component={Devices}/>
+
+            <Route path="/settings" component={Settings}/>
+            <Route path="/register" component={Register}/>
+            <Route path="/login" component={Login}/>
 
           </div>
           
@@ -63,5 +68,4 @@ function App() {
     </Router>
   );
 }
-const About = () => <h1>About Us</h1>
 export default App;
