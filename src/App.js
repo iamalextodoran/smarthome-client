@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 // import Button from './components/Button';
 import Card from './components/Card';
 // import Input from './components/Input';
@@ -13,10 +14,14 @@ import Weather from './components/Weather';
 import Light from './components/Light';
 import Temperature from './components/Temperature';
 import Music from './components/Music';
-// import { BrowserRouter, Route, Link, Router } from "react-router-dom";
+import Home from './Home';
+import Rooms from './Rooms';
+import Devices from './Devices';
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 function App() {
   return (
+    <Router>
       <div>
 
         <div className="layout-row layout-align-end-end">
@@ -38,11 +43,13 @@ function App() {
           </div>
 
           <div className="layout-row layout-align-space-between-start flex-70">
-            <Card title="Bedroom 2" img="https://manofmany.com/wp-content/uploads/2017/09/Masculine-Living-Room-Ideas-Inspirations-7.jpg" content="Not that hard, sometimes tricky, but not hard" buttonType="primary" buttonText="Get me there"/>
-            <Card title="Guest room" img="https://media.architecturaldigest.com/photos/567899767fd9a58978b7c398/master/w_1600%2Cc_limit/the-perfect-guest-room-05.jpeg" content="Not that hard, sometimes tricky, but not hard" buttonType="accent" buttonText="Get me there"/>
 
-            {/* <Card title="Guest room" content="Not that hard, sometimes tricky, but not hard" buttonType="primary" buttonText="Get me there"/>
-            <Card title="Guest room" content="Not that hard, sometimes tricky, but not hard" buttonType="accent" buttonText="Get me there"/> */}
+            <Route exact path="/" component={Home}/>
+
+            <Route path="/rooms" component={Rooms}/>
+
+            <Route path="/devices" component={Devices}/>
+
           </div>
           
         </div>
@@ -53,7 +60,8 @@ function App() {
         </div>
 
       </div>
+    </Router>
   );
 }
-
+const About = () => <h1>About Us</h1>
 export default App;
