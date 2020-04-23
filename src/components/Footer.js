@@ -4,7 +4,7 @@ import Icon from './Icon'
 export default class Footer extends Component {
   render() {
     return (
-      <div style={{marginTop: 25 + 'px'}}>
+      <div className="layout-row layout-align-center-center" style={{marginTop: 25 + 'px'}}>
         <p><span><Icon icon="far fa-copyright"/></span>TODD SOLUTIONS SRL</p>
       </div>
     )
