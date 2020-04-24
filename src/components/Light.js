@@ -23,7 +23,7 @@ export default class Light extends Component {
     return (
       <div className="mini-card">
         <div className="layout-row layout-align-space-between-center">
-          <Icon icon="fas fa-lightbulb" size="40" color="gold" />
+          <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0? "grey": "gold" }/>
           <div>
             <h4>Lights</h4>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.state.lightsOn} out of {this.state.totalLights}</p>
