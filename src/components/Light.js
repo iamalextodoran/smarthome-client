@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../styles/mini-card.scss'
 import Icon from './Icon'
 import Toggle from './Toggle'
+import Toast, { notify } from './Toast'
 
 export default class Light extends Component {
   state = {
@@ -14,6 +15,7 @@ export default class Light extends Component {
     this.setState({ isAnyLightOn: !toggleState });
     if (toggleState) {
       this.setState({lightsOn: 0})
+      notify("Turned off all", "primary")
     } else {
       this.setState({lightsOn: this.state.totalLights})
     }
@@ -22,6 +24,7 @@ export default class Light extends Component {
   render() {
     return (
       <div className="mini-card">
+        <Toast/>
         <div className="layout-row layout-align-space-between-center">
           <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0? "grey": "gold" }/>
           <div className="layout-column layout-align-end-end">

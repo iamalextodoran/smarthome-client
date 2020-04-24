@@ -37,8 +37,6 @@ function App() {
             <Top />
             <div className="layout-column layout-align-start-center">
               <Settings />
-              <button  onClick={() => notify('Generat prin functie', 'primary')}>Text</button>
-              <Toast />
             </div>
           </React.Fragment>
         )} />

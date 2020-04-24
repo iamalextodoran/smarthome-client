@@ -13,16 +13,20 @@ export default class Toast extends Component {
     super(props);
 
     this.timeout = null;
+    this.msg = null;
+    this.clr = null;
 
     this.state = {
       message: "Default toast",
       color: "accent",
       visible: ""
     }
+
     emitter.on('notify', (message, color)=> {
       this.onShow(message, color)
     })
   }
+  
   onShow = (message, color) => {
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -39,7 +43,7 @@ export default class Toast extends Component {
   showToast = (message, color) => {
     this.setState({ visible: "show" }, () => {
       this.timeout = setTimeout(() => {
-        this.setState({ visible: "", message, color })
+        this.setState({ visible: "", message, color });
       }, 3000)
     });
   }
