@@ -5,7 +5,7 @@ import Toggle from './Toggle'
 
 export default class Light extends Component {
   state = {
-    isAnyLightOn: this.props.handleClick,
+    isAnyLightOn: true,
     lightsOn: 21,
     totalLights: 30,
   }
@@ -24,11 +24,11 @@ export default class Light extends Component {
       <div className="mini-card">
         <div className="layout-row layout-align-space-between-center">
           <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0? "grey": "gold" }/>
-          <div>
+          <div className="layout-column layout-align-end-end">
             <h4>Lights</h4>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.state.lightsOn} out of {this.state.totalLights}</p>
           </div>
-          <Toggle id="1" name="lights" getLightsToggle={this.getLightsToggle} />
+          <Toggle id="1" name="lights" getLightsToggle={this.getLightsToggle} checked={this.state.isAnyLightOn? true: false}/>
         </div>
       </div>
     )

@@ -3,7 +3,7 @@ import '../styles/toggle.scss'
 
 export default class Toggle extends Component {
   state = {
-    checked: this.props.currentValue,
+    checked: this.props.checked,
   };
 
   onChange = e => {
@@ -22,7 +22,7 @@ export default class Toggle extends Component {
               type="checkbox"
               id={this.props.id}
               name={this.props.name}
-              checked={this.props.currentValue}
+              checked={this.props.checked}
               onChange={this.onChange}
             />
             <div className="indicator"></div>
