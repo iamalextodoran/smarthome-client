@@ -25,7 +25,7 @@ export default class Light extends Component {
         <div className="layout-row layout-align-space-between-center">
           <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0? "grey": "gold" }/>
           <div className="layout-column layout-align-end-end">
-            <h4>Lights</h4>
+            <h4 style={{paddingLeft: "5px"}}>Lights</h4>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.state.lightsOn} out of {this.state.totalLights}</p>
           </div>
           <Toggle id="1" name="lights" getLightsToggle={this.getLightsToggle} checked={this.state.isAnyLightOn? true: false}/>
