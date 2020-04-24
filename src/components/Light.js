@@ -10,8 +10,13 @@ export default class Light extends Component {
     totalLights: 30,
   }
 
-  getLightsToggle = (item) => {
-    this.setState({ isAnyLightOn: !item })
+  getLightsToggle = (toggleState) => {
+    this.setState({ isAnyLightOn: !toggleState });
+    if (toggleState) {
+      this.setState({lightsOn: 0})
+    } else {
+      this.setState({lightsOn: this.state.totalLights})
+    }
   }
 
   render() {
