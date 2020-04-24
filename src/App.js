@@ -45,7 +45,7 @@ function App() {
             <Top />
             <div className="layout-row layout-xs-column">
               <Left />
-              <div className="layout-row layout-align-end-start flex-wrap">
+              <div className="layout-row layout-align-end-start flex-wrap flex-70">
                 <Home />
               </div>
             </div>
@@ -57,7 +57,7 @@ function App() {
             <Top />
             <div className="layout-row layout-xs-column">
               <Left />
-              <div className="layout-row layout-align-end-start flex-wrap">
+              <div className="layout-row layout-align-end-start flex-wrap flex-70">
                 <Rooms />
               </div>
             </div>
@@ -69,7 +69,7 @@ function App() {
             <Top />
             <div className="layout-row layout-xs-column">
               <Left />
-              <div className="layout-row layout-align-end-start flex-wrap">
+              <div className="layout-row layout-align-end-start flex-wrap flex-70">
                 <Devices />
               </div>
             </div>

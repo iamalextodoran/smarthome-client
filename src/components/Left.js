@@ -7,7 +7,7 @@ import Music from './Music';
 export default class Left extends Component {
   render() {
     return (
-      <div className="layout-column layout-align-start-end" style={{ paddingLeft: "10px" }}>
+      <div className="layout-column layout-align-start-end flex-30" style={{ paddingLeft: "10px" }}>
         <Weather />
         <Light />
         <Temperature />

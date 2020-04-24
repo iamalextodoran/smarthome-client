@@ -9,7 +9,7 @@ export default class Card extends Component {
         <div className="content">
           <h3>{this.props.title}</h3>
           <p>{this.props.content}</p>
-          <img src={this.props.img} style={{borderRadius: "20px"}} width="220px" height="200px"/>
+          <img src={this.props.img} style={{borderRadius: "20px"}} width="50%" height="50%"/>
         </div>
         <div className="interactions">
           <Button raised="true" size="medium" icon={this.props.icon} type={this.props.buttonType} text={this.props.buttonText}/>
