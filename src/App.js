@@ -32,7 +32,7 @@ function App() {
         <Top/>
         <div className="layout-row layout-xs-column">
           <Left/>
-          <div className="layout-row layout-align-space-between-start flex-70">
+          <div className="layout-row layout-align-space-between-start flex-wrap flex-70">
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/rooms" component={Rooms}/>
