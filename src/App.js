@@ -15,13 +15,13 @@ import Weather from './components/Weather';
 import Light from './components/Light';
 import Temperature from './components/Temperature';
 import Music from './components/Music';
+import Page404 from './pages/Page404';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import Devices from './pages/Devices';
 import Settings from './pages/Settings';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Page404 from './pages/Page404';
 import Top from './components/Top';
 import Left from './components/Left';
 
@@ -29,22 +29,52 @@ function App() {
   return (
     <Router>
       <div>
-        <Top/>
-        <div className="layout-row layout-xs-column">
-          <Left/>
-          <div className="layout-row layout-align-space-between-start flex-wrap flex-70">
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/rooms" component={Rooms}/>
-              <Route path="/devices" component={Devices}/>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/settings" render={(props) => (
+          <React.Fragment>
+              <Top />
+            <div className="layout-column layout-align-start-center">
+              <Settings />
+            </div>
+          </React.Fragment>
+        )} />
 
-              {/* <Route path="/settings" component={Settings}/>
-              <Route path="/register" component={Register}/>
-              <Route path="/login" component={Login}/>
-              <Route component={Page404}/> */}
-            </Switch>
-          </div>
-        </div>
+        <Route exact path="/" render={() => (
+          <React.Fragment>
+            <Top />
+            <div className="layout-row layout-xs-column">
+              <Left />
+              <div className="layout-row layout-align-end-start flex-wrap">
+                <Home />
+              </div>
+            </div>
+          </React.Fragment>
+        )} />
+
+        <Route path="/rooms" render={() => (
+          <React.Fragment>
+            <Top />
+            <div className="layout-row layout-xs-column">
+              <Left />
+              <div className="layout-row layout-align-end-start flex-wrap">
+                <Rooms />
+              </div>
+            </div>
+          </React.Fragment>
+        )} />
+
+        <Route path="/devices" render={() => (
+          <React.Fragment>
+            <Top />
+            <div className="layout-row layout-xs-column">
+              <Left />
+              <div className="layout-row layout-align-end-start flex-wrap">
+                <Devices />
+              </div>
+            </div>
+          </React.Fragment>
+        )} />
         <Footer />
       </div>
     </Router>
