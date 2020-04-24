@@ -1,12 +1,6 @@
-/* Only for grouping buttons */
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .toast {
   visibility: hidden;
+  // visibility: visible;
   min-width: 200px;
   min-height: 50px;
   margin-left: -100px;
@@ -51,7 +45,6 @@
     bottom: 0;
     left: 0;
     background: #ecf0f3;
-    //Fallback
     box-shadow: inset -7px -7px 20px 0px rgba(255,255,255,0.60), 
                 inset -4px -4px 5px 0px rgba(255,255,255,0.60),
                 inset 4px 4px 5px 0px rgba(0,0,0,0.067);

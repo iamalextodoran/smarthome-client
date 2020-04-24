@@ -24,6 +24,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Top from './components/Top';
 import Left from './components/Left';
+import Toast, { notify } from './components/Toast';
 
 function App() {
   return (
@@ -33,9 +34,11 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/settings" render={(props) => (
           <React.Fragment>
-              <Top />
+            <Top />
             <div className="layout-column layout-align-start-center">
               <Settings />
+              <button  onClick={() => notify('Generat prin functie', 'primary')}>Text</button>
+              <Toast />
             </div>
           </React.Fragment>
         )} />
@@ -80,4 +83,6 @@ function App() {
     </Router>
   );
 }
+
+
 export default App;
