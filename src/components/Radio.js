@@ -8,19 +8,18 @@ export default class Radio extends Component {
 
   handleChange = (event) => {
     this.setState({ checked: !this.state.checked  });
-    if (typeof this.props.onChange === "function") this.props.onChange();
-    this.props.setDayMode(this.state.checked);
-    this.props.getLightsToggle(this.state.checked);
+    // if (typeof this.props.onChange === "function") this.props.onChange();
+    this.props.setMode(event.target.checked, event.target.innerHTML);
   }
 
   render() {
     return (
-      <div className="wrapper" checked={this.props.checked} onClick={this.handleChange}>
+      <div className="wrapper" value={this.props.value} checked={this.props.checked} onClick={this.handleChange}>
         <input
           className="state"
           type="radio"
-          id={this.props.id}
-          name={this.props.name}
+          id={this.props.value}
+          name={this.props.value}
           value={this.props.value}
           checked={this.state.checked}
         />
