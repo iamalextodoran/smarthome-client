@@ -40,15 +40,15 @@ export default class Temperature extends Component {
       <div className="mini-card">
         <div className="layout-row layout-align-center-center">
           <Icon icon={this.state.selectedMode === 'Eco'? 'fas fa-thermometer-empty' : 'fas fa-thermometer-half'} size="40" color={this.setColor()} />
-          <div>
+          <div className="layout-column layout-align-end-end">
             <h4><strong>{this.state.actualTemperature}  °C</strong></h4>
             <p style={{ marginTop: "-25px" }}>set {this.state.setTemperature} °C</p>
           </div>
         </div>
-        <div className="layout-row layout-align-space-between-center">
-          <Radio checked={this.state.selectedMode === 'Day'} text="Day" value="Day" setMode={this.setMode}/>
-          <Radio checked={this.state.selectedMode === 'Eco'} text="Eco" value="Eco" setMode={this.setMode}/>
-          <Radio checked={this.state.selectedMode === 'Night'} text="Night" value="Night" setMode={this.setMode}/>
+        <div className="layout-row layout-align-space-between-center" style={{marginTop: "-20px"}}>
+          <Radio checked={this.state.selectedMode === 'Day'} value="Day" setMode={this.setMode}/>
+          <Radio checked={this.state.selectedMode === 'Eco'} value="Eco" setMode={this.setMode}/>
+          <Radio checked={this.state.selectedMode === 'Night'} value="Night" setMode={this.setMode}/>
         </div>
       </div>
     )

@@ -7,8 +7,8 @@ export default class Radio extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ checked: !this.state.checked  });
-    // if (typeof this.props.onChange === "function") this.props.onChange();
+    this.setState({ checked: !this.state.checked });
+    if (typeof this.props.onChange === "function") this.props.onChange();
     this.props.setMode(event.target.checked, event.target.innerHTML);
   }
 
@@ -22,10 +22,11 @@ export default class Radio extends Component {
           name={this.props.value}
           value={this.props.value}
           checked={this.state.checked}
+          onChange={this.handleChange}
         />
         <label className="label">
-          <div className="indicator"></div>
-          <span className="text">{this.props.text}</span>
+          <div className="indicator" value={this.props.value}></div>
+          <span className="text" value={this.props.value}>{this.props.value}</span>
         </label>
       </div>
     )
