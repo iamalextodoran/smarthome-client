@@ -24,18 +24,18 @@ export default class Weather extends Component {
     return (
       <div className="mini-card">
 
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div className="layout-column layout-align-center-center">
           <h4>{this.state.bit.city_name}</h4>
           <p style={{marginTop: "-25px"}}>{this.state.bit.country_code}</p>
         </div>
 
-        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: "-50px"}}>
+        <div className="layout-row layout-align-space-between-center" style={{marginTop: "-50px"}}>
           <div  style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
             <img src={"https://www.weatherbit.io/static/img/icons/" + this.state.weather.icon + ".png"} alt={this.state.weather.description} width="80px" />
             <p style={{marginTop: "-25px"}}>{this.state.weather.description}</p>
           </div>
           <div></div>
-          <div  style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "end"}}>
+          <div  className="layout-column layout-align-end-end">
             <h4 style={{justifyContent: "end"}}><strong>{this.state.bit.temp} °C</strong></h4>
             <p style={{marginTop: "-25px"}}>Feels like {this.state.bit.app_temp} °C</p>
           </div>
