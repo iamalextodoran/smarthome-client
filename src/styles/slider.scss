@@ -1,19 +1,32 @@
 .slider-container {
   width: 100%;
 }
-
+.slider-bar {
+  background: coral;
+  height: 5px;
+  margin-bottom: -15px;
+  &.shadow {
+    margin-bottom: -5px;
+  background: grey;
+}
+}
 .slider {
   -webkit-appearance: none;
   width: 100%;
   height: 5px;
-  background: grey;
+  background: transparent;
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   margin-right: 10px;
 
+  &.value {
+    width: 50px;
+    padding-bottom: 10px;
+    padding-left: 10px;;
+  }
 
-    &::-webkit-slider-thumb:hover {
+  &::-webkit-slider-thumb:hover {
     background: #ff6933;
     background: linear-gradient(145deg, #e65f2e, #ff7037);
   }
