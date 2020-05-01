@@ -3,7 +3,7 @@ import '../styles/slider.scss'
 
 export default class Slider extends Component {
   state = {
-    value: 30,
+    value: this.props.value || 30,
   }
 
   handleChange = (e) => {
@@ -20,7 +20,7 @@ export default class Slider extends Component {
             <div className="slider-bar" style={{ width: this.state.value + "%", background: this.props.color}}></div>
             <input className="slider" type="range" min={this.props.min} max={this.props.max} onChange={this.handleChange} value={this.state.value} style={{position: "relative"}}/>
           </div>
-          <p className="slider value">{this.state.value}%</p>
+          <p className="slider-value">{this.state.value}%</p>
         </div>
       </div>
     )

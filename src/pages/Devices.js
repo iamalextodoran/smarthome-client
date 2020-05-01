@@ -24,7 +24,7 @@ export default class Devices extends Component {
 						<div className="content">
 							<h3>{device.type}</h3>
               <p>Big room</p>
-              <Slider description="Warm" color="white"/>
+              <Slider description="Warm" color="hotpink"/>
               <Slider description="Brightness"/>
               <p>Small room</p>
               <p>Guest room</p>
