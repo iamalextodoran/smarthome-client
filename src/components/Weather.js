@@ -14,9 +14,9 @@ export default class Weather extends Component {
   }
 
   componentDidMount() {
-    // fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.querryCity}&key=d50c57c063ec458dab88e7a1c530219c`)
-    //   .then(response => response.json())
-    //   .then(data => this.setState({bit: data.data[0], weather: data.data[0].weather}));
+    fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.querryCity}&key=d50c57c063ec458dab88e7a1c530219c`)
+      .then(response => response.json())
+      .then(data => this.setState({bit: data.data[0], weather: data.data[0].weather}));
   }
 
   render() {
