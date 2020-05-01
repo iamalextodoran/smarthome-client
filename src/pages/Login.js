@@ -16,7 +16,7 @@ export default class Login extends Component {
             <Input type="password" dot="danger" placeholder="Password" />
             <Button raised="true" text="Log in brotha" type="accent" icon="fas fa-fingerprint" />
           </div>
-          <p style={{paddingLeft: "220px", marginTop: "0px"}}>New here? <Link to="/register">Register here</Link></p>
+          <p style={{paddingLeft: "175px", marginTop: "-2px"}}>New? <Link to="/register">Register here</Link></p>
         </div>
       </div>
     )
