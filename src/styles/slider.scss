@@ -1,69 +1,38 @@
-.slider-shadow {
-  background: grey;
+.slider-container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
   width: 100%;
   height: 5px;
-  border-radius: 10px;
-  margin: 15px 5px;
-  /* box-shadow fallback */
-  position: relative;
-  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
-              -4px -4px 5px 0px rgba(255,255,255,0.60),
-              7px 7px 20px 0px rgba(0,0,0,0.13), 
-              4px 4px 5px 0px rgba(0,0,0,0.067);
+  background: grey;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-right: 10px;
 
-  box-shadow: -7px -7px 20px 0px #fff9, 
-              -4px -4px 5px 0px #fff9,
-              7px 7px 20px 0px #0002, 
-              4px 4px 5px 0px #0001, 
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #0002, 
-              inset 0px 0px 0px 0px #0001;
-}
-.slider {
-  width: 50%;
-  height: 100%;
-  background: coral;
-  position: relative;
-  border-radius: 10px;
-}
-.indicator {
-  position: absolute;
-  right: -12.5px;
-  bottom: -10px;
-  transform-origin: center;
-  border-radius: 50%;
-  width: 25px;
-  cursor: pointer;
-  height: 25px;
-  background: #ecf0f3;
-  background: linear-gradient(145deg, #d4d8db, #fdffff);
 
-  /* box-shadow fallback */
-  box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
-              -4px -4px 5px 0px rgba(255,255,255,0.60),
-              7px 7px 20px 0px rgba(0,0,0,0.13), 
-              4px 4px 5px 0px rgba(0,0,0,0.067);
-
-  box-shadow: -7px -7px 20px 0px #fff9, 
-              -4px -4px 5px 0px #fff9,
-              7px 7px 20px 0px #0002, 
-              4px 4px 5px 0px #0001, 
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #0002, 
-              inset 0px 0px 0px 0px #0001;
-  &:hover {
-    background: lightgrey;
+    &::-webkit-slider-thumb:hover {
+    background: #ff6933;
+    background: linear-gradient(145deg, #e65f2e, #ff7037);
   }
-}
-.dot {
-  height: 5px;
-  width: 5px;
-  margin-left: 10px;
-  margin-top: 10px;
-  background: coral;
-  &:hover {
-    background: lightcoral;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: coral;
+    background: linear-gradient(145deg, #e67248, #ff8856);
+    cursor: pointer;
+  }
+  &::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: coral;
+    background: linear-gradient(145deg, #e67248, #ff8856);
+    cursor: pointer;
   }
 }
