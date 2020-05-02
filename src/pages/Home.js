@@ -41,7 +41,7 @@ export default class Home extends Component {
 
             </div>
             <div className="interactions">
-              <Button raised="true" size="medium" type="accent" text="Get me there" />
+              <Button raised="true" size="medium" type="primary" text="Get me there" />
             </div>
           </div>
 
