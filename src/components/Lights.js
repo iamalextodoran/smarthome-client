@@ -12,7 +12,7 @@ export default class Lights extends Component {
       { id: 16, name: "Light 1", roomId: 2, value: 30, warm: 10 },
       { id: 26, name: "Light 2", roomId: 2, value: 30, warm: 20 },
       { id: 56, name: "Light 3", roomId: 2, value: 30, warm: 60 },
-      { id: 26, name: "Light 1", roomId: 3, value: 30, warm: 60 },
+      { id: 36, name: "Light 1", roomId: 3, value: 30, warm: 60 },
     ]
   }
 
@@ -42,8 +42,8 @@ export default class Lights extends Component {
           </div>
           <div className="layout-row layout-align-space-between-start flex-wrap">
             {this.state.lights.map((light) => (
-              <div style={{ minWidth: "200px", flex: "50%" }}>
-                <p key={light.id}>{light.name}</p>
+              <div key={light.id} style={{ minWidth: "200px", flex: "50%" }}>
+                <p>{light.name}</p>
                 <Slider description="brightness" step="10" value={light.value} color="orange" />
                 <Slider description="warmth" step="10" value={light.warm} color="hotpink" />
               </div>
