@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Slider from './Slider'
+import '../styles/button.scss'
+import Icon from './Icon'
 export default class Blinds extends Component {
 	state = {
 		blinds: [
@@ -14,10 +16,14 @@ export default class Blinds extends Component {
 			<div className="card">
 				<div className="content">
 					<h3>Blinds</h3>
+          <button className="m_button accent">
+            <Icon icon="fas fa-times"/>
+            Close all blinds
+          </button>
 					<div className="">
 						{this.state.blinds.map((blind) => (
 							<div key={blind.id}>
-								<p style={{ color: "coral" }}>{blind.roomId}</p>
+								<p style={{ color: "coral" }}>In room {blind.roomId}</p>
 								{blind.value === 0 ? <p>Blinds closed</p> : <p>Blinds open</p>}
 							</div>
 						))}

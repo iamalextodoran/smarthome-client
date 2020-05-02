@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Lights from '../components/Lights';
 import Blinds from '../components/Blinds';
-// import Windows from '../components/Windows';
-// import Temperatures from '../components/Temperatures';
+import Windows from '../components/Windows';
+import Temperatures from '../components/Temperatures';
 
 export default class Devices extends Component {
 	render() {
@@ -11,8 +11,8 @@ export default class Devices extends Component {
 
         <Lights />
         <Blinds/>
-        {/* <Windows/> */}
-        {/* <Temperatures/> */}
+        <Windows/>
+        <Temperatures/>
         
 			</React.Fragment>
 		)
