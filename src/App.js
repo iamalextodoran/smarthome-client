@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-//Instead of BrowserRouter I have to use HashBrowser for Github pages
+//Instead of BrowserRouter I have to use HashRouter for Github pages
 import ReactDOM from "react-dom";
 import Button from './components/Button';
 import Card from './components/Card';
