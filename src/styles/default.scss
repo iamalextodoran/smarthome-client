@@ -92,6 +92,28 @@ blockquote {
   padding-left: 16px;
 }
 
+//Scrollbar
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background: coral;
+  border-radius: 50px;
+  transition: background 3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hotpink;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: deeppink;
+}
 //////////////////////////////
 ////                      ////
 ////   Flexbox classes    ////
@@ -211,3 +233,142 @@ $align-positions: (
   /* For landscape layouts only */
 }
 
+.dark {
+  background: #212121;
+  color: rgba(255, 255, 255, 0.9);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .m_button_not_raised {
+    background: #212121;
+    color: white;
+    &:active {
+      background: #212121;
+    }
+    &:hover {
+      background: #1b1b1b;
+    }
+  }
+
+  .m_button {
+    background: #212121;
+    color: white;
+    box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
+      -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
+      6px 6px 5px 0px #1b1b1b;
+    &:hover {
+      color: coral;
+      background: #dfe4e7;
+      box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
+        -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
+        6px 6px 5px 0px #1b1b1b;
+    }
+    &:active {
+      background: #212121;
+      box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
+        -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
+        6px 6px 5px 0px #1b1b1b;
+    }
+  }
+
+  .card,
+  .big-card,
+  .mini-card {
+    background: #212121;
+    box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
+      -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
+      7px 7px 20px 0px rgba(255, 255, 255, 0.13),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.067);
+    &:hover {
+      background: #1d1d1d;
+      box-shadow: -9px -9px 20px 0px rgba(0, 0, 0, 0.6),
+        -6px -6px 5px 0px rgba(0, 0, 0, 0.6),
+        9px 9px 20px 0px rgba(255, 255, 255, 0.13),
+        6px 6px 5px 0px rgba(255, 255, 255, 0.067);
+    }
+  }
+  .toast {
+    box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
+      -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
+      7px 7px 20px 0px rgba(255, 255, 255, 0.13),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.067);
+    .frame {
+      background: #212121;
+      box-shadow: inset -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
+        inset -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
+        inset 4px 4px 5px 0px rgba(255, 255, 255, 0.067);
+    }
+  }
+  .toggle-row {
+    .toggle {
+      box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b,
+        4px 4px 4px 0px #1b1b1b inset, -4px -4px 4px 0px #212121 inset;
+
+      .indicator {
+        background: #ecf0f3;
+        box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b;
+      }
+      .indicator:hover {
+        background: #1b1b1b;
+      }
+    }
+  }
+
+  .label {
+    .indicator {
+      box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b;
+    }
+    .indicator:hover {
+      background: #d3d7da;
+    }
+
+    .indicator::before {
+      box-shadow: -4px -2px 4px 0px #212121, 4px 2px 8px 0px #1b1b1b;
+    }
+
+    .indicator::after {
+      background-color: #212121;
+      box-shadow: -4px -2px 4px 0px #212121, 4px 2px 8px 0px #1b1b1b;
+    }
+  }
+
+  .profile {
+    box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
+      -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
+      7px 7px 20px 0px rgba(255, 255, 255, 0.1),
+      4px 4px 5px 0px rgba(255, 255, 255, 0.05);
+    img {
+      box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
+        -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
+        7px 7px 20px 0px rgba(255, 255, 255, 0.1),
+        4px 4px 5px 0px rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .field {
+    background: #212121;
+    box-shadow: 6px 6px 6px 0px #1b1b1b inset, -6px -6px 6px 0px #212121 inset;
+
+    &:hover,
+    &:focus {
+      background: #1b1b1b;
+    }
+
+    &:focus {
+      box-shadow: 4px 4px 4px 0px #212121 inset, -4px -4px 4px 0px #212121 inset;
+    }
+  }
+
+  .menu-item {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .menu-item-active {
+    color: coral;
+  }
+}
