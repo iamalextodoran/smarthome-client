@@ -1,28 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ## Hustle for:
+- Route for each room ie rooms/1, rooms/2
+- in settings: dark mode, primary color, accent color, user picture change, name change
+- link from home page to each room as rooms/1, etc
+- fix temperture modes
+- in rooms, edit mode for each room
+- in devices each device type have to be grouped by each room (ie lights has big room with 3 lights, small rooms with 2 lights, and guest room with one light)
+- dark mode with local storage
+- primary and accent color
+- in rooms the picture should be centered and smaller, more details available with better styling
 
- - an icon component to be used in the other components and by itself
- - router
+- mobile, tablet and desktop responsive
