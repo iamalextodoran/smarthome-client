@@ -8,7 +8,7 @@ export default class User extends Component {
         <div className="profile">
           <img src={this.props.picture} alt={this.props.name}/>
         </div>
-        <h3 style={{marginLeft: 15 + 'px'}}><span style={{fontWeight: 300}}>Hey</span>, {this.props.name}</h3>
+        <h1 style={{marginLeft: 15 + 'px'}}><span style={{fontWeight: 300}}>Hey</span>, {this.props.name}</h1>
       </div>
     )
   }

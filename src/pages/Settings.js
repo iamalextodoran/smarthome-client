@@ -6,7 +6,7 @@ export default class Settings extends Component {
   render() {
     return (
       <div className="big-card" style={{borderSize: "border-box", paddingRight: "110px"}}>
-        <h3>Settings</h3>
+        <h1>Settings</h1>
 
 
         <p>Appereance</p>
@@ -18,6 +18,7 @@ export default class Settings extends Component {
         <p>User details</p>
         <p>Picture</p>
         <p>First and last name</p>
+
       </div>
     )
   }

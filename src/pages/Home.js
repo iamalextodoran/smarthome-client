@@ -23,7 +23,7 @@ export default class Home extends Component {
 
           <div key={room.id} className="card flex-33" style={{minHeight: "415px"}}>
             <div className="content">
-              <h3>{room.name}</h3>
+              <h1>{room.name}</h1>
               <p>{room.description}</p>
 
               <div className="layout-row layout-align-space-between-center">

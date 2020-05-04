@@ -15,7 +15,7 @@ export default class Blinds extends Component {
     return (
       <div className="card">
         <div className="content">
-          <h3>Temperatures</h3>
+          <h1>Temperatures</h1>
           <div className="">
             {this.state.temperatures.map((temperature) => (
               <div key={temperature.id}>

@@ -41,7 +41,7 @@ export default class Temperature extends Component {
         <div className="layout-row layout-align-center-center">
           <Icon icon={this.state.selectedMode === 'Eco'? 'fas fa-thermometer-empty' : 'fas fa-thermometer-half'} size="40" color={this.setColor()} />
           <div className="layout-column layout-align-end-end">
-            <h4><strong>{this.state.actualTemperature}  °C</strong></h4>
+            <h2><strong>{this.state.actualTemperature}  °C</strong></h2>
             <p style={{ marginTop: "-25px" }}>set {this.state.setTemperature} °C</p>
           </div>
         </div>

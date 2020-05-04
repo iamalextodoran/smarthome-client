@@ -15,7 +15,7 @@ export default class Blinds extends Component {
 		return (
 			<div className="card">
 				<div className="content">
-					<h3>Blinds</h3>
+					<h1>Blinds</h1>
           <button className="m_button accent">
             <Icon icon="fas fa-times"/>
             Close all blinds

@@ -24,7 +24,7 @@ export default class Weather extends Component {
       <div className="mini-card">
 
         <div className="layout-column layout-align-center-center">
-          <h4>{this.state.bit.city_name}</h4>
+          <h2>{this.state.bit.city_name}</h2>
           <p style={{marginTop: "-25px"}}>{this.state.bit.country_code}</p>
         </div>
 
@@ -35,7 +35,7 @@ export default class Weather extends Component {
           </div>
           <div></div>
           <div  className="layout-column layout-align-end-end">
-            <h4 style={{justifyContent: "end"}}><strong>{this.state.bit.temp} °C</strong></h4>
+            <h2 style={{justifyContent: "end"}}><strong>{this.state.bit.temp} °C</strong></h2>
             <p style={{marginTop: "-25px"}}>Feels like {this.state.bit.app_temp} °C</p>
           </div>
         </div>

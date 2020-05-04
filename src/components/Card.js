@@ -7,7 +7,7 @@ export default class Card extends Component {
     return (
       <div className="card">
         <div className="content">
-          <h3>{this.props.title}</h3>
+          <h1>{this.props.title}</h1>
           <p>{this.props.content}</p>
           <img src={this.props.img} style={{borderRadius: "20px"}} width="50%" height="50%"/>
         </div>

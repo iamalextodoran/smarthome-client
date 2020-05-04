@@ -34,7 +34,7 @@ export default class Lights extends Component {
       <div className="card">
         <div className="content">
           <div>
-            <h3>Lights</h3>
+            <h1>Lights</h1>
             <button className="m_button accent" onClick={this.handleLights}>
               <Icon icon="fas fa-power-off" />
 							All lights warm

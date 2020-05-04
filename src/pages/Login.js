@@ -8,7 +8,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="layout-column layout-align-center-center" style={{height: "70vh"}}>
-        <h3>Log in page</h3>
+        <h1>Log in page</h1>
         <div className="card" style={{ width: "21em" }}>
           <p style={{paddingLeft: "40px", marginBottom: "-10px", paddingTop: "30px"}}>Enter your credentials</p>
           <div className="content layout-column layout-align-start-center">

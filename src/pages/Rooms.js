@@ -25,7 +25,7 @@ export default class Rooms extends Component {
             <div key={room.id} className="card flex-50">
               <div className="content">
                 <div className="layout-row layout-align-space-between-start">
-                  <h3>{room.name}</h3>
+                  <h1>{room.name}</h1>
                   <Icon icon="fas fa-edit" />
                 </div>
                 <p>{room.description}</p>
