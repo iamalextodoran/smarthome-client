@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from '../components/Button'
+import { NavLink } from 'react-router-dom';
 
 export default class Home extends Component {
   constructor(props) {
@@ -18,35 +19,37 @@ export default class Home extends Component {
     return (
       <React.Fragment>
         <div className="layout-row layout-align-space-between-start flex-wrap">
-        {this.state.rooms.map((room) => (
+          {this.state.rooms.map((room) => (
 
 
-          <div key={room.id} className="card flex-33" style={{minHeight: "415px"}}>
-            <div className="content">
-              <h1>{room.name}</h1>
-              <p>{room.description}</p>
+            <div key={room.id} className="card flex-33" style={{ minHeight: "415px" }}>
+              <div className="content">
+                <h1>{room.name}</h1>
+                <p>{room.description}</p>
 
-              <div className="layout-row layout-align-space-between-center">
-                <div className="layout-column layout-align-none-center flex-60">
-                  <img src={room.img} style={{ borderRadius: "20px" }} width="80%"/>
+                <div className="layout-row layout-align-space-between-center">
+                  <div className="layout-column layout-align-none-center flex-60">
+                    <img src={room.img} style={{ borderRadius: "20px" }} width="80%" />
+                  </div>
+
+                  <div className="layout-column layout-align-start-start flex-30">
+                    <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
+                    <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
+                    <p style={{ marginBottom: "-15px" }}>Windws open</p>
+                    <p>Blinds open</p>
+                  </div>
                 </div>
 
-                <div className="layout-column layout-align-start-start flex-30">
-                  <p style={{marginBottom: "-15px"}}>Lights on : 3</p>
-                  <p style={{marginBottom: "-15px"}}>Temperature: 20 C</p>
-                  <p style={{marginBottom: "-15px"}}>Windws open</p>
-                  <p>Blinds open</p>
-                </div>
               </div>
-
+              <div className="interactions">
+                <NavLink to={`/room/${room.id}`}>
+                  <Button raised="true" size="medium" type="primary" text="Get me there" />
+                </NavLink>
+              </div>
             </div>
-            <div className="interactions">
-              <Button raised="true" size="medium" type="primary" text="Get me there" />
-            </div>
-          </div>
 
 
-        ), [this.state.rooms])}
+          ), [this.state.rooms])}
         </div>
       </React.Fragment>
     )

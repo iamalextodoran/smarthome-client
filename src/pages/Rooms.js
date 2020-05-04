@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Button from '../components/Button'
 import Icon from '../components/Icon';
+import { NavLink } from 'react-router-dom';
 
 export default class Rooms extends Component {
   constructor(props) {
@@ -39,7 +40,9 @@ export default class Rooms extends Component {
 
               </div>
               <div className="interactions">
-                <Button raised="true" size="medium" type="accent" text="Get me there" />
+                <NavLink to={`/room/${room.id}`}>
+                  <Button raised="true" size="medium" type="primary" text="Get me there" />
+                </NavLink>
               </div>
             </div>
 

@@ -19,6 +19,7 @@ import Music from './components/Music';
 import Page404 from './pages/Page404';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
+import Room from './components/Room';
 import Devices from './pages/Devices';
 import Settings from './pages/Settings';
 import Register from './pages/Register';
@@ -54,7 +55,7 @@ function App() {
           </React.Fragment>
         )} />
 
-        <Route path="/rooms" render={() => (
+        <Route exact path="/rooms" render={() => (
           <React.Fragment>
             <Top />
             <div className="layout-row layout-xs-column">
@@ -65,6 +66,9 @@ function App() {
             </div>
           </React.Fragment>
         )} />
+
+
+        <Route exact path={`/room/:roomId`} component={Room}/>
 
         <Route path="/devices" render={() => (
           <React.Fragment>
