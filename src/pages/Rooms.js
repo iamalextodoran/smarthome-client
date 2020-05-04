@@ -10,7 +10,7 @@ export default class Rooms extends Component {
         { description: "This is a room, one of a kind, unique 1", img: "https://r-cf.bstatic.com/images/hotel/max1024x768/219/219438705.jpg", id: 1, name: "Big room" },
         { description: "This is a room, one of a kind, unique 2", img: "https://thediyplaybook.com/wp-content/uploads/2019/05/guest-room-42.jpg", id: 2, name: "Small room" },
         { description: "This is a room, one of a kind, unique 3", img: "https://r-cf.bstatic.com/images/hotel/max1024x768/142/142065825.jpg", id: 3, name: "Living room" },
-        { description: "This is a room, one of a kind, unique 4", img: "https://lh3.googleusercontent.com/proxy/chQib78KIC5yUX-NUfcccw9WM5G6FbNT7tywiB96rsL2KKohQHqUIO5WKCSjCkhuK5fjiAKwqaSxeAxrbU5eJ-gxAqx3s5GA4fFvN1X5JZnxWTiIFrBLFonj4ZWgsxVB9CoZ2NT8WhmQyQm4__14S0HSAzSa_wkB61tz7y9r_jF2WQhlpipkES9_l3Q9i4iP", id: 4, name: "Guest room" }
+        { description: "This is a room, one of a kind, unique 4", img: "https://www.thespruce.com/thmb/5o_dpOCoqBxM79wcGqWWA_qt50U=/5100x2869/smart/filters:no_upscale()/GettyImages-513040397-583b37d83df78c6f6ad71fe8.jpg", id: 4, name: "Guest room" }
       ],
     }
   }
