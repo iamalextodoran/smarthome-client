@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-neumorphic/precache-manifest.c075ea0295e8d47698098c37c5efaf7b.js"
+  "/react-neumorphic/precache-manifest.2976b5e41ca5681dc9edc8a83569a6e9.js"
 );
 
 self.addEventListener('message', (event) => {
