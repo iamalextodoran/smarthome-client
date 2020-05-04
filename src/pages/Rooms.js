@@ -31,15 +31,18 @@ export default class Rooms extends Component {
                 </div>
                 <p>{room.description}</p>
 
-                <img src={room.img} style={{ borderRadius: "20px" }} width="80%" />
-
-                <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
-                <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
-                <p style={{ marginBottom: "-15px" }}>Windws open</p>
-                <p>Blinds open</p>
+                <div className="layout-row">
+                  <img src={room.img} style={{ width: "400px", borderRadius: "20px" }} width="80%" />
+                  <div style={{marginLeft: "20px"}}>
+                    <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
+                    <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
+                    <p style={{ marginBottom: "-15px" }}>Windws open</p>
+                    <p>Blinds open</p>
+                  </div>
+                </div>
 
               </div>
-              <div className="interactions">
+              <div className="interactions" style={{ marginTop: "-20px" }}>
                 <NavLink to={`/room/${room.id}`}>
                   <Button raised="true" size="medium" type="primary" text="Get me there" />
                 </NavLink>
