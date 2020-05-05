@@ -4,6 +4,29 @@ import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 
 export default class Settings extends Component {
+  state = {
+    darkModeOn: localStorage.getItem('darkMode') === "null" ? true: false,
+  }
+
+  darkModeToggle = () => {
+    let darkMode = localStorage.getItem('darkMode');
+    const enableDarkMode = () => {
+      document.body.classList.add('dark');
+      localStorage.setItem('darkMode', 'enabled');
+    }
+    const disableDarkMode = () => {
+      document.body.classList.remove('dark');
+      localStorage.setItem('darkMode', null);
+    }
+    darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode !== 'enabled') {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+  }
+
   render() {
     return (
       <div className="layout-column layout-align-center-center" style={{ width: "100%", borderSize: "border-box" }}>
@@ -16,7 +39,7 @@ export default class Settings extends Component {
                 <p>Dark mode</p>
               </div>
               <div>
-                <Toggle />
+                <Toggle onChange={this.darkModeToggle} value={() => localStorage.getItem('darkMode') === "null" ? true: false} />
               </div>
             </div>
 
