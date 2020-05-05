@@ -250,7 +250,7 @@ $align-positions: (
     background: #212121;
     color: white;
     &:active {
-      background: #212121;
+      background: #212121
     }
     &:hover {
       background: #1b1b1b;
@@ -279,8 +279,7 @@ $align-positions: (
   }
 
   .card,
-  .big-card,
-  .mini-card {
+  .big-card{
     background: #212121;
     box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
       -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
@@ -367,7 +366,13 @@ $align-positions: (
   }
 
   .menu-item {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+    &:active {
+      color: lightcoral
+    }
   }
 
   .menu-item-active {

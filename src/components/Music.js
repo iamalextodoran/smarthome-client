@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/mini-card.scss'
+import '../styles/card.scss'
 import Icon from './Icon'
 import Slider from './Slider'
 
@@ -30,7 +30,7 @@ export default class Music extends Component {
 
   render() {
     return (
-      <div className="mini-card">
+      <div className="card">
 
         <div className="layout-column layout-align-center-center">
           <p>{this.state.artistList[this.state.songIndex]} - {this.state.songList[this.state.songIndex]}</p>

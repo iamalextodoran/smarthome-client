@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 //Instead of BrowserRouter I have to use HashRouter for Github pages
 import ReactDOM from "react-dom";
 import Button from './components/Button';
-import Card from './components/Card';
 import Input from './components/Input';
 import Toggle from './components/Toggle';
 import Radio from './components/Radio';

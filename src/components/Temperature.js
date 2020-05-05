@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/mini-card.scss'
+import '../styles/card.scss'
 import Icon from './Icon'
 import Button from './Button'
 import Radio from './Radio'
@@ -37,7 +37,7 @@ export default class Temperature extends Component {
 
   render() {
     return (
-      <div className="mini-card">
+      <div className="card">
         <div className="layout-row layout-align-center-center">
           <Icon icon={this.state.selectedMode === 'Eco'? 'fas fa-thermometer-empty' : 'fas fa-thermometer-half'} size="40" color={this.setColor()} />
           <div className="layout-column layout-align-end-end">

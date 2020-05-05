@@ -4,6 +4,9 @@
 
 .menu-item {
   color: black;
+  &:hover {
+    color: #212121;
+  }
 }
 
 .menu-item-active {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/mini-card.scss'
+import '../styles/card.scss'
 import Icon from './Icon'
 import Toggle from './Toggle'
 import Toast, { notify } from './Toast'
@@ -23,7 +23,7 @@ export default class Light extends Component {
 
   render() {
     return (
-      <div className="mini-card">
+      <div className="card">
         <Toast/>
         <div className="layout-row layout-align-space-between-center">
           <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0? "grey": "gold" }/>

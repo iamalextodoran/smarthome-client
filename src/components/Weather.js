@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/mini-card.scss'
+import '../styles/card.scss'
 import Moment from 'react-moment';
 import 'moment-timezone';
 
@@ -21,7 +21,7 @@ export default class Weather extends Component {
 
   render() {
     return (
-      <div className="mini-card">
+      <div className="card">
 
         <div className="layout-column layout-align-center-center">
           <h2>{this.state.bit.city_name}</h2>

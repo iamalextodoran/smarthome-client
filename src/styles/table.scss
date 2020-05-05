@@ -4,20 +4,10 @@ table{
   width: 100%;
   overflow: hidden;
   border-spacing: 0;
-  // box-shadow fallback
   box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
               -4px -4px 5px 0px rgba(255,255,255,0.60),
               7px 7px 20px 0px rgba(0,0,0,0.13), 
               4px 4px 5px 0px rgba(0,0,0,0.067);
-
-  box-shadow: -7px -7px 20px 0px #fff9, 
-              -4px -4px 5px 0px #fff9,
-              7px 7px 20px 0px #0002, 
-              4px 4px 5px 0px #0001, 
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #fff9,
-              inset 0px 0px 0px 0px #0002, 
-              inset 0px 0px 0px 0px #0001;
 }
 
 td, th {
@@ -33,10 +23,6 @@ tr:hover {
               inset -4px -4px 5px 0px rgba(255,255,255,0.60),
               inset 7px 7px 20px 0px rgba(0,0,0,0.13), 
               inset 4px 4px 5px 0px rgba(0,0,0,0.067);
-  box-shadow: inset -7px -7px 20px 0px #fff9, 
-              inset -4px -4px 5px 0px #fff9,
-              inset 7px 7px 20px 0px #0002, 
-              inset 4px 4px 5px 0px #0001;
 }
 
 tr {

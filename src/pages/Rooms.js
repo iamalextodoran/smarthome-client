@@ -23,16 +23,16 @@ export default class Rooms extends Component {
           {this.state.rooms.map((room) => (
 
 
-            <div key={room.id} className="card flex-50">
+            <div key={room.id} className="card">
               <div className="content">
-                <div className="layout-row layout-align-space-between-start">
+                <div className="layout-row layout-align-space-between-start layout-xs-column">
                   <h1>{room.name}</h1>
                   <Icon icon="fas fa-edit" />
                 </div>
                 <p>{room.description}</p>
 
                 <div className="layout-row">
-                  <img src={room.img} style={{ width: "400px", borderRadius: "20px" }} width="80%" />
+                  <img src={room.img} style={{ minWidth: "100px", width: "300px", borderRadius: "20px" }} />
                   <div style={{marginLeft: "20px"}}>
                     <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
                     <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
