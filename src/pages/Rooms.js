@@ -25,20 +25,15 @@ export default class Rooms extends Component {
 
             <div key={room.id} className="card">
               <div className="content">
-                <div className="layout-row layout-align-space-between-start layout-xs-column">
-                  <h1>{room.name}</h1>
-                  <Icon icon="fas fa-edit" />
-                </div>
+                <h1>{room.name}</h1>
                 <p>{room.description}</p>
 
-                <div className="layout-row">
-                  <img src={room.img} style={{ minWidth: "100px", width: "300px", borderRadius: "20px" }} />
-                  <div style={{ marginLeft: "20px" }}>
-                    <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
-                    <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
-                    <p style={{ marginBottom: "-15px" }}>Windws open</p>
-                    <p>Blinds open</p>
-                  </div>
+                <img src={room.img} style={{ minWidth: "200px", width: "100%", maxWidth: "500px", borderRadius: "20px" }} />
+                <div style={{ marginLeft: "20px" }}>
+                  <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
+                  <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
+                  <p style={{ marginBottom: "-15px" }}>Windws open</p>
+                  <p>Blinds open</p>
                 </div>
 
               </div>
