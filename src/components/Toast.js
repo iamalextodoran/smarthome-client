@@ -20,11 +20,11 @@ export default class Toast extends Component {
       visible: ""
     }
 
-    emitter.on('notify', (message, color)=> {
+    emitter.on('notify', (message, color) => {
       this.onShow(message, color)
     })
   }
-  
+
   onShow = (message, color) => {
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -34,7 +34,7 @@ export default class Toast extends Component {
         }, 300)
       })
     } else {
-      this.setState({message, color})
+      this.setState({ message, color })
       this.showToast(message, color);
     }
   }
@@ -42,7 +42,7 @@ export default class Toast extends Component {
   showToast = (message, color) => {
     this.setState({ visible: "show" }, () => {
       this.timeout = setTimeout(() => {
-        this.setState({ visible: ""});
+        this.setState({ visible: "" });
       }, 3000)
     });
   }

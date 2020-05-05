@@ -25,7 +25,7 @@ export default class Music extends Component {
   }
 
   handleVolume = (e) => {
-    this.setState({volume: e.target.value})
+    this.setState({ volume: e.target.value })
   }
 
   render() {
@@ -39,11 +39,11 @@ export default class Music extends Component {
             <Icon icon={this.state.playing ? 'fas fa-play' : 'fas fa-pause'} size="40" onClick={this.playSong} />
             <Icon icon="fas fa-step-forward" size="40" onClick={this.nextSong} />
           </div>
-        <br></br>
+          <br></br>
           <Icon icon="fas fa-volume-up" />
-        <br></br>
+          <br></br>
         </div>
-        <Slider value={this.state.volume} onChange={this.handleVolume}/>
+        <Slider value={this.state.volume} onChange={this.handleVolume} />
       </div>
     )
   }

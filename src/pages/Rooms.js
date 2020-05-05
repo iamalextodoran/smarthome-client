@@ -33,7 +33,7 @@ export default class Rooms extends Component {
 
                 <div className="layout-row">
                   <img src={room.img} style={{ minWidth: "100px", width: "300px", borderRadius: "20px" }} />
-                  <div style={{marginLeft: "20px"}}>
+                  <div style={{ marginLeft: "20px" }}>
                     <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
                     <p style={{ marginBottom: "-15px" }}>Temperature: 20 C</p>
                     <p style={{ marginBottom: "-15px" }}>Windws open</p>

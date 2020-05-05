@@ -9,11 +9,11 @@ export default class Devices extends Component {
 		return (
 			<React.Fragment>
 
-        <Lights />
-        <Blinds/>
-        <Windows/>
-        <Temperatures/>
-        
+				<Lights />
+				<Blinds />
+				<Windows />
+				<Temperatures />
+
 			</React.Fragment>
 		)
 	}

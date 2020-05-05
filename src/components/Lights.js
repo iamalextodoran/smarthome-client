@@ -22,11 +22,13 @@ export default class Lights extends Component {
 
   eachUniqueRoom = () => {
     const uniqueRooms = [...new Set(this.state.lights.map((room) => room.roomId))];
-  
-    {this.state.lights.map((light) => (
-      (light.roomId!== 1 && console.log('adevarat'))
-    ))}
-  
+
+    {
+      this.state.lights.map((light) => (
+        (light.roomId !== 1 && console.log('adevarat'))
+      ))
+    }
+
   }
 
   render() {

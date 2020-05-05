@@ -7,7 +7,7 @@ export default class Toggle extends Component {
   };
 
   onChange = e => {
-    this.setState({checked: e.target.checked});
+    this.setState({ checked: e.target.checked });
     if (typeof this.props.onChange === "function") this.props.onChange();
     this.props.getLightsToggle(this.state.checked);
   };

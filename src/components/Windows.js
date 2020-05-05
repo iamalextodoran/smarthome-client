@@ -17,8 +17,8 @@ export default class Blinds extends Component {
 			<div className="card">
 				<div className="content">
 					<h1>Windows</h1>
-          <button className="m_button accent">
-            <Icon icon="fas fa-times"/>
+					<button className="m_button accent">
+						<Icon icon="fas fa-times" />
             Close all windows
           </button>
 					<div className="">

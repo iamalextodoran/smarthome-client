@@ -13,28 +13,28 @@ export default class Room extends Component {
         { description: "This is a room, one of a kind, unique 4", img: "https://www.thespruce.com/thmb/5o_dpOCoqBxM79wcGqWWA_qt50U=/5100x2869/smart/filters:no_upscale()/GettyImages-513040397-583b37d83df78c6f6ad71fe8.jpg", id: 4, name: "Guest room" }
       ],
     }
-  } 
+  }
 
   render() {
     // console.log(this.props.match.path);
     // console.log(this.props.match.url);
     // console.log(this.props.match.params.id); //return the id
     const myConstant = 'To be implemented'
-    
+
     return (
       <React.Fragment>
-            <Top />
-            <div className="layout-row layout-xs-column">
-              <Left />
-              <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                
-
-                <h1>{myConstant}</h1>
+        <Top />
+        <div className="layout-row layout-xs-column">
+          <Left />
+          <div className="layout-row layout-align-end-start flex-wrap flex-70">
 
 
-              </div>
-            </div>
-          </React.Fragment>
+            <h1>{myConstant}</h1>
+
+
+          </div>
+        </div>
+      </React.Fragment>
     )
   }
 }

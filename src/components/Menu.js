@@ -15,7 +15,7 @@ export default class Menu extends Component {
         </div>
 
         <div className="menu small">
-          <NavLink exact className="menu-item" activeClassName="menu-item-active" to="/"><Icon icon="fas fa-home" size="25"/></NavLink>
+          <NavLink exact className="menu-item" activeClassName="menu-item-active" to="/"><Icon icon="fas fa-home" size="25" /></NavLink>
           <NavLink className="menu-item" activeClassName="menu-item-active" to="/devices"><Icon icon="fas fa-toolbox" size="25" /></NavLink>
           <NavLink className="menu-item" activeClassName="menu-item-active" to="/rooms"><Icon icon="fas fa-square" size="25" /></NavLink>
         </div>
