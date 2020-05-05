@@ -2,16 +2,6 @@ import React, { Component } from 'react'
 import '../styles/toggle.scss'
 
 export default class Toggle extends Component {
-  state = {
-    checked: this.props.checked,
-  };
-
-  onChange = e => {
-    this.setState({ checked: e.target.checked });
-    if (typeof this.props.onChange === "function") this.props.onChange();
-    this.props.getLightsToggle(this.state.checked);
-  };
-
   render() {
     return (
       <div className="wrapper">
@@ -23,7 +13,7 @@ export default class Toggle extends Component {
               id={this.props.id}
               name={this.props.name}
               checked={this.props.checked}
-              onChange={this.onChange}
+              onChange={this.props.onChange}
             />
             <div className="indicator"></div>
           </div>

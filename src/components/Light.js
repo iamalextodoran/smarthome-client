@@ -11,9 +11,9 @@ export default class Light extends Component {
     totalLights: 30,
   }
 
-  getLightsToggle = (toggleState) => {
-    this.setState({ isAnyLightOn: !toggleState });
-    if (toggleState) {
+  lightSwitch = () => {
+    this.setState({ isAnyLightOn: !this.state.isAnyLightOn });
+    if (this.state.isAnyLightOn) {
       this.setState({ lightsOn: 0 })
       notify("Turned off all", "primary")
     } else {
@@ -31,7 +31,7 @@ export default class Light extends Component {
             <h2 style={{ paddingLeft: "5px" }}>Lights</h2>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.state.lightsOn} out of {this.state.totalLights}</p>
           </div>
-          <Toggle id="1" name="lights" getLightsToggle={this.getLightsToggle} checked={this.state.isAnyLightOn ? true : false} />
+          <Toggle id="1" name="lights" onChange={this.lightSwitch} checked={this.state.isAnyLightOn} />
         </div>
       </div>
     )
