@@ -15,7 +15,7 @@ import Weather from './components/Weather';
 import Light from './components/Light';
 import Temperature from './components/Temperature';
 import Music from './components/Music';
-import Page404 from './pages/Page404';
+import NoMatch from './pages/NoMatch';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import Room from './components/Room';
@@ -31,56 +31,59 @@ function App() {
   return (
     <Router>
       <div>
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/settings" render={(props) => (
-          <React.Fragment>
-            <Top />
-            <div className="layout-column layout-align-start-center">
-              <Settings />
-            </div>
-          </React.Fragment>
-        )} />
-
-        <Route exact path="/" render={() => (
-          <React.Fragment>
-            <Top />
-            <div className="layout-row layout-xs-column">
-              <Left />
-              <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                <Home />
+        <Switch>
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/settings" render={(props) => (
+            <React.Fragment>
+              <Top />
+              <div className="layout-column layout-align-start-center">
+                <Settings />
               </div>
-            </div>
-          </React.Fragment>
-        )} />
+            </React.Fragment>
+          )} />
 
-        <Route exact path="/rooms" render={() => (
-          <React.Fragment>
-            <Top />
-            <div className="layout-row layout-xs-column">
-              <Left />
-              <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                <Rooms />
+          <Route exact path="/" render={() => (
+            <React.Fragment>
+              <Top />
+              <div className="layout-row layout-xs-column">
+                <Left />
+                <div className="layout-row layout-align-end-start flex-wrap flex-70">
+                  <Home />
+                </div>
               </div>
-            </div>
-          </React.Fragment>
-        )} />
+            </React.Fragment>
+          )} />
 
-
-        <Route exact path={`/room/:roomId`} component={Room}/>
-
-        <Route path="/devices" render={() => (
-          <React.Fragment>
-            <Top />
-            <div className="layout-row layout-xs-column">
-              <Left />
-              <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                <Devices />
+          <Route exact path="/rooms" render={() => (
+            <React.Fragment>
+              <Top />
+              <div className="layout-row layout-xs-column">
+                <Left />
+                <div className="layout-row layout-align-end-start flex-wrap flex-70">
+                  <Rooms />
+                </div>
               </div>
-            </div>
-          </React.Fragment>
-        )} />
-        <Footer />
+            </React.Fragment>
+          )} />
+
+
+          <Route exact path={`/room/:roomId`} component={Room} />
+
+          <Route path="/devices" render={() => (
+            <React.Fragment>
+              <Top />
+              <div className="layout-row layout-xs-column">
+                <Left />
+                <div className="layout-row layout-align-end-start flex-wrap flex-70">
+                  <Devices />
+                </div>
+              </div>
+            </React.Fragment>
+          )} />
+          <Route component={NoMatch} />
+          <Footer />
+        </Switch>
       </div>
     </Router>
   );
