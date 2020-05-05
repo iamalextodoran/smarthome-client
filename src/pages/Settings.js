@@ -5,7 +5,7 @@ import Input from '../components/Input'
 
 export default class Settings extends Component {
   state = {
-    darkModeOn: localStorage.getItem('darkMode') === "null" ? true: false,
+    darkModeOn: localStorage.getItem('darkMode') === null ? true: false,
   }
 
   darkModeToggle = () => {
@@ -13,10 +13,12 @@ export default class Settings extends Component {
     const enableDarkMode = () => {
       document.body.classList.add('dark');
       localStorage.setItem('darkMode', 'enabled');
+      this.setState({darkModeOn: true});
     }
     const disableDarkMode = () => {
       document.body.classList.remove('dark');
       localStorage.setItem('darkMode', null);
+      this.setState({darkModeOn: false});
     }
     darkMode = localStorage.getItem('darkMode');
 
@@ -39,7 +41,7 @@ export default class Settings extends Component {
                 <p>Dark mode</p>
               </div>
               <div>
-                <Toggle onChange={this.darkModeToggle} value={() => localStorage.getItem('darkMode') === "null" ? true: false} />
+                <Toggle onChange={this.darkModeToggle} value={this.state.darkModeOn} />
               </div>
             </div>
 
