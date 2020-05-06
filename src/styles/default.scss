@@ -204,12 +204,6 @@ $align-positions: (
 }
 
 @media only screen and (max-width: 600px) {
-  .big {
-    display: none;
-  }
-  .small {
-    display: block;
-  }
   body {
     margin: 10px;
   }

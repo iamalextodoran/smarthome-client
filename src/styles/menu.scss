@@ -16,3 +16,15 @@
 .small {
   display: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .big {
+    display: none;
+  }
+  .small {
+    display: block;
+  }
+  .dropdown-content {
+    right: 0;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Link, Route, Switch } from "react-router-dom";
 //Instead of BrowserRouter I have to use HashRouter for Github pages
 import ReactDOM from "react-dom";
 import Button from './components/Button';

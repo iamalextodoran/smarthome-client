@@ -22,8 +22,13 @@ export default class Menu extends Component {
 
         <div className="menu small">
           <NavLink exact className="menu-item" activeClassName="menu-item-active" to="/"><Icon icon="fas fa-home" size="25" /></NavLink>
+          {/* <NavLink className="menu-item" activeClassName="menu-item-active" to="/rooms"><Icon icon="fas fa-square" size="25" /></NavLink> */}
+          <Dropdown displayIcon icon="fas fa-square">
+            <NavLink activeClassName="dropdown-active-item" className="dropdown-item" to="../room/1">Room 1</NavLink>
+            <NavLink activeClassName="dropdown-active-item" className="dropdown-item" to="../room/2">Room 2</NavLink>
+            <NavLink activeClassName="dropdown-active-item" className="dropdown-item" to="../room/6">Room 6</NavLink>
+          </Dropdown>
           <NavLink className="menu-item" activeClassName="menu-item-active" to="/devices"><Icon icon="fas fa-toolbox" size="25" /></NavLink>
-          <NavLink className="menu-item" activeClassName="menu-item-active" to="/rooms"><Icon icon="fas fa-square" size="25" /></NavLink>
         </div>
       </React.Fragment>
     )
