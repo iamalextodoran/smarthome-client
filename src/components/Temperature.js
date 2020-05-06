@@ -19,7 +19,7 @@ export default class Temperature extends Component {
   }
 
   changeTemperatureMode = (e) => {
-    const value = e.target.innerHTML === '' ? this.state.selectedMode: e.target.innerHTML;
+    const value = e.target.innerHTML === '' || e.target.innerHTML.length >= 6? this.state.selectedMode: e.target.innerHTML;
     let setThis = '';
     
     this.setState({ selectedMode: value });
