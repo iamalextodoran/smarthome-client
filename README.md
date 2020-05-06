@@ -1,10 +1,8 @@
 ## Hustle for:
-- show separate room for each route as room/1, room/2 etc ( find () or someother method)
 - better routes (stackoverflow could help)
 - fix temperture modes
 - in rooms, edit mode for each room
 - in devices each device type have to be grouped by each room (ie lights has big room with 3 lights, small rooms with 2 lights, and guest room with one light)
-- in rooms the picture should be centered and smaller, more details available with better styling
 
 - leave home exactly the same, but use rooms for displaying each room (+ a menu for rooms to display each existing room)
 
@@ -12,8 +10,6 @@
 - dark mode with local storage
 - mobile, tablet and desktop responsive
 - toggle has to be modular
-
-- use rgba instead of hex for shadows and get rid of fallbacks
 
 - how to react and rails 
 

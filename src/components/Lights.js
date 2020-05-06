@@ -7,12 +7,12 @@ export default class Lights extends Component {
     lights: [
       { id: 3, name: "Light 1", roomId: 1, value: 80, warm: 30 },
       { id: 4, name: "Light 2", roomId: 1, value: 80, warm: 30 },
-      { id: 5, name: "Light 3", roomId: 1, value: 80, warm: 30 },
-      { id: 6, name: "Light 4", roomId: 1, value: 80, warm: 30 },
       { id: 16, name: "Light 1", roomId: 2, value: 30, warm: 10 },
+      { id: 5, name: "Light 3", roomId: 1, value: 80, warm: 30 },
+      { id: 36, name: "Light 1", roomId: 3, value: 30, warm: 60 },
+      { id: 6, name: "Light 4", roomId: 1, value: 80, warm: 30 },
       { id: 26, name: "Light 2", roomId: 2, value: 30, warm: 20 },
       { id: 56, name: "Light 3", roomId: 2, value: 30, warm: 60 },
-      { id: 36, name: "Light 1", roomId: 3, value: 30, warm: 60 },
     ]
   }
 
@@ -21,14 +21,10 @@ export default class Lights extends Component {
   }
 
   eachUniqueRoom = () => {
-    const uniqueRooms = [...new Set(this.state.lights.map((room) => room.roomId))];
-
-    {
-      this.state.lights.map((light) => (
-        (light.roomId !== 1 && console.log('adevarat'))
-      ))
-    }
-
+    const rooms = [...new Set(this.state.lights.map((room) => room.roomId))];
+    rooms.forEach(room => (
+      this.state.lights.filter(light => light.roomId === room).map(light => console.log())
+    ))
   }
 
   render() {
