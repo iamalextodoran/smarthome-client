@@ -197,17 +197,13 @@ $align-positions: (
   }
 }
 
-@media only screen and (min-width: 960px) {
-  /* styles for browsers larger than 960px; */
+@media only screen and (max-width: 812px) {
+  body {
+    margin: 20px;
+  }
 }
-@media only screen and (min-width: 1440px) {
-  /* styles for browsers larger than 1440px; */
-}
-@media only screen and (min-width: 2000px) {
-  /* for sumo sized (mac) screens */
-}
-@media only screen and (max-device-width: 480px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
+
+@media only screen and (max-width: 600px) {
   .big {
     display: none;
   }
@@ -219,16 +215,13 @@ $align-positions: (
   }
 }
 
-@media only screen and (device-width: 768px) {
-  /* default iPad screens */
+@media only screen and (max-device-width: 768px) {
 }
-/* different techniques for iPad screening */
+
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* For portrait layouts only */
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* For landscape layouts only */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -237,7 +230,7 @@ $align-positions: (
 .dark {
   background: #212121;
   color: rgba(255, 255, 255, 0.9);
-  
+
   body {
     background: #212121;
     color: rgba(255, 255, 255, 0.9);
@@ -251,7 +244,7 @@ $align-positions: (
   h6 {
     color: rgba(255, 255, 255, 0.8);
   }
-  
+
   .m_button_not_raised {
     background: #212121;
     color: white;
@@ -382,5 +375,26 @@ $align-positions: (
 
   .menu-item-active {
     color: coral;
+  }
+
+  .dropdown-content {
+    background-color: #1b1b1b;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.01);
+  }
+
+  .dropdown-item {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .dropdown-active-item {
+    color: coral;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #212121;
+  }
+
+  .dropdown:hover .m_button_not_raised {
+    background-color: #1b1b1b;
   }
 }

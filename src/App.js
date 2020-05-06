@@ -40,6 +40,7 @@ function App() {
               <div className="layout-column layout-align-start-center">
                 <Settings />
               </div>
+              <Footer />
             </React.Fragment>
           )} />
 
@@ -52,6 +53,7 @@ function App() {
                   <Home />
                 </div>
               </div>
+              <Footer />
             </React.Fragment>
           )} />
 
@@ -64,6 +66,7 @@ function App() {
                   <Rooms />
                 </div>
               </div>
+              <Footer />
             </React.Fragment>
           )} />
 
@@ -79,10 +82,11 @@ function App() {
                   <Devices />
                 </div>
               </div>
+              <Footer />
+
             </React.Fragment>
           )} />
           <Route component={NoMatch} />
-          <Footer />
         </Switch>
       </div>
     </Router>

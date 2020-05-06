@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Left from './Left';
 import Top from './Top';
+import Dropdown from './Dropdown';
+import { NavLink } from 'react-router-dom';
 
 export default class Room extends Component {
   constructor(props) {

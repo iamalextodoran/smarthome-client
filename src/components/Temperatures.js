@@ -16,6 +16,7 @@ export default class Blinds extends Component {
       <div className="card">
         <div className="content">
           <h1>Temperatures</h1>
+          <p>control each temperature mode from here + scheduled </p>
           <div className="">
             {this.state.temperatures.map((temperature) => (
               <div key={temperature.id}>
