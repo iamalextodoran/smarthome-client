@@ -80,7 +80,7 @@ export default class Settings extends Component {
                     <p>Primary color</p>
                   </div>
                   <div>
-                    <div style={{ width: "60px", height: "30px", background: this.state.primaryColor || "coral", marginRight: "25px" }} onClick={() => document.getElementsByClassName("colorPicker")[0].style.display = "block"}></div>
+                    <div style={{ width: "60px", height: "30px", background: this.state.primaryColor || "coral", marginRight: "25px" }} onClick={() => (document.getElementsByClassName("colorPicker")[0].style.display = "block", document.getElementsByClassName("colorPicker")[1].style.display = "none") }></div>
                     <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
                       <GithubPicker triangle="hide" color={this.state.primaryColor} onChangeComplete={this.handlePrimaryColor} onSwatchHover={this.onPrimaryColorHover} />
                     </div>
@@ -92,7 +92,7 @@ export default class Settings extends Component {
                     <p>Accent color</p>
                   </div>
                   <div>
-                    <div style={{ width: "60px", height: "30px", background: this.state.accentColor, marginRight: "25px" }} onClick={() => document.getElementsByClassName("colorPicker")[1].style.display = "block"}></div>
+                    <div style={{ width: "60px", height: "30px", background: this.state.accentColor, marginRight: "25px" }} onClick={() => (document.getElementsByClassName("colorPicker")[1].style.display = "block", document.getElementsByClassName("colorPicker")[0].style.display = "none") }></div>
                     <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
                       <GithubPicker triangle="hide" color={this.state.accentColor} onChangeComplete={this.handleAccentColor} onSwatchHover={this.onAccentColorHover} />
                     </div>
