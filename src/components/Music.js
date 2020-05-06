@@ -36,7 +36,7 @@ export default class Music extends Component {
           <p>{this.state.artistList[this.state.songIndex]} - {this.state.songList[this.state.songIndex]}</p>
           <div className="layout-row layout-align-center-center">
             <Icon icon="fas fa-step-backward" size="40" onClick={this.prevSong} />
-            <Icon icon={this.state.playing ? 'fas fa-play' : 'fas fa-pause'} size="40" onClick={this.playSong} />
+            <Icon icon={!this.state.playing ? 'fas fa-play' : 'fas fa-pause'} size="40" onClick={this.playSong} />
             <Icon icon="fas fa-step-forward" size="40" onClick={this.nextSong} />
           </div>
           <br></br>

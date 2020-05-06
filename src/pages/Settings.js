@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import '../styles/card.scss'
+import '../styles/user.scss'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 
 export default class Settings extends Component {
   state = {
-    darkModeOn: localStorage.getItem('darkMode') === null ? true: false,
+    darkModeOn: localStorage.getItem('darkMode') === null ? true : false,
   }
 
   darkModeToggle = () => {
@@ -13,12 +14,12 @@ export default class Settings extends Component {
     const enableDarkMode = () => {
       document.body.classList.add('dark');
       localStorage.setItem('darkMode', 'enabled');
-      this.setState({darkModeOn: true});
+      this.setState({ darkModeOn: true });
     }
     const disableDarkMode = () => {
       document.body.classList.remove('dark');
       localStorage.setItem('darkMode', null);
-      this.setState({darkModeOn: false});
+      this.setState({ darkModeOn: false });
     }
     darkMode = localStorage.getItem('darkMode');
 
@@ -75,8 +76,8 @@ export default class Settings extends Component {
               <div style={{ minWidth: "100px" }}>
                 <p>Picture</p>
               </div>
-              <div>
-                <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" style={{ width: "100px", height: "100px", borderRadius: "50px", background: "deeppink", margin: "10px" }} />
+              <div className="profile" style={{ width: "106px", height: "106px" }} >
+                <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" style={{ width: "100px", height: "100px" }} />
               </div>
               <div>
               </div>
