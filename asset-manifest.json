@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-neumorphic/static/css/main.9aa564e5.chunk.css",
+    "main.css": "/react-neumorphic/static/css/main.32583eed.chunk.css",
     "main.js": "/react-neumorphic/static/js/main.68b70f5e.chunk.js",
     "main.js.map": "/react-neumorphic/static/js/main.68b70f5e.chunk.js.map",
     "runtime-main.js": "/react-neumorphic/static/js/runtime-main.4a652ea4.js",
@@ -8,15 +8,15 @@
     "static/js/2.f0119f26.chunk.js": "/react-neumorphic/static/js/2.f0119f26.chunk.js",
     "static/js/2.f0119f26.chunk.js.map": "/react-neumorphic/static/js/2.f0119f26.chunk.js.map",
     "index.html": "/react-neumorphic/index.html",
-    "precache-manifest.de68b7d96447291f0ab453b0dcbcca29.js": "/react-neumorphic/precache-manifest.de68b7d96447291f0ab453b0dcbcca29.js",
+    "precache-manifest.c4a0fc82f6aae53c074fb8899aa8e2d9.js": "/react-neumorphic/precache-manifest.c4a0fc82f6aae53c074fb8899aa8e2d9.js",
     "service-worker.js": "/react-neumorphic/service-worker.js",
-    "static/css/main.9aa564e5.chunk.css.map": "/react-neumorphic/static/css/main.9aa564e5.chunk.css.map",
+    "static/css/main.32583eed.chunk.css.map": "/react-neumorphic/static/css/main.32583eed.chunk.css.map",
     "static/js/2.f0119f26.chunk.js.LICENSE.txt": "/react-neumorphic/static/js/2.f0119f26.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4a652ea4.js",
     "static/js/2.f0119f26.chunk.js",
-    "static/css/main.9aa564e5.chunk.css",
+    "static/css/main.32583eed.chunk.css",
     "static/js/main.68b70f5e.chunk.js"
   ]
 }
