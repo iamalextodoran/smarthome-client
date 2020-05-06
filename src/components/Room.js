@@ -3,6 +3,7 @@ import Left from './Left';
 import Top from './Top';
 import Dropdown from './Dropdown';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 
 export default class Room extends Component {
   constructor(props) {
@@ -27,13 +28,10 @@ export default class Room extends Component {
         <div className="layout-row layout-xs-column">
           <Left />
           <div className="layout-row layout-align-end-start flex-wrap flex-70">
-
-
             {<div className="card">
               <div className="content">
                 <h1>{room.name}</h1>
                 <p>{room.description}</p>
-
                 <img src={room.img} style={{ minWidth: "200px", width: "100%", maxWidth: "500px", borderRadius: "20px" }} />
                 <div style={{ marginLeft: "20px" }}>
                   <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
@@ -41,14 +39,11 @@ export default class Room extends Component {
                   <p style={{ marginBottom: "-15px" }}>Windws open</p>
                   <p>Blinds open</p>
                 </div>
-
               </div>
-
             </div>}
-
-
           </div>
         </div>
+        <Footer />
       </React.Fragment>
     )
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './components/Footer';
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 //Instead of BrowserRouter I have to use HashRouter for Github pages
 import ReactDOM from "react-dom";
@@ -24,71 +23,34 @@ import Settings from './pages/Settings';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Top from './components/Top';
+import Footer from './components/Footer';
 import Left from './components/Left';
 import Toast, { notify } from './components/Toast';
 
 function App() {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/settings" render={(props) => (
-            <React.Fragment>
-              <Top />
-              <div className="layout-column layout-align-start-center">
-                <Settings />
-              </div>
-              <Footer />
-            </React.Fragment>
-          )} />
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/settings" component={Settings} />
 
-          <Route exact path="/" render={() => (
-            <React.Fragment>
-              <Top />
-              <div className="layout-row layout-xs-column">
-                <Left />
-                <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                  <Home />
-                </div>
-              </div>
-              <Footer />
-            </React.Fragment>
-          )} />
+        <Route exact path="/" render={() => (
+          <React.Fragment>
+            <Top />
+            <div className="layout-row layout-xs-column">
+              <Left />
+              <Home />
+            </div>
+            <Footer />
+          </React.Fragment>
+        )} />
+        <Route path="/rooms" component={Rooms} />
+        <Route exact path={`/room/:roomId`} component={Room} />
+        <Route path="/devices" component={Devices} />
 
-          <Route exact path="/rooms" render={() => (
-            <React.Fragment>
-              <Top />
-              <div className="layout-row layout-xs-column">
-                <Left />
-                <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                  <Rooms />
-                </div>
-              </div>
-              <Footer />
-            </React.Fragment>
-          )} />
-
-
-          <Route exact path={`/room/:roomId`} component={Room} />
-
-          <Route path="/devices" render={() => (
-            <React.Fragment>
-              <Top />
-              <div className="layout-row layout-xs-column">
-                <Left />
-                <div className="layout-row layout-align-end-start flex-wrap flex-70">
-                  <Devices />
-                </div>
-              </div>
-              <Footer />
-
-            </React.Fragment>
-          )} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
+        <Route component={NoMatch} />
+      </Switch>
     </Router>
   );
 }
