@@ -6,11 +6,33 @@ import Input from '../components/Input'
 import Top from '../components/Top';
 import Footer from '../components/Footer';
 import Left from '../components/Left';
+import { GithubPicker } from 'react-color';
 
 export default class Settings extends Component {
   state = {
     darkModeOn: localStorage.getItem('darkMode') === null ? true : false,
+    primaryColor: 'coral',
+    accentColor: 'deeppink',
   }
+
+  handlePrimaryColor = (color) => {
+    this.setState({ primaryColor: color.hex });
+    document.getElementsByClassName("colorPicker")[0].style.display = "none"
+  }
+
+  handleAccentColor = (color) => {
+    this.setState({ accentColor: color.hex });
+    document.getElementsByClassName("colorPicker")[1].style.display = "none"
+  };
+
+  onPrimaryColorHover = (color, event) => {
+    this.setState({ primaryColor: color.hex });
+  }
+
+  onAccentColorHover = (color, event) => {
+    this.setState({ accentColor: color.hex });
+  }
+
 
   darkModeToggle = () => {
     let darkMode = localStorage.getItem('darkMode');
@@ -58,7 +80,10 @@ export default class Settings extends Component {
                     <p>Primary color</p>
                   </div>
                   <div>
-                    <div style={{ width: "50px", height: "30px", background: "coral", marginRight: "25px" }}></div>
+                    <div style={{ width: "60px", height: "30px", background: this.state.primaryColor || "coral", marginRight: "25px" }} onClick={() => document.getElementsByClassName("colorPicker")[0].style.display = "block"}></div>
+                    <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
+                      <GithubPicker triangle="hide" color={this.state.primaryColor} onChangeComplete={this.handlePrimaryColor} onSwatchHover={this.onPrimaryColorHover} />
+                    </div>
                   </div>
                 </div>
 
@@ -67,7 +92,10 @@ export default class Settings extends Component {
                     <p>Accent color</p>
                   </div>
                   <div>
-                    <div style={{ width: "50px", height: "30px", background: "deeppink", marginRight: "25px" }}></div>
+                    <div style={{ width: "60px", height: "30px", background: this.state.accentColor, marginRight: "25px" }} onClick={() => document.getElementsByClassName("colorPicker")[1].style.display = "block"}></div>
+                    <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
+                      <GithubPicker triangle="hide" color={this.state.accentColor} onChangeComplete={this.handleAccentColor} onSwatchHover={this.onAccentColorHover} />
+                    </div>
                   </div>
                 </div>
               </div>
