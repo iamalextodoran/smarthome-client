@@ -14,20 +14,27 @@ export default class Temperature extends Component {
     setTemperatureNight: 22,
   }
 
-  setMode = (state, item) => {
-    let setThis;
-    !state ? this.setState({ selectedMode: item }) : this.setState({ selectedMode: this.state.selectedMode });
-    if (item === 'Eco') {
+  handleClick = () => {
+    console.log(this.props.value)
+  }
+
+  changeTemperatureMode = (e) => {
+    const value = e.target.innerHTML === '' ? this.state.selectedMode: e.target.innerHTML;
+    let setThis = '';
+    
+    this.setState({ selectedMode: value });
+
+    if (value === 'Eco') {
       setThis = this.state.setTemperatureEco;
-    } else if (item === 'Day') {
+    } else if (value === 'Day') {
       setThis = this.state.setTemperatureDay;
-    } else if (item === 'Night') {
+    } else if (value === 'Night') {
       setThis = this.state.setTemperatureNight;
     }
     this.setState({ setTemperature: setThis });
   }
 
-  setColor = () => {
+  setThermometerColor = () => {
     if (this.state.selectedMode === 'Day') {
       return "deeppink"
     } else if (this.state.selectedMode === 'Night') {
@@ -39,16 +46,16 @@ export default class Temperature extends Component {
     return (
       <div className="card">
         <div className="layout-row layout-align-center-center">
-          <Icon icon={this.state.selectedMode === 'Eco' ? 'fas fa-thermometer-empty' : 'fas fa-thermometer-half'} size="40" color={this.setColor()} />
+          <Icon icon={this.state.selectedMode === 'Eco' ? 'fas fa-thermometer-empty' : 'fas fa-thermometer-half'} size="40" color={this.setThermometerColor()} />
           <div className="layout-column layout-align-end-end">
             <h2><strong>{this.state.actualTemperature}  °C</strong></h2>
             <p style={{ marginTop: "-25px" }}>set {this.state.setTemperature} °C</p>
           </div>
         </div>
         <div className="layout-row layout-align-space-between-center" style={{ marginTop: "-20px" }}>
-          <Radio checked={this.state.selectedMode === 'Day'} value="Day" setMode={this.setMode} />
-          <Radio checked={this.state.selectedMode === 'Eco'} value="Eco" setMode={this.setMode} />
-          <Radio checked={this.state.selectedMode === 'Night'} value="Night" setMode={this.setMode} />
+          <Radio checked={this.state.selectedMode === 'Day'} value="Day" onClick={this.changeTemperatureMode} />
+          <Radio checked={this.state.selectedMode === 'Eco'} value="Eco" onClick={this.changeTemperatureMode} />
+          <Radio checked={this.state.selectedMode === 'Night'} value="Night" onClick={this.changeTemperatureMode} />
         </div>
       </div>
     )
