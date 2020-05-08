@@ -12,28 +12,28 @@ export default class Menu extends Component {
       name: 'Big room',
       description: 'Most unique room',
       userId: 1,
-      img: 'https://source.unsplash.com/tleCJiDOri0'
+      image: 'https://source.unsplash.com/tleCJiDOri0'
     },
     {
       id: 2,
       name: 'Small room',
       description: 'Most unique room',
       userId: 1,
-      img: 'https://source.unsplash.com/gREquCUXQLI'
+      image: 'https://source.unsplash.com/gREquCUXQLI'
     },
     {
       id: 3,
       name: 'Guest room',
       description: 'Most unique room',
       userId: 1,
-      img: 'https://source.unsplash.com/17NCG_wOkMY'
+      image: 'https://source.unsplash.com/17NCG_wOkMY'
     },
     {
       id: 4,
       name: 'Living room',
       description: 'Most unique room',
       userId: 1,
-      img: 'https://source.unsplash.com/JIUjvqe2ZHg'
+      image: 'https://source.unsplash.com/JIUjvqe2ZHg'
     }
     ]
   }

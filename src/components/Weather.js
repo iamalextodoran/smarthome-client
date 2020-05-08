@@ -9,12 +9,16 @@ export default class Weather extends Component {
     this.state = {
       weather: '',
       bit: '',
-      querryCity: 'Baia-Mare',
+      city: 'Baia-Mare',
     };
+    
+    fetch(`http://localhost:3000/users/1`)
+      .then(response => response.json())
+      .then(data => this.setState({ city: data.city }))
   }
 
   componentDidMount() {
-    fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.querryCity}&key=d50c57c063ec458dab88e7a1c530219c`)
+    fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city}&key=d50c57c063ec458dab88e7a1c530219c`)
       .then(response => response.json())
       .then(data => this.setState({ bit: data.data[0], weather: data.data[0].weather }));
   }

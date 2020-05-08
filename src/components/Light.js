@@ -11,6 +11,10 @@ export default class Light extends Component {
     totalLights: 30,
   }
 
+  componentWillMount() {
+    this.state.lightsOn === 0 ? this.setState({isAnyLightOn: false}): this.setState({isAnyLightOn: true});
+  }
+
   lightSwitch = () => {
     this.setState({ isAnyLightOn: !this.state.isAnyLightOn });
     if (this.state.isAnyLightOn) {

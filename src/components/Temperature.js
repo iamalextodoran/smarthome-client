@@ -14,14 +14,20 @@ export default class Temperature extends Component {
     setTemperatureNight: 22,
   }
 
+  componentWillMount() {
+    fetch(`http://localhost:3000/users/1`)
+      .then(response => response.json())
+      .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
+  }
+
   handleClick = () => {
     console.log(this.props.value)
   }
 
   changeTemperatureMode = (e) => {
-    const value = e.target.innerHTML === '' || e.target.innerHTML.length >= 6? this.state.selectedMode: e.target.innerHTML;
+    const value = e.target.innerHTML === '' || e.target.innerHTML.length >= 6 ? this.state.selectedMode : e.target.innerHTML;
     let setThis = '';
-    
+
     this.setState({ selectedMode: value });
 
     if (value === 'Eco') {
