@@ -17,6 +17,12 @@ export default class Room extends Component {
       ],
     }
   }
+  
+  componentDidMount() {
+    fetch(`http://localhost:3000/rooms`)
+      .then(response => response.json())
+      .then(data => this.setState({rooms: data}))
+  }
 
   render() {
     const idToMatch = parseInt(this.props.match.params.roomId)

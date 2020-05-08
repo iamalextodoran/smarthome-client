@@ -1,35 +1,50 @@
 import React, { Component } from 'react'
-import '../styles/card.scss'
-import '../styles/user.scss'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 import Top from '../components/Top';
 import Footer from '../components/Footer';
-import Left from '../components/Left';
 import { GithubPicker } from 'react-color';
+import '../styles/card.scss'
+import '../styles/user.scss'
 
 export default class Settings extends Component {
   state = {
-    darkModeOn: localStorage.getItem('darkMode') === null ? true : false,
+    darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
+    showPrimary: false,
+    showAccent: false,
     primaryColor: 'coral',
     accentColor: 'deeppink',
+  }
+  
+  componentDidMount() {
+    localStorage.getItem('darkMode') === 'true' ? this.setState({darkModeOn: true}) : this.setState({darkModeOn: false});
+  }
+
+  displayPrimaryColor = () => {
+    this.setState({ showPrimary: !this.state.showPrimary });
+    this.setState({ showAccent: false });
+  }
+
+  displayAccentColor = () => {
+    this.setState({ showAccent: !this.state.showAccent });
+    this.setState({ showPrimary: false });
   }
 
   handlePrimaryColor = (color) => {
     this.setState({ primaryColor: color.hex });
-    document.getElementsByClassName("colorPicker")[0].style.display = "none"
+    this.setState({ showPrimary: false });
   }
 
   handleAccentColor = (color) => {
     this.setState({ accentColor: color.hex });
-    document.getElementsByClassName("colorPicker")[1].style.display = "none"
+    this.setState({ showAccent: false });
   };
 
-  onPrimaryColorHover = (color, event) => {
+  onPrimaryColorHover = (color) => {
     this.setState({ primaryColor: color.hex });
   }
 
-  onAccentColorHover = (color, event) => {
+  onAccentColorHover = (color) => {
     this.setState({ accentColor: color.hex });
   }
 
@@ -38,7 +53,7 @@ export default class Settings extends Component {
     let darkMode = localStorage.getItem('darkMode');
     const enableDarkMode = () => {
       document.body.classList.add('dark');
-      localStorage.setItem('darkMode', 'enabled');
+      localStorage.setItem('darkMode', true);
       this.setState({ darkModeOn: true });
     }
     const disableDarkMode = () => {
@@ -48,7 +63,7 @@ export default class Settings extends Component {
     }
     darkMode = localStorage.getItem('darkMode');
 
-    if (darkMode !== 'enabled') {
+    if (darkMode !== 'true') {
       enableDarkMode();
     } else {
       disableDarkMode();
@@ -80,8 +95,8 @@ export default class Settings extends Component {
                     <p>Primary color</p>
                   </div>
                   <div>
-                    <div style={{ width: "60px", height: "30px", background: this.state.primaryColor || "coral", marginRight: "25px" }} onClick={() => (document.getElementsByClassName("colorPicker")[0].style.display = "block", document.getElementsByClassName("colorPicker")[1].style.display = "none") }></div>
-                    <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
+                    <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.primaryColor, marginRight: "25px" }} onClick={this.displayPrimaryColor}></div>
+                    <div className="colorPicker" style={{ position: "absolute", display: this.state.showPrimary ? "block" : "none", zIndex: 10, right: 0 }}>
                       <GithubPicker triangle="hide" color={this.state.primaryColor} onChangeComplete={this.handlePrimaryColor} onSwatchHover={this.onPrimaryColorHover} />
                     </div>
                   </div>
@@ -92,8 +107,8 @@ export default class Settings extends Component {
                     <p>Accent color</p>
                   </div>
                   <div>
-                    <div style={{ width: "60px", height: "30px", background: this.state.accentColor, marginRight: "25px" }} onClick={() => (document.getElementsByClassName("colorPicker")[1].style.display = "block", document.getElementsByClassName("colorPicker")[0].style.display = "none") }></div>
-                    <div className="colorPicker" style={{ position: "absolute", display: "none", zIndex: 10, right: 0 }}>
+                    <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.accentColor, marginRight: "25px" }} onClick={this.displayAccentColor}></div>
+                    <div className="colorPicker" style={{ position: "absolute", display: this.state.showAccent ? "block" : "none", zIndex: 10, right: 0 }}>
                       <GithubPicker triangle="hide" color={this.state.accentColor} onChangeComplete={this.handleAccentColor} onSwatchHover={this.onAccentColorHover} />
                     </div>
                   </div>
