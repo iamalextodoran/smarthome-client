@@ -7,7 +7,35 @@ import Dropdown from './Dropdown';
 
 export default class Menu extends Component {
   state = {
-    rooms: []
+    rooms: [{
+      id: 1,
+      name: 'Big room',
+      description: 'Most unique room',
+      userId: 1,
+      img: 'https://source.unsplash.com/tleCJiDOri0'
+    },
+    {
+      id: 2,
+      name: 'Small room',
+      description: 'Most unique room',
+      userId: 1,
+      img: 'https://source.unsplash.com/gREquCUXQLI'
+    },
+    {
+      id: 3,
+      name: 'Guest room',
+      description: 'Most unique room',
+      userId: 1,
+      img: 'https://source.unsplash.com/17NCG_wOkMY'
+    },
+    {
+      id: 4,
+      name: 'Living room',
+      description: 'Most unique room',
+      userId: 1,
+      img: 'https://source.unsplash.com/JIUjvqe2ZHg'
+    }
+    ]
   }
 
   componentDidMount() {
