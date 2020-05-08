@@ -12,6 +12,12 @@ export default class Blinds extends Component {
 		]
 	}
 
+	componentDidMount() {
+    fetch(`http://localhost:3000/devices/windows`)
+      .then(response => response.json())
+      .then(data => this.setState({windows: data}))
+	}
+	
 	render() {
 		return (
 			<div className="card">

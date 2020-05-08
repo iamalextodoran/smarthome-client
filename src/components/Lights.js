@@ -16,6 +16,12 @@ export default class Lights extends Component {
     ]
   }
 
+  componentDidMount() {
+    fetch(`http://localhost:3000/devices/lights`)
+      .then(response => response.json())
+      .then(data => this.setState({lights: data}))
+  }
+
   handleLights = () => {
     this.state.lights.map((light) => light.value = 0)
   }
