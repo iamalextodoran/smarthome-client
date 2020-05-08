@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f8c7c1781b2e3b1518b8ded287c9ec7c",
+    "revision": "abc6d7ba070a6564ac49043153f7145a",
     "url": "/react-neumorphic/index.html"
   },
   {
-    "revision": "d85ebc98495814c24720",
-    "url": "/react-neumorphic/static/css/main.cb48eefa.chunk.css"
+    "revision": "e981de3313ddbd74ad32",
+    "url": "/react-neumorphic/static/css/main.6c184813.chunk.css"
   },
   {
     "revision": "d3b7f22fa0a6274012f2",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-neumorphic/static/js/2.32b2d920.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d85ebc98495814c24720",
-    "url": "/react-neumorphic/static/js/main.ed636dc0.chunk.js"
+    "revision": "e981de3313ddbd74ad32",
+    "url": "/react-neumorphic/static/js/main.6927387c.chunk.js"
   },
   {
     "revision": "463cfff93f84c1b443df",
