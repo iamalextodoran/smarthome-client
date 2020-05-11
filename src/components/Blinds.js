@@ -12,7 +12,7 @@ export default class Blinds extends Component {
 	}
 
 	componentDidMount() {
-    fetch(`http://localhost:3000/devices/blinds`)
+    fetch(`/devices/blinds`)
       .then(response => response.json())
       .then(data => this.setState({blinds: data}))
   }

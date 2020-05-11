@@ -12,7 +12,7 @@ export default class Blinds extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/devices/temperatures`)
+    fetch(`/devices/temperatures`)
       .then(response => response.json())
       .then(data => this.setState({temperatures: data}))
   }

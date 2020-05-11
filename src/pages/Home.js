@@ -16,7 +16,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/rooms`)
+    fetch(`/rooms`)
       .then(response => response.json())
       .then(data => this.setState({rooms: data}))
   }
@@ -30,7 +30,7 @@ export default class Home extends Component {
             {this.state.rooms.map((room) => (
 
 
-              <div key={room.id} className="card flex-33" style={{ minHeight: "415px" }}>
+              <div key={room.id} className="card flex-33" style={{ minHeight: "500px" }}>
                 <div className="content">
                   <h1>{room.name}</h1>
                   <p>{room.description}</p>

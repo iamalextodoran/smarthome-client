@@ -17,7 +17,7 @@ export default class Lights extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/devices/lights`)
+    fetch(`/devices/lights`)
       .then(response => response.json())
       .then(data => this.setState({lights: data}))
   }

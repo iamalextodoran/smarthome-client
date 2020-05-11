@@ -6,9 +6,8 @@ export default class Register extends Component {
   render() {
     return (
       <div className="layout-column layout-align-center-center">
-        <h1>Register page</h1>
         <div className="card" style={{ width: "21em", paddingBottom: "50px" }}>
-          <p style={{ paddingLeft: "40px", marginBottom: "-10px", paddingTop: "30px" }}>Enter your data</p>
+          <h1>Enter your data</h1>
           <div className="content layout-column layout-align-start-center">
             <Input type="text" dot="hidden" placeholder="Name" />
             <Input type="text" dot="hidden" placeholder="Last name" />

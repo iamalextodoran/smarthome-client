@@ -11,8 +11,8 @@ export default class Weather extends Component {
       bit: '',
       city: 'Baia-Mare',
     };
-    
-    fetch(`http://localhost:3000/users/1`)
+
+    fetch(`/users/12`)
       .then(response => response.json())
       .then(data => this.setState({ city: data.city }))
   }
@@ -26,12 +26,10 @@ export default class Weather extends Component {
   render() {
     return (
       <div className="card">
-
         <div className="layout-column layout-align-center-center">
           <h2>{this.state.bit.city_name}</h2>
           <p style={{ marginTop: "-25px" }}>{this.state.bit.country_code}</p>
         </div>
-
         <div className="layout-row layout-align-space-between-center" style={{ marginTop: "-70px" }}>
           <div className="layout-column layout-align-center-center">
             <img src={"https://www.weatherbit.io/static/img/icons/" + this.state.weather.icon + ".png"} alt={this.state.weather.description} width="80px" />
@@ -43,7 +41,6 @@ export default class Weather extends Component {
             <p style={{ marginTop: "-25px" }}>Feels like {this.state.bit.app_temp} °C</p>
           </div>
         </div>
-
       </div>
     )
   }

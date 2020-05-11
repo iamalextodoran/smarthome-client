@@ -15,7 +15,7 @@ export default class Temperature extends Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/users/1`)
+    fetch(`/users/12`)
       .then(response => response.json())
       .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
   }

@@ -8,9 +8,8 @@ export default class Login extends Component {
   render() {
     return (
       <div className="layout-column layout-align-center-center" style={{ height: "70vh" }}>
-        <h1>Log in page</h1>
         <div className="card" style={{ width: "21em" }}>
-          <p style={{ paddingLeft: "40px", marginBottom: "-10px", paddingTop: "30px" }}>Enter your credentials</p>
+          <h1>Enter your credentials</h1>
           <div className="content layout-column layout-align-start-center">
             <Input type="text" dot="success" placeholder="Username" />
             <Input type="password" dot="danger" placeholder="Password" />

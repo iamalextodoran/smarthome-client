@@ -19,7 +19,7 @@ export default class Room extends Component {
   }
   
   componentDidMount() {
-    fetch(`http://localhost:3000/rooms`)
+    fetch(`/rooms`)
       .then(response => response.json())
       .then(data => this.setState({rooms: data}))
   }
