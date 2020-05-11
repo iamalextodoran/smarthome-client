@@ -5,6 +5,10 @@
   --primary-color-hover: #ff6933;
   --accent-color: deeppink;
   --accent-color-hover: rgb(255, 20, 147, 0.8);
+  --white-theme: #ecf0f3;
+  --white-theme-hover: #e8ecee;
+  --dark-theme: #212121;
+  --dark-theme-hover: #1b1b1b;
 }
 
 html {
@@ -14,7 +18,7 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #ecf0f3;
+  background: var(--white-theme);
   margin: 25px 5em;
 }
 
@@ -119,7 +123,7 @@ blockquote {
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: var(--accent-color);;
+  background: var(--accent-color);
 }
 //////////////////////////////
 ////                      ////
@@ -229,11 +233,11 @@ $align-positions: (
 }
 
 .dark {
-  background: #212121;
+  background: var(--dark-theme);
   color: rgba(255, 255, 255, 0.9);
 
   body {
-    background: #212121;
+    background: var(--dark-theme);
     color: rgba(255, 255, 255, 0.9);
   }
 
@@ -247,58 +251,58 @@ $align-positions: (
   }
 
   .m_button_not_raised {
-    background: #212121;
+    background: var(--dark-theme);
     color: white;
     &:active {
-      background: #212121;
+      background: var(--dark-theme);
     }
     &:hover {
-      background: #1b1b1b;
+      background: var(--dark-theme-hover);
     }
   }
 
   .m_button {
-    background: #212121;
+    background: var(--dark-theme);
     color: white;
     box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
-      -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
-      6px 6px 5px 0px #1b1b1b;
+      -6px -6px 5px 0px rgba(51, 51, 51, 0.6),
+      9px 9px 20px 0px var(--dark-theme), 6px 6px 5px 0px var(--dark-theme-hover);
     &:hover {
       color: var(--primary-color);
-      background: #dfe4e7;
+      background: var(--white-theme-hover);
       box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
-        -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
-        6px 6px 5px 0px #1b1b1b;
+        -6px -6px 5px 0px rgba(51, 51, 51, 0.6),
+        9px 9px 20px 0px var(--dark-theme), 6px 6px 5px 0px var(--dark-theme-hover);
     }
     &:active {
-      background: #212121;
+      background: var(--dark-theme);
       box-shadow: -9px -9px 20px 0px rgba(51, 51, 51, 0.6),
-        -6px -6px 5px 0px rgba(51, 51, 51, 0.6), 9px 9px 20px 0px #212121,
-        6px 6px 5px 0px #1b1b1b;
+        -6px -6px 5px 0px rgba(51, 51, 51, 0.6),
+        9px 9px 20px 0px var(--dark-theme), 6px 6px 5px 0px var(--dark-theme-hover);
     }
   }
 
   .card {
-    background: #212121;
+    background: var(--dark-theme);
     box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
       -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
-      7px 7px 20px 0px rgba(255, 255, 255, 0.13),
+      7px 7px 20px 0px rgba(255, 255, 255, 0.05),
       4px 4px 5px 0px rgba(255, 255, 255, 0.067);
     &:hover {
       background: #1d1d1d;
       box-shadow: -9px -9px 20px 0px rgba(0, 0, 0, 0.6),
         -6px -6px 5px 0px rgba(0, 0, 0, 0.6),
-        9px 9px 20px 0px rgba(255, 255, 255, 0.13),
+        9px 9px 20px 0px rgba(255, 255, 255, 0.05),
         6px 6px 5px 0px rgba(255, 255, 255, 0.067);
     }
   }
   .toast {
     box-shadow: -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
       -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
-      7px 7px 20px 0px rgba(255, 255, 255, 0.13),
+      7px 7px 20px 0px rgba(255, 255, 255, 0.05),
       4px 4px 5px 0px rgba(255, 255, 255, 0.067);
     .frame {
-      background: #212121;
+      background: var(--dark-theme);
       box-shadow: inset -7px -7px 20px 0px rgba(0, 0, 0, 0.6),
         inset -4px -4px 5px 0px rgba(0, 0, 0, 0.6),
         inset 4px 4px 5px 0px rgba(255, 255, 255, 0.067);
@@ -306,34 +310,35 @@ $align-positions: (
   }
   .toggle-row {
     .toggle {
-      box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b,
-        4px 4px 4px 0px #1b1b1b inset, -4px -4px 4px 0px #212121 inset;
+      box-shadow: -8px -4px 8px 0px var(--dark-theme), 8px 4px 12px 0px var(--dark-theme-hover),
+        4px 4px 4px 0px var(--dark-theme-hover) inset, -4px -4px 4px 0px var(--dark-theme) inset;
 
       .indicator {
-        background: #ecf0f3;
-        box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b;
+        background: var(--white-theme);
+        box-shadow: -8px -4px 8px 0px var(--dark-theme),
+          8px 4px 12px 0px var(--dark-theme-hover);
       }
       .indicator:hover {
-        background: #1b1b1b;
+        background: var(--dark-theme-hover);
       }
     }
   }
 
   .label {
     .indicator {
-      box-shadow: -8px -4px 8px 0px #212121, 8px 4px 12px 0px #1b1b1b;
+      box-shadow: -8px -4px 8px 0px var(--dark-theme), 8px 4px 12px 0px var(--dark-theme-hover);
     }
     .indicator:hover {
       background: #d3d7da;
     }
 
     .indicator::before {
-      box-shadow: -4px -2px 4px 0px #212121, 4px 2px 8px 0px #1b1b1b;
+      box-shadow: -4px -2px 4px 0px var(--dark-theme), 4px 2px 8px 0px var(--dark-theme-hover);
     }
 
     .indicator::after {
-      background: #212121;
-      box-shadow: -4px -2px 4px 0px #212121, 4px 2px 8px 0px #1b1b1b;
+      background: var(--dark-theme);
+      box-shadow: -4px -2px 4px 0px var(--dark-theme), 4px 2px 8px 0px var(--dark-theme-hover);
     }
   }
 
@@ -351,16 +356,18 @@ $align-positions: (
   }
 
   .field {
-    background: #212121;
-    box-shadow: 6px 6px 6px 0px #1b1b1b inset, -6px -6px 6px 0px #212121 inset;
+    background: var(--dark-theme);
+    box-shadow: 6px 6px 6px 0px var(--dark-theme-hover) inset,
+      -6px -6px 6px 0px var(--dark-theme) inset;
 
     &:hover,
     &:focus {
-      background: #1b1b1b;
+      background: var(--dark-theme-hover);
     }
 
     &:focus {
-      box-shadow: 4px 4px 4px 0px #212121 inset, -4px -4px 4px 0px #212121 inset;
+      box-shadow: 4px 4px 4px 0px var(--dark-theme) inset,
+        -4px -4px 4px 0px var(--dark-theme) inset;
     }
   }
 
@@ -379,7 +386,7 @@ $align-positions: (
   }
 
   .dropdown-content {
-    background: #1b1b1b;
+    background: var(--dark-theme-hover);
     box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.01);
   }
 
@@ -392,10 +399,10 @@ $align-positions: (
   }
 
   .dropdown-content a:hover {
-    background: #212121;
+    background: var(--dark-theme);
   }
 
   .dropdown:hover .m_button_not_raised {
-    background: #1b1b1b;
+    background: var(--dark-theme-hover);
   }
 }

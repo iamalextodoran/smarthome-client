@@ -1,7 +1,3 @@
-:root {
-  --primary-color: coral;
-}
-
 .m_button {
   font-family: "Roboto";
   font-size: 14px;
@@ -9,19 +5,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 50px;
   min-width: 100px;
   width: 100%;
   height: 50px;
   cursor: pointer;
-  background-color: #ecf0f3;
-  // background: linear-gradient(145deg, #d4d8db, #fdffff);
+  background-color: var(--white-theme);
   margin: 5px;
   outline: none;
   border: none;
   border-radius: 10px;
-  // box-shadow fallback
   box-shadow: -7px -7px 20px 0px rgba(255,255,255,0.60), 
               -4px -4px 5px 0px rgba(255,255,255,0.60),
               7px 7px 20px 0px rgba(0,0,0,0.13), 
@@ -32,7 +25,7 @@
 
   &:hover {
     color: var(--primary-color);
-    background: #dfe4e7;
+    background: var(--white-theme-hover);
     box-shadow: -9px -9px 20px 0px #fff9,
                 -6px -6px 5px 0px #fff9,
                 9px 9px 20px 0px #0002,
@@ -93,13 +86,12 @@
 
   &.primary {
     background: var(--primary-color);
-    // background: linear-gradient(145deg, #e67248, #ff8856);
     color: white;
   }
 
   &.primary:hover {
     background: var(--primary-color-hover);
-    color: #dfe4e7;
+    color: var(--white-theme-hover);
   }
 
   &:active {
@@ -115,13 +107,12 @@
   }
   &.accent {
     background: var(--accent-color);
-    // background: linear-gradient(145deg, #e61284, #ff159d);
     color: white;
   }
 
   &.accent:hover {
     background: var(--accent-color-hover);
-    color: #dfe4e7;
+    color: var(--white-theme-hover);
   }
 
   &.warn {
@@ -131,13 +122,11 @@
 
   &.warn:hover {
     background: #e6c300;
-    // background: linear-gradient(145deg, #e6c200, #ffe600);
-    color: #dfe4e7;
+    color: var(--white-theme-hover);
   }
 
   &.disabled {
     background: lightgrey;
-    // background: linear-gradient(145deg, #bebebe, #e2e2e2);
     box-shadow: -4px -4px 20px 0px #fff9, -2px -2px 5px 0px #fff9,
       4px 4px 20px 0px #0002, 2px 2px 5px 0px #0001;
     color: grey;
@@ -193,7 +182,7 @@
   }
 
   &:hover {
-    background: #dfe4e7;
+    background: var(--white-theme-hover);
   }
 
   &:active {

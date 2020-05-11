@@ -5,7 +5,7 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 20px;
-  background: #ecf0f3;
+  background: var(--white-theme);
   transition: background 0.3s;
   position: relative;
   padding: 20px;
@@ -14,7 +14,7 @@
               7px 7px 20px 0px rgba(0,0,0,0.13), 
               4px 4px 5px 0px rgba(0,0,0,0.067);
   &:hover {
-    background: #e8ecee;
+    background: var(--white-theme-hover);
     box-shadow: -9px -9px 20px 0px rgba(255,255,255,0.60),
                 -6px -6px 5px 0px rgba(255,255,255,0.60),
                 9px 9px 20px 0px rgba(0,0,0,0.13),

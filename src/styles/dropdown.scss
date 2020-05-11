@@ -7,7 +7,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ecf0f3;
+  background-color: var(--white-theme);
   border-radius: 15px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #dfe4e7;
+  background-color: var(--white-theme-hover);
 }
 
 .dropdown:hover .dropdown-content {
@@ -35,5 +35,5 @@
 }
 
 .dropdown:hover .m_button_not_raised {
-  background-color: #dfe4e7;
+  background-color: var(--white-theme-hover);
 }
