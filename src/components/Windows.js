@@ -30,7 +30,7 @@ export default class Blinds extends Component {
 					<div className="">
 						{this.state.windows.map((window) => (
 							<div key={window.id}>
-								<p style={{ color: "coral" }}>In room {window.roomId}</p>
+								<p style={{ color: "var(--primary-color)" }}>In room {window.roomId}</p>
 								{window.value === 0 ? <p>Windows closed</p> : <p>Windows open</p>}
 							</div>
 						))}

@@ -26,7 +26,7 @@ export default class Blinds extends Component {
           <div className="">
             {this.state.temperatures.map((temperature) => (
               <div key={temperature.id}>
-                <p style={{ color: "coral" }}>In room {temperature.roomId}</p>
+                <p style={{ color: "var(--primary-color)" }}>In room {temperature.roomId}</p>
                 <p>Temperature is {temperature.value} °C</p>
               </div>
             ))}

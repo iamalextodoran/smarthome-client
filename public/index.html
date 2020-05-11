@@ -15,15 +15,18 @@
     <div id="root"></div>
     <script>
       let darkMode = localStorage.getItem('darkMode');
-  
-      const enableDarkMode = () => {
-        document.body.classList.add('darkMode');
-        localStorage.setItem('darkMode', 'enabled');
-      }
-  
-      if (darkMode === 'enabled') {
-        enableDarkMode();
-      }
+      darkMode === 'enabled' ? document.body.classList.add('darkMode'): document.body.classList.remove('darkMode');
+      darkMode = localStorage.getItem('darkMode');
+
+      let primaryColor = localStorage.getItem('primaryColor'); 
+      let primaryColorHover = localStorage.getItem('primaryColorHover'); 
+      let accentColor = localStorage.getItem('accentColor'); 
+      let accentColorHover = localStorage.getItem('accentColorHover'); 
+      document.documentElement.style.setProperty("--primary-color", primaryColor);
+      document.documentElement.style.setProperty("--primary-color-hover", primaryColorHover);
+      document.documentElement.style.setProperty("--accent-color", accentColor);
+      document.documentElement.style.setProperty("--accent-color-hover", accentColorHover);
+
     </script>
   </body>
 </html>

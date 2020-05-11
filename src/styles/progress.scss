@@ -32,7 +32,7 @@
     .fill {
       width: 0%;
       height: 100%;
-      background: coral;
+      background: var(--primary-color);
       
       // text
       font-weight: 200;
@@ -46,7 +46,7 @@
       transform: translateX(0px);
 
       &.indeterminate {
-        background: linear-gradient(90deg, deeppink, deepskyblue);
+        background: linear-gradient(90deg, var(--accent-color), deepskyblue);
         transition: width 0.05s;
         // transform: translateX(100px);
       }

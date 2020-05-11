@@ -47,8 +47,7 @@
   }
   
   .indicator::before {
-    background: coral;
-    background: linear-gradient(145deg, #e67248, #ff8856);
+    background: var(--primary-color);
     box-shadow: -4px -2px 4px 0px #d1d9e6,
                 4px 2px 8px 0px #fff;
   }

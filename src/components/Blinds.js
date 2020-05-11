@@ -29,7 +29,7 @@ export default class Blinds extends Component {
 					<div className="">
 						{this.state.blinds.map((blind) => (
 							<div key={blind.id}>
-								<p style={{ color: "coral" }}>In room {blind.roomId}</p>
+								<p style={{ color: "var(--primary-color)" }}>In room {blind.roomId}</p>
 								{blind.value === 0 ? <p>Blinds closed</p> : <p>Blinds open</p>}
 							</div>
 						))}

@@ -43,13 +43,11 @@
     
     .state:checked ~ .indicator {
       transform: translate3d(25%, 0, 0);
-      background: coral;
-      background: linear-gradient(145deg, #e67248, #ff8856);
+      background: var(--primary-color);
     }
     
     .state:checked:hover ~ .indicator {
-      background: #ff6933;
-      background: linear-gradient(145deg, #e65f2e, #ff7037);
+      background: var(--primary-color-hover);
     }
   }
 }

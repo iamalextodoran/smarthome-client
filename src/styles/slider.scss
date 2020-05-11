@@ -2,7 +2,7 @@
   width: 100%;
 }
 .slider-bar {
-  background: coral;
+  background: var(--primary-color);
   height: 5px;
   margin-bottom: -15px;
   &.shadow {
@@ -26,8 +26,7 @@
   margin-right: 10px;
 
   &::-webkit-slider-thumb:hover {
-    background: #ff6933;
-    background: linear-gradient(145deg, #e65f2e, #ff7037);
+    background: var(--primary-color-hover);
   }
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -35,16 +34,14 @@
     width: 25px;
     height: 25px;
     border-radius: 50px;
-    background: coral;
-    background: linear-gradient(145deg, #e67248, #ff8856);
+    background: var(--primary-color);
     cursor: pointer;
   }
   &::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50px;
-    background: coral;
-    background: linear-gradient(145deg, #e67248, #ff8856);
+    background: var(--primary-color);
     cursor: pointer;
   }
 }

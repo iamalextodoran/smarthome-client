@@ -1,3 +1,7 @@
+:root {
+  --primary-color: coral;
+}
+
 .m_button {
   font-family: "Roboto";
   font-size: 14px;
@@ -27,7 +31,7 @@
   transition: color 0.4s;
 
   &:hover {
-    color: coral;
+    color: var(--primary-color);
     background: #dfe4e7;
     box-shadow: -9px -9px 20px 0px #fff9,
                 -6px -6px 5px 0px #fff9,
@@ -88,13 +92,13 @@
   }
 
   &.primary {
-    background: coral;
+    background: var(--primary-color);
     // background: linear-gradient(145deg, #e67248, #ff8856);
     color: white;
   }
 
   &.primary:hover {
-    background: #ff6933;
+    background: var(--primary-color-hover);
     color: #dfe4e7;
   }
 
@@ -110,13 +114,13 @@
                 inset 4px 4px 5px 0px rgba(0,0,0,0.067);
   }
   &.accent {
-    background: deeppink;
+    background: var(--accent-color);
     // background: linear-gradient(145deg, #e61284, #ff159d);
     color: white;
   }
 
   &.accent:hover {
-    background: #e6007a;
+    background: var(--accent-color-hover);
     color: #dfe4e7;
   }
 
@@ -167,7 +171,7 @@
   box-shadow: none;
 
   &.primary {
-    color: coral;
+    color: var(--primary-color);
   }
 
   &.warn {

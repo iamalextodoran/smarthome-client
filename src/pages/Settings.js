@@ -8,16 +8,15 @@ import '../styles/card.scss'
 import '../styles/user.scss'
 
 export default class Settings extends Component {
-  state = {
-    darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
-    showPrimary: false,
-    showAccent: false,
-    primaryColor: 'coral',
-    accentColor: 'deeppink',
-  }
-  
-  componentDidMount() {
-    localStorage.getItem('darkMode') === 'true' ? this.setState({darkModeOn: true}) : this.setState({darkModeOn: false});
+  constructor(props) {
+    super(props);
+    this.state = {
+      darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
+      showPrimary: false,
+      showAccent: false,
+      primaryColor: localStorage.getItem('primaryColor') || 'coral',
+      accentColor: localStorage.getItem('accentColor') || 'deeppink',
+    }
   }
 
   displayPrimaryColor = () => {
@@ -33,11 +32,19 @@ export default class Settings extends Component {
   handlePrimaryColor = (color) => {
     this.setState({ primaryColor: color.hex });
     this.setState({ showPrimary: false });
+    localStorage.setItem('primaryColor', color.hex);
+    localStorage.setItem('primaryColorHover', `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.8)`);
+    document.documentElement.style.setProperty("--primary-color", color.hex);
+    document.documentElement.style.setProperty("--primary-color-hover", `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.8)`);
   }
 
   handleAccentColor = (color) => {
     this.setState({ accentColor: color.hex });
     this.setState({ showAccent: false });
+    localStorage.setItem('accentColor', color.hex);
+    localStorage.setItem('accentColorHover', `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.8)`);
+    document.documentElement.style.setProperty("--accent-color", color.hex);
+    document.documentElement.style.setProperty("--accent-color-hover", `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.8)`);
   };
 
   onPrimaryColorHover = (color) => {
