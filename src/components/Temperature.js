@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import '../styles/card.scss'
 import Icon from './Icon'
-import Button from './Button'
 import Radio from './Radio'
+import Toast, { notify } from './Toast';
 
 export default class Temperature extends Component {
   state = {
@@ -14,18 +14,18 @@ export default class Temperature extends Component {
     setTemperatureNight: 22,
   }
 
-  componentWillMount() {
-    fetch(`/users/12`)
-      .then(response => response.json())
-      .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
-  }
+  // componentWillMount() {
+  //   fetch(`/users/1`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
+  // }
 
   handleClick = () => {
     console.log(this.props.value)
   }
 
   changeTemperatureMode = (e) => {
-    const value = e.target.innerHTML === '' || e.target.innerHTML.length >= 6 ? this.state.selectedMode : e.target.innerHTML;
+    let value = e.target.innerHTML === '' || e.target.innerHTML.length >= 6 ? this.state.selectedMode : e.target.innerHTML;
     let setThis = '';
 
     this.setState({ selectedMode: value });
@@ -38,14 +38,16 @@ export default class Temperature extends Component {
       setThis = this.state.setTemperatureNight;
     }
     this.setState({ setTemperature: setThis });
+    console.log(value)
+    notify(value, "primary")
   }
 
   setThermometerColor = () => {
     if (this.state.selectedMode === 'Day') {
-      return "deeppink"
+      return "deepskyblue"
     } else if (this.state.selectedMode === 'Night') {
       return "crimson"
-    } else return "deepskyblue"
+    } else return "grey"
   }
 
   render() {
@@ -62,6 +64,7 @@ export default class Temperature extends Component {
           <Radio checked={this.state.selectedMode === 'Day'} value="Day" onClick={this.changeTemperatureMode} />
           <Radio checked={this.state.selectedMode === 'Eco'} value="Eco" onClick={this.changeTemperatureMode} />
           <Radio checked={this.state.selectedMode === 'Night'} value="Night" onClick={this.changeTemperatureMode} />
+          <Toast />
         </div>
       </div>
     )

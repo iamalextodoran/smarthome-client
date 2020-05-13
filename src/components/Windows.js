@@ -12,29 +12,29 @@ export default class Blinds extends Component {
 		]
 	}
 
-	componentDidMount() {
-    fetch(`/devices/windows`)
-      .then(response => response.json())
-      .then(data => this.setState({windows: data}))
-	}
-	
+	// componentDidMount() {
+	// 	fetch(`/devices/windows`)
+	// 		.then(response => response.json())
+	// 		.then(data => this.setState({ windows: data }))
+	// }
+
 	render() {
 		return (
 			<div className="card">
-				<div className="content">
-					<h1>Windows</h1>
+				<h1>Windows</h1>
+				<div className="">
+					{this.state.windows.map((window) => (
+						<div key={window.id}>
+							<p style={{ color: "var(--primary-color)" }}>In room {window.roomId}</p>
+							{window.value === 0 ? <p>Windows closed</p> : <p>Windows open</p>}
+						</div>
+					))}
+				</div>
+				<div className="interactions">
 					<button className="m_button accent">
 						<Icon icon="fas fa-times" />
             Close all windows
           </button>
-					<div className="">
-						{this.state.windows.map((window) => (
-							<div key={window.id}>
-								<p style={{ color: "var(--primary-color)" }}>In room {window.roomId}</p>
-								{window.value === 0 ? <p>Windows closed</p> : <p>Windows open</p>}
-							</div>
-						))}
-					</div>
 				</div>
 			</div>
 		)

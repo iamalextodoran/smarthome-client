@@ -11,29 +11,29 @@ export default class Blinds extends Component {
 		]
 	}
 
-	componentDidMount() {
-    fetch(`/devices/blinds`)
-      .then(response => response.json())
-      .then(data => this.setState({blinds: data}))
-  }
+	// componentDidMount() {
+	// 	fetch(`/devices/blinds`)
+	// 		.then(response => response.json())
+	// 		.then(data => this.setState({ blinds: data }))
+	// }
 
 	render() {
 		return (
 			<div className="card">
-				<div className="content">
-					<h1>Blinds</h1>
+				<h1>Blinds</h1>
+				<div className="">
+					{this.state.blinds.map((blind) => (
+						<div key={blind.id}>
+							<p style={{ color: "var(--primary-color)" }}>In room {blind.roomId}</p>
+							{blind.value === 0 ? <p>Blinds closed</p> : <p>Blinds open</p>}
+						</div>
+					))}
+				</div>
+				<div className="interactions">
 					<button className="m_button accent">
 						<Icon icon="fas fa-times" />
             Close all blinds
           </button>
-					<div className="">
-						{this.state.blinds.map((blind) => (
-							<div key={blind.id}>
-								<p style={{ color: "var(--primary-color)" }}>In room {blind.roomId}</p>
-								{blind.value === 0 ? <p>Blinds closed</p> : <p>Blinds open</p>}
-							</div>
-						))}
-					</div>
 				</div>
 			</div>
 		)

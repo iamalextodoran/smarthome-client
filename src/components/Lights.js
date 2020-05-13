@@ -5,54 +5,76 @@ import Icon from './Icon'
 export default class Lights extends Component {
   state = {
     lights: [
-      { id: 3, name: "Light 1", roomId: 1, value: 80, warm: 30 },
-      { id: 4, name: "Light 2", roomId: 1, value: 80, warm: 30 },
-      { id: 16, name: "Light 1", roomId: 2, value: 30, warm: 10 },
-      { id: 5, name: "Light 3", roomId: 1, value: 80, warm: 30 },
-      { id: 36, name: "Light 1", roomId: 3, value: 30, warm: 60 },
-      { id: 6, name: "Light 4", roomId: 1, value: 80, warm: 30 },
-      { id: 26, name: "Light 2", roomId: 2, value: 30, warm: 20 },
-      { id: 56, name: "Light 3", roomId: 2, value: 30, warm: 60 },
+      {
+        id: 1,
+        name: "Main light",
+        type: "Light",
+        description: "",
+        value: 100,
+        warm: 30,
+        createdAt: "2020-05-11T16:51:56.982Z",
+        updatedAt: "2020-05-11T16:51:56.982Z",
+        RoomId: 1
+      },
+      {
+        id: 5,
+        name: "Main light",
+        type: "Light",
+        description: "",
+        value: 100,
+        warm: 30,
+        createdAt: "2020-05-11T16:51:56.982Z",
+        updatedAt: "2020-05-11T16:51:56.982Z",
+        RoomId: 2
+      },
+      {
+        id: 9,
+        name: "Main light",
+        type: "Light",
+        description: "",
+        value: 100,
+        warm: 30,
+        createdAt: "2020-05-11T16:51:56.982Z",
+        updatedAt: "2020-05-11T16:51:56.982Z",
+        RoomId: 3
+      }
     ]
   }
 
-  componentDidMount() {
-    fetch(`/devices/lights`)
-      .then(response => response.json())
-      .then(data => this.setState({lights: data}))
-  }
+  // componentDidMount() {
+  //   fetch(`/devices/lights`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ lights: data }))
+  // }
 
-  handleLights = () => {
+  handleLightsBrightness = () => {
     this.state.lights.map((light) => light.value = 0)
   }
 
-  eachUniqueRoom = () => {
-    const rooms = [...new Set(this.state.lights.map((room) => room.roomId))];
-    rooms.forEach(room => (
-      this.state.lights.filter(light => light.roomId === room).map(light => console.log())
-    ))
+  handleLightsWarmness = () => {
+    this.state.lights.map((light) => light.value = 0)
   }
 
   render() {
     return (
       <div className="card">
-        <div className="content">
-          <div>
-            <h1>Lights</h1>
-            <button className="m_button accent" onClick={this.handleLights}>
-              <Icon icon="fas fa-power-off" />
-							All lights warm
-							</button>
-          </div>
-          <div className="layout-row layout-align-space-between-start flex-wrap">
-            {this.state.lights.map((light) => (
-              <div key={light.id} style={{ minWidth: "200px", flex: "50%" }}>
-                <p>{light.name}</p>
-                <Slider description="brightness" step="10" value={light.value} color="orange" />
-                <Slider description="warmth" step="10" value={light.warm} color="hotpink" />
-              </div>
-            ))}
-          </div>
+        <h1>Lights</h1>
+        <div className="layout-row layout-align-space-between-start flex-wrap">
+          {this.state.lights.map((light) => (
+            <div key={light.id} style={{ minWidth: "200px", flex: "50%" }}>
+              <p>{light.name}</p>
+              <Slider description="brightness" step="10" value={light.value} />
+              <Slider description="warmth" step="10" value={light.warm} />
+            </div>
+          ))}
+        </div>
+        <div className="interactions">
+          <button className="m_button accent" onClick={this.handleLightsBrightness}>
+            <Icon icon="fas fa-times" />Turn off all lights
+            </button>
+          <button className="m_button accent" onClick={this.handleLightsWarmness}>
+            <Icon icon="fas fa-fire" />Turn warm all lights
+            </button>
         </div>
       </div>
     )

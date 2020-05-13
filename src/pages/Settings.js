@@ -85,39 +85,37 @@ export default class Settings extends Component {
 
           <div className="layout-column layout-align-center-center" style={{ width: "100%", borderSize: "border-box" }}>
             <div className="card" style={{ minWidth: "275px", minHeight: "275px" }}>
-              <div className="content">
-                <h2>Appereance settings</h2>
+              <h2>Appereance settings</h2>
 
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>Dark mode</p>
-                  </div>
-                  <div>
-                    <Toggle onChange={this.darkModeToggle} value={this.state.darkModeOn} />
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>Dark mode</p>
+                </div>
+                <div>
+                  <Toggle onChange={this.darkModeToggle} value={this.state.darkModeOn} />
+                </div>
+              </div>
+
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>Primary color</p>
+                </div>
+                <div>
+                  <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.primaryColor, marginRight: "25px" }} onClick={this.displayPrimaryColor}></div>
+                  <div className="colorPicker" style={{ position: "absolute", display: this.state.showPrimary ? "block" : "none", zIndex: 10, right: 0 }}>
+                    <GithubPicker triangle="hide" color={this.state.primaryColor} onChangeComplete={this.handlePrimaryColor} onSwatchHover={this.onPrimaryColorHover} />
                   </div>
                 </div>
+              </div>
 
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>Primary color</p>
-                  </div>
-                  <div>
-                    <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.primaryColor, marginRight: "25px" }} onClick={this.displayPrimaryColor}></div>
-                    <div className="colorPicker" style={{ position: "absolute", display: this.state.showPrimary ? "block" : "none", zIndex: 10, right: 0 }}>
-                      <GithubPicker triangle="hide" color={this.state.primaryColor} onChangeComplete={this.handlePrimaryColor} onSwatchHover={this.onPrimaryColorHover} />
-                    </div>
-                  </div>
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>Accent color</p>
                 </div>
-
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>Accent color</p>
-                  </div>
-                  <div>
-                    <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.accentColor, marginRight: "25px" }} onClick={this.displayAccentColor}></div>
-                    <div className="colorPicker" style={{ position: "absolute", display: this.state.showAccent ? "block" : "none", zIndex: 10, right: 0 }}>
-                      <GithubPicker triangle="hide" color={this.state.accentColor} onChangeComplete={this.handleAccentColor} onSwatchHover={this.onAccentColorHover} />
-                    </div>
+                <div>
+                  <div style={{ borderRadius: "5px", width: "60px", height: "30px", cursor: "pointer", background: this.state.accentColor, marginRight: "25px" }} onClick={this.displayAccentColor}></div>
+                  <div className="colorPicker" style={{ position: "absolute", display: this.state.showAccent ? "block" : "none", zIndex: 10, right: 0 }}>
+                    <GithubPicker triangle="hide" color={this.state.accentColor} onChangeComplete={this.handleAccentColor} onSwatchHover={this.onAccentColorHover} />
                   </div>
                 </div>
               </div>
@@ -126,40 +124,38 @@ export default class Settings extends Component {
             </div>
 
             <div className="card" style={{ minWidth: "275px", minHeight: "275px" }}>
-              <div className="content">
-                <h2>User settings</h2>
+              <h2>User settings</h2>
 
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>Picture</p>
-                  </div>
-                  <div className="profile" style={{ width: "106px", height: "106px" }} >
-                    <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" style={{ width: "100px", height: "100px" }} />
-                  </div>
-                  <div>
-                  </div>
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>Picture</p>
                 </div>
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>First name</p>
-                  </div>
-                  <Input />
+                <div className="profile" style={{ width: "106px", height: "106px" }} >
+                  <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" style={{ width: "100px", height: "100px" }} />
                 </div>
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>Last name</p>
-                  </div>
-                  <Input />
+                <div>
                 </div>
-                <div className="layout-row layout-align-space-between-center">
-                  <div style={{ minWidth: "100px" }}>
-                    <p>City name</p>
-                  </div>
-                  <Input />
-                </div>
-                <br></br>
-                <br></br>
               </div>
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>First name</p>
+                </div>
+                <Input />
+              </div>
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>Last name</p>
+                </div>
+                <Input />
+              </div>
+              <div className="layout-row layout-align-space-between-center">
+                <div style={{ minWidth: "100px" }}>
+                  <p>City name</p>
+                </div>
+                <Input />
+              </div>
+              <br></br>
+              <br></br>
             </div>
           </div>
         </div>

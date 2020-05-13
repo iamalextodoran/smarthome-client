@@ -8,7 +8,7 @@ export default class Register extends Component {
       <div className="layout-column layout-align-center-center">
         <div className="card" style={{ width: "21em", paddingBottom: "50px" }}>
           <h1>Enter your data</h1>
-          <div className="content layout-column layout-align-start-center">
+          <div className="layout-column layout-align-start-center">
             <Input type="text" dot="hidden" placeholder="Name" />
             <Input type="text" dot="hidden" placeholder="Last name" />
             <Input type="text" dot="hidden" placeholder="Email" />

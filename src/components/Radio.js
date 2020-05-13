@@ -15,7 +15,7 @@ export default class Radio extends Component {
           onChange={this.props.onChange}
         />
         <label className="label">
-          <div className="indicator"></div> 
+          <div className="indicator"></div>
           <span className="text">{this.props.value}</span>
         </label>
       </div>

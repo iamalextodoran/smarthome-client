@@ -12,9 +12,9 @@ export default class Weather extends Component {
       city: 'Baia-Mare',
     };
 
-    fetch(`/users/12`)
-      .then(response => response.json())
-      .then(data => this.setState({ city: data.city }))
+    // fetch(`/users/1`)
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ city: data.city }))
   }
 
   componentDidMount() {

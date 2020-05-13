@@ -11,26 +11,24 @@ export default class Blinds extends Component {
     ]
   }
 
-  componentDidMount() {
-    fetch(`/devices/temperatures`)
-      .then(response => response.json())
-      .then(data => this.setState({temperatures: data}))
-  }
+  // componentDidMount() {
+  //   fetch(`/devices/temperatures`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ temperatures: data }))
+  // }
 
   render() {
     return (
       <div className="card">
-        <div className="content">
-          <h1>Temperatures</h1>
-          <p>control each temperature mode from here + scheduled </p>
-          <div className="">
-            {this.state.temperatures.map((temperature) => (
-              <div key={temperature.id}>
-                <p style={{ color: "var(--primary-color)" }}>In room {temperature.roomId}</p>
-                <p>Temperature is {temperature.value} °C</p>
-              </div>
-            ))}
-          </div>
+        <h1>Temperatures</h1>
+        <p>control each temperature mode from here + scheduled </p>
+        <div className="">
+          {this.state.temperatures.map((temperature) => (
+            <div key={temperature.id}>
+              <p style={{ color: "var(--primary-color)" }}>In room {temperature.roomId}</p>
+              <p>Temperature is {temperature.value} °C</p>
+            </div>
+          ))}
         </div>
       </div>
     )

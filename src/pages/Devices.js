@@ -18,7 +18,7 @@ export default class Devices extends Component {
 						<Lights />
 						<Blinds />
 						<Windows />
-						<Temperatures />
+						{/* <Temperatures /> */}
 					</div>
 				</div>
 				<Footer />
