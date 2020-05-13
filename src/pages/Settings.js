@@ -154,8 +154,9 @@ export default class Settings extends Component {
                 </div>
                 <Input />
               </div>
-              <br></br>
-              <br></br>
+              <div className="interactions">
+                <button className="m_button medium primary">Submit</button>
+              </div>
             </div>
           </div>
         </div>
