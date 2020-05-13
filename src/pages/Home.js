@@ -155,7 +155,7 @@ export default class Home extends Component {
               name: "Blinds",
               type: "Blind",
               description: "",
-              value: 30,
+              value: 0,
               warm: 0,
               createdAt: "2020-05-11T16:51:56.982Z",
               updatedAt: "2020-05-11T16:51:56.982Z",

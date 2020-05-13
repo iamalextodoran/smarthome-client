@@ -10,10 +10,171 @@ export default class Rooms extends Component {
     super(props);
     this.state = {
       rooms: [
-        { id: 1, description: "This is a room, one of a kind, unique 1", image: "https://r-cf.bstatic.com/images/hotel/max1024x768/219/219438705.jpg", name: "Big room" },
-        { id: 2, description: "This is a room, one of a kind, unique 2", image: "https://thediyplaybook.com/wp-content/uploads/2019/05/guest-room-42.jpg", name: "Small room" },
-        { id: 4, description: "This is a room, one of a kind, unique 3", image: "https://r-cf.bstatic.com/images/hotel/max1024x768/142/142065825.jpg", name: "Living room" },
-        { id: 6, description: "This is a room, one of a kind, unique 4", image: "https://www.thespruce.com/thmb/5o_dpOCoqBxM79wcGqWWA_qt50U=/5100x2869/smart/filters:no_upscale()/GettyImages-513040397-583b37d83df78c6f6ad71fe8.jpg", name: "Guest room" }
+        {
+          id: 1,
+          name: "Johns room",
+          description: "My bedroom",
+          image: "https://source.unsplash.com/JIUjvqe2ZHg",
+          createdAt: "2020-05-11T16:51:56.974Z",
+          updatedAt: "2020-05-11T16:51:56.974Z",
+          UserId: 1,
+          Devices: [
+            {
+              id: 1,
+              name: "Main light",
+              type: "Light",
+              description: "",
+              value: 100,
+              warm: 30,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 1
+            },
+            {
+              id: 4,
+              name: "Temperature",
+              type: "Temperature",
+              description: "",
+              value: 23,
+              warm: 20,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 1
+            },
+            {
+              id: 2,
+              name: "Blinds",
+              type: "Blind",
+              description: "",
+              value: 50,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 1
+            },
+            {
+              id: 3,
+              name: "Windows",
+              type: "Window",
+              description: "",
+              value: 50,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 1
+            }
+          ]
+        },
+        {
+          id: 2,
+          name: "Living room",
+          description: "My living room",
+          image: "https://source.unsplash.com/17NCG_wOkMY",
+          createdAt: "2020-05-11T16:51:56.974Z",
+          updatedAt: "2020-05-11T16:51:56.974Z",
+          UserId: 1,
+          Devices: [
+            {
+              id: 5,
+              name: "Main light",
+              type: "Light",
+              description: "",
+              value: 100,
+              warm: 30,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 2
+            },
+            {
+              id: 6,
+              name: "Blinds",
+              type: "Blind",
+              description: "",
+              value: 20,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 2
+            },
+            {
+              id: 8,
+              name: "Temperature",
+              type: "Temperature",
+              description: "",
+              value: 23,
+              warm: 20,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 2
+            },
+            {
+              id: 7,
+              name: "Windows",
+              type: "Window",
+              description: "",
+              value: 30,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 2
+            }
+          ]
+        },
+        {
+          id: 3,
+          name: "Guest room",
+          description: "My guest room",
+          image: "https://source.unsplash.com/gREquCUXQLI",
+          createdAt: "2020-05-11T16:51:56.974Z",
+          updatedAt: "2020-05-11T16:51:56.974Z",
+          UserId: 1,
+          Devices: [
+            {
+              id: 9,
+              name: "Main light",
+              type: "Light",
+              description: "",
+              value: 100,
+              warm: 30,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 3
+            },
+            {
+              id: 12,
+              name: "Temperature",
+              type: "Temperature",
+              description: "",
+              value: 23,
+              warm: 20,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 3
+            },
+            {
+              id: 10,
+              name: "Blinds",
+              type: "Blind",
+              description: "",
+              value: 0,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 3
+            },
+            {
+              id: 11,
+              name: "Windows",
+              type: "Window",
+              description: "",
+              value: 0,
+              warm: 0,
+              createdAt: "2020-05-11T16:51:56.982Z",
+              updatedAt: "2020-05-11T16:51:56.982Z",
+              RoomId: 3
+            }
+          ]
+        }
       ],
     }
   }
