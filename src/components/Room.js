@@ -206,6 +206,9 @@ export default class Room extends Component {
   render() {
     const idToMatch = parseInt(this.props.match.params.roomId)
     const room = this.state.rooms.filter(room => room.id === idToMatch)[0];
+    const lights = room.Devices.filter(device => device.type === "Light");
+    console.log(room);
+    console.log(lights);
 
     return (
       <React.Fragment>
