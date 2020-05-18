@@ -2,14 +2,177 @@ import React, { Component } from 'react'
 import Slider from './Slider'
 import '../styles/button.scss'
 import Icon from './Icon'
+import Toggle from './Toggle'
 
 export default class Blinds extends Component {
 	state = {
-		windows: [
-			{ id: 2, name: "Windows", roomId: 1, value: 0, warm: null },
-			{ id: 15, name: "Windows", roomId: 2, value: 0, warm: null },
-			{ id: 23, name: "Windows", roomId: 3, value: 100, warm: null },
-		]
+		rooms: [
+			{
+				id: 1,
+				name: "Johns room",
+				description: "My bedroom",
+				image: "https://source.unsplash.com/JIUjvqe2ZHg",
+				createdAt: "2020-05-11T16:51:56.974Z",
+				updatedAt: "2020-05-11T16:51:56.974Z",
+				UserId: 1,
+				Devices: [
+					{
+						id: 1,
+						name: "Main light",
+						type: "Light",
+						description: "",
+						value: 100,
+						warm: 30,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 1
+					},
+					{
+						id: 4,
+						name: "Temperature",
+						type: "Temperature",
+						description: "",
+						value: 23,
+						warm: 20,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 1
+					},
+					{
+						id: 2,
+						name: "Blinds",
+						type: "Blind",
+						description: "",
+						value: 50,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 1
+					},
+					{
+						id: 3,
+						name: "Windows",
+						type: "Window",
+						description: "",
+						value: 50,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 1
+					}
+				]
+			},
+			{
+				id: 2,
+				name: "Living room",
+				description: "My living room",
+				image: "https://source.unsplash.com/17NCG_wOkMY",
+				createdAt: "2020-05-11T16:51:56.974Z",
+				updatedAt: "2020-05-11T16:51:56.974Z",
+				UserId: 1,
+				Devices: [
+					{
+						id: 5,
+						name: "Main light",
+						type: "Light",
+						description: "",
+						value: 100,
+						warm: 30,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 2
+					},
+					{
+						id: 6,
+						name: "Blinds",
+						type: "Blind",
+						description: "",
+						value: 20,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 2
+					},
+					{
+						id: 8,
+						name: "Temperature",
+						type: "Temperature",
+						description: "",
+						value: 31,
+						warm: 20,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 2
+					},
+					{
+						id: 7,
+						name: "Windows",
+						type: "Window",
+						description: "",
+						value: 30,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 2
+					}
+				]
+			},
+			{
+				id: 3,
+				name: "Guest room",
+				description: "My guest room",
+				image: "https://source.unsplash.com/gREquCUXQLI",
+				createdAt: "2020-05-11T16:51:56.974Z",
+				updatedAt: "2020-05-11T16:51:56.974Z",
+				UserId: 1,
+				Devices: [
+					{
+						id: 9,
+						name: "Main light",
+						type: "Light",
+						description: "",
+						value: 100,
+						warm: 30,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 3
+					},
+					{
+						id: 12,
+						name: "Temperature",
+						type: "Temperature",
+						description: "",
+						value: 13,
+						warm: 20,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 3
+					},
+					{
+						id: 10,
+						name: "Blinds",
+						type: "Blind",
+						description: "",
+						value: 0,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 3
+					},
+					{
+						id: 11,
+						name: "Windows",
+						type: "Window",
+						description: "",
+						value: 0,
+						warm: 0,
+						createdAt: "2020-05-11T16:51:56.982Z",
+						updatedAt: "2020-05-11T16:51:56.982Z",
+						RoomId: 3
+					}
+				]
+			}
+		],
 	}
 
 	// componentDidMount() {
@@ -23,12 +186,18 @@ export default class Blinds extends Component {
 			<div className="card">
 				<h1>Windows</h1>
 				<div className="">
-					{this.state.windows.map((window) => (
-						<div key={window.id}>
-							<p style={{ color: "var(--primary-color)" }}>In room {window.roomId}</p>
-							{window.value === 0 ? <p>Windows closed</p> : <p>Windows open</p>}
+					{this.state.rooms.map(room => (
+						<div>
+							<p><strong>{room.name}</strong></p>
+							{room.Devices.filter(device => device.type === "Blind").map(window => (
+								<div className="layout-row layout-align-space-between-center">
+									<p>{window.name}: {window.value === 0 ? "closed" : "open"}</p>
+									<Toggle onChange={this.handleWindow} checked={window.value === 0 ? false : true} />
+								</div>
+							))}
 						</div>
-					))}
+					)
+					)}
 				</div>
 				<div className="interactions">
 					<button className="m_button accent">
