@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28f7ecd6e661d0a3d5c560fd66f9aaec",
+    "revision": "f562eb75bedd7bb32acec10307c7b395",
     "url": "/UI-SMARTHOME/index.html"
   },
   {
-    "revision": "394d09c18c1d1874793b",
-    "url": "/UI-SMARTHOME/static/css/main.4f9b06a5.chunk.css"
+    "revision": "4ac5d4668f642d8cc171",
+    "url": "/UI-SMARTHOME/static/css/main.4de6f273.chunk.css"
   },
   {
     "revision": "ee8b79df86fe776cc5cc",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/UI-SMARTHOME/static/js/2.ae9836a6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "394d09c18c1d1874793b",
+    "revision": "4ac5d4668f642d8cc171",
     "url": "/UI-SMARTHOME/static/js/main.2209ca07.chunk.js"
   },
   {
