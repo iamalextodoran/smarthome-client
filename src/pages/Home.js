@@ -100,7 +100,7 @@ export default class Home extends Component {
               name: "Temperature",
               type: "Temperature",
               description: "",
-              value: 23,
+              value: 31,
               warm: 20,
               createdAt: "2020-05-11T16:51:56.982Z",
               updatedAt: "2020-05-11T16:51:56.982Z",
@@ -144,7 +144,7 @@ export default class Home extends Component {
               name: "Temperature",
               type: "Temperature",
               description: "",
-              value: 23,
+              value: 13,
               warm: 20,
               createdAt: "2020-05-11T16:51:56.982Z",
               updatedAt: "2020-05-11T16:51:56.982Z",
@@ -199,10 +199,10 @@ export default class Home extends Component {
                     <img src={room.image} style={{ borderRadius: "20px" }} width="80%" />
                   </div>
                   <div className="layout-column layout-align-start-start flex-30">
-                    <p style={{ marginBottom: "-15px" }}>Lights on : 3</p>
-                    <p style={{ marginBottom: "-15px" }}>Temperature: {room.Devices[2].value} C</p>
-                    <p style={{ marginBottom: "-15px" }}>Blinds {room.Devices[1].value === 0 ? "closed" : "open"}</p>
-                    <p>Windows {room.Devices[3].value === 0 ? "closed" : "open"}</p>
+                    <p style={{ marginBottom: "-15px" }}>Temperature: {room.Devices.filter(device => device.type === "Temperature")[0].value} °C</p>
+                    <p style={{ marginBottom: "-15px" }}>Lights on: {room.Devices.filter(device => device.type === "Light").filter(light => light.value > 0).length}/{room.Devices.filter(device => device.type === "Light").length}</p>
+                    <p style={{ marginBottom: "-15px" }}>Blinds open: {room.Devices.filter(device => device.type === "Blind").filter(blind => blind.value > 0).length}/{room.Devices.filter(device => device.type === "Blind").length}</p>
+                    <p>Windows open: {room.Devices.filter(device => device.type === "Window").filter(window => window.value > 0).length}/{room.Devices.filter(device => device.type === "Window").length}</p>
                   </div>
                 </div>
                 <div className="interactions">
