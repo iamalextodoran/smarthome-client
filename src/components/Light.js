@@ -19,7 +19,7 @@ export default class Light extends Component {
     this.setState({ isAnyLightOn: !this.state.isAnyLightOn });
     if (this.state.isAnyLightOn) {
       this.setState({ lightsOn: 0 })
-      notify("Turned off all", "primary")
+      notify("Done", "primary")
     } else {
       this.setState({ lightsOn: this.state.totalLights })
     }

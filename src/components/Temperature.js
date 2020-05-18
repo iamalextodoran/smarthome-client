@@ -39,7 +39,7 @@ export default class Temperature extends Component {
     }
     this.setState({ setTemperature: setThis });
     console.log(value)
-    notify(value, "primary")
+    notify("Done", "primary")
   }
 
   setThermometerColor = () => {
