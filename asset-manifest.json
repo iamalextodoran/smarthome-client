@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/UI-SMARTHOME/static/css/main.4de6f273.chunk.css",
-    "main.js": "/UI-SMARTHOME/static/js/main.2209ca07.chunk.js",
-    "main.js.map": "/UI-SMARTHOME/static/js/main.2209ca07.chunk.js.map",
+    "main.js": "/UI-SMARTHOME/static/js/main.8b9f7a8b.chunk.js",
+    "main.js.map": "/UI-SMARTHOME/static/js/main.8b9f7a8b.chunk.js.map",
     "runtime-main.js": "/UI-SMARTHOME/static/js/runtime-main.305d7e50.js",
     "runtime-main.js.map": "/UI-SMARTHOME/static/js/runtime-main.305d7e50.js.map",
     "static/js/2.ae9836a6.chunk.js": "/UI-SMARTHOME/static/js/2.ae9836a6.chunk.js",
     "static/js/2.ae9836a6.chunk.js.map": "/UI-SMARTHOME/static/js/2.ae9836a6.chunk.js.map",
     "index.html": "/UI-SMARTHOME/index.html",
-    "precache-manifest.6123617c3210130c505a6e3fd460f4b9.js": "/UI-SMARTHOME/precache-manifest.6123617c3210130c505a6e3fd460f4b9.js",
+    "precache-manifest.f1e681c61de67febb28a5afd46af228b.js": "/UI-SMARTHOME/precache-manifest.f1e681c61de67febb28a5afd46af228b.js",
     "service-worker.js": "/UI-SMARTHOME/service-worker.js",
     "static/css/main.4de6f273.chunk.css.map": "/UI-SMARTHOME/static/css/main.4de6f273.chunk.css.map",
     "static/js/2.ae9836a6.chunk.js.LICENSE.txt": "/UI-SMARTHOME/static/js/2.ae9836a6.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.305d7e50.js",
     "static/js/2.ae9836a6.chunk.js",
     "static/css/main.4de6f273.chunk.css",
-    "static/js/main.2209ca07.chunk.js"
+    "static/js/main.8b9f7a8b.chunk.js"
   ]
 }
