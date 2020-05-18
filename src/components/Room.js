@@ -7,6 +7,8 @@ import Footer from './Footer';
 import Slider from './Slider';
 import Toggle from './Toggle';
 import Icon from './Icon';
+import Input from './Input';
+import Modal from './Modal';
 
 export default class Room extends Component {
   constructor(props) {
@@ -275,9 +277,21 @@ export default class Room extends Component {
                 ))}
               </div>
               <div className="interactions">
-                <button className="m_button primary"><Icon icon="fas fa-plus" /> Add new device</button>
+                <button className="m_button primary" onClick={() => this.setState({ showModal: !this.state.showModal })}><Icon icon="fas fa-plus" /> Add new device</button>
               </div>
             </div>}
+            <Modal isShowing={this.state.showModal}>
+              <span class="close" onClick={() => this.setState({ showModal: !this.state.showModal })}>&times;</span>
+              <h1>Add new device</h1>
+              <Input placeholder="Name" width="75%" />
+              <Input placeholder="Description" width="75%" />
+              <Input placeholder="Type" width="75%" />
+              <Input placeholder="Value" width="75%" />
+              <Input placeholder="Warm" width="75%" />
+              <div className="interactions">
+                <button className="m_button primary"><Icon icon="fas fa-plus" />Add room</button>
+              </div>
+            </Modal>
           </div>
         </div>
         <Footer />

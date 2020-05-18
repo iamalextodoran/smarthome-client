@@ -22,11 +22,14 @@ export default class Login extends Component {
           </div>
           <p style={{ paddingLeft: "175px", marginTop: "-2px" }}>New? <Link to="/register">Register here</Link></p>
         </div>
-        {this.state.showModal &&
-          <Modal>
-            <h1>lorem ipsum dolores</h1>
-            <p>Lorem shite imspum lsoreoaskd asdn asj</p>
-          </Modal>}
+        <Modal isShowing={this.state.showModal}>
+          <span class="close" onClick={() => this.setState({ showModal: !this.state.showModal })}>&times;</span>
+          <h1>lorem ipsum dolores</h1>
+          <p>Lorem shite imspum lsoreoaskd asdn asj</p>
+          <div className="interactions">
+            <button className="m_button primary" onClick={() => this.setState({ showModal: !this.state.showModal })} >Close it</button>
+          </div>
+        </Modal>
       </div>
     )
   }

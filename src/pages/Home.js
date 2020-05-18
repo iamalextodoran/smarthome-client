@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import Button from '../components/Button'
 import Icon from '../components/Icon'
 import Input from '../components/Input'
+import Modal from '../components/Modal'
 import { NavLink } from 'react-router-dom';
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showModal: false,
       rooms: [
         {
           id: 1,
@@ -213,7 +215,12 @@ export default class Home extends Component {
               </div>
             ), [this.state.rooms])}
 
-            <div id="new" className="card flex-33" style={{ minHeight: "425px" }}>
+            <div id="new" className="card flex-33 layout-column layout-align-center-center" style={{ minHeight: "425px" }}>
+              <Icon icon="fas fa-plus" size="60" onClick={() => this.setState({ showModal: !this.state.showModal })} />
+            </div>
+
+            <Modal isShowing={this.state.showModal}>
+              <span class="close" onClick={() => this.setState({ showModal: !this.state.showModal })}>&times;</span>
               <h1>Add new room</h1>
               <Input placeholder="Name" width="75%" />
               <Input placeholder="Description" width="75%" />
@@ -221,7 +228,7 @@ export default class Home extends Component {
               <div className="interactions">
                 <button className="m_button primary"><Icon icon="fas fa-plus" />Add room</button>
               </div>
-            </div>
+            </Modal>
 
           </div>
         </div>
