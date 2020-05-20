@@ -213,20 +213,16 @@ export default class Room extends Component {
     this.setState({ RoomId: parseInt(this.props.match.params.roomId) })
   }
 
-  deleteRoom = (room) => {
-    console.log('Deleted ', room.id)
+  deleteRoom = () => {
   }
 
-  editRoom = (room) => {
-    console.log('Edited ', room.id)
+  editRoom = () => {
   }
 
   handleBlinds = () => {
-
   }
 
   handleWindows = () => {
-
   }
 
   handleInputChange = (e) => {
