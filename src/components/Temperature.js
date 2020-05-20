@@ -14,11 +14,11 @@ export default class Temperature extends Component {
     setTemperatureNight: 22,
   }
 
-  // componentWillMount() {
-  //   fetch(`/users/1`)
-  //     .then(response => response.json())
-  //     .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
-  // }
+  componentWillMount() {
+    fetch(`/users/1`)
+      .then(response => response.json())
+      .then(data => this.setState({ selectedMode: data.temperatureMode, setTemperature: data.temperature }))
+  }
 
   handleClick = () => {
     console.log(this.props.value)
@@ -38,8 +38,21 @@ export default class Temperature extends Component {
       setThis = this.state.setTemperatureNight;
     }
     this.setState({ setTemperature: setThis });
-    console.log(value)
     notify("Done", "primary")
+    this.updateTemperatureMode(value)
+  }
+
+  updateTemperatureMode = (value) => {
+    const data = { temperatureMode: value };
+
+    return fetch('users/1', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
   }
 
   setThermometerColor = () => {

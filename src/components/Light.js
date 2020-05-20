@@ -3,6 +3,7 @@ import '../styles/card.scss'
 import Icon from './Icon'
 import Toggle from './Toggle'
 import Toast, { notify } from './Toast'
+import { useRouteMatch } from 'react-router-dom'
 
 export default class Light extends Component {
   state = {
@@ -90,7 +91,7 @@ export default class Light extends Component {
             name: "Second light",
             type: "Light",
             description: "",
-            value: 0,
+            value: 10,
             warm: 30,
             createdAt: "2020-05-11T16:51:56.982Z",
             updatedAt: "2020-05-11T16:51:56.982Z",
@@ -101,7 +102,7 @@ export default class Light extends Component {
             name: "Desk light",
             type: "Light",
             description: "",
-            value: 0,
+            value: 10,
             warm: 30,
             createdAt: "2020-05-11T16:51:56.982Z",
             updatedAt: "2020-05-11T16:51:56.982Z",
@@ -202,17 +203,23 @@ export default class Light extends Component {
 
 
   componentWillMount() {
-    this.state.lightsOn === 0 ? this.setState({ isAnyLightOn: false }) : this.setState({ isAnyLightOn: true });
+    fetch(`/rooms`)
+      .then(response => response.json())
+      .then(data => this.setState({ rooms: data }));
+    this.setState({ isAnyLightOn: this.countAllLightsOn() > 0 ? true : false })
+  }
+  componentDidUpdate() {
+    this.countAllLightsOn()
   }
 
   lightSwitch = () => {
-    this.setState({ isAnyLightOn: !this.state.isAnyLightOn });
-    if (this.state.isAnyLightOn) {
-      this.setState({ lightsOn: 0 })
+    if (this.countAllLightsOn() > 0) {
       notify("Done", "primary")
+      this.updateLightsOn(0)
     } else {
-      this.setState({ lightsOn: this.state.totalLights })
+      this.updateLightsOn(100)
     }
+    this.setState({ isAnyLightOn: !this.state.isAnyLightOn })
   }
 
   countAllLights = () => {
@@ -231,14 +238,30 @@ export default class Light extends Component {
     return result
   }
 
+  updateLightsOn = (newValue) => {
+    let id = [];
+    const data = { value: newValue };
+    this.state.rooms.map(room => {
+      id = room.Devices.filter(device => device.type === "Light")
+      id.map(item => {
+        fetch('devices/' + item.id, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(response => response.json())
+          .then(data => console.log('Success:', data))
+          .catch(error => console.error('Error:', error));
+      })
+    })
+  }
+
   render() {
-    this.countAllLights()
-    this.countAllLightsOn()
     return (
       <div className="card">
         <Toast />
         <div className="layout-row layout-align-space-between-center">
-          <Icon icon="fas fa-lightbulb" size="40" color={this.state.lightsOn === 0 ? "grey" : "gold"} />
+          <Icon icon="fas fa-lightbulb" size="40" color={this.state.isAnyLightOn ? "grey" : "gold"} />
           <div className="layout-column layout-align-end-end">
             <h2 style={{ paddingLeft: "5px" }}>Lights</h2>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.countAllLightsOn()} out of {this.countAllLights()}</p>

@@ -178,13 +178,38 @@ export default class Home extends Component {
         }
       ],
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  
+  handleInputChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   // componentDidMount() {
-  //   fetch(`/users/1`)
+  //   fetch(`/rooms`)
   //     .then(response => response.json())
-  //     .then(data => this.setState({ rooms: data.Rooms }))
+  //     .then(data => this.setState({ rooms: data }))
   // }
+
+  newRoom = () => {
+    const data = {
+      name: this.state.name,
+      description: this.state.description,
+      image: this.state.image,
+      UserId: 1,
+    }
+
+    fetch('rooms', {
+      method: 'POST',
+      mode: "cors",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
+    this.setState({ name: '', description: '', image: '', showModal: false })
+  }
 
   render() {
     return (
@@ -222,11 +247,11 @@ export default class Home extends Component {
             <Modal isShowing={this.state.showModal}>
               <span class="close" onClick={() => this.setState({ showModal: !this.state.showModal })}>&times;</span>
               <h1>Add new room</h1>
-              <Input placeholder="Name" width="75%" />
-              <Input placeholder="Description" width="75%" />
-              <Input placeholder="Image link" width="75%" />
+              <Input placeholder="Name" width="75%" name="name" value={this.state.name} onChange={this.handleInputChange} />
+              <Input placeholder="Description" width="75%" name="description" value={this.state.description} onChange={this.handleInputChange} />
+              <Input placeholder="Image link" width="75%" name="image" value={this.state.image} onChange={this.handleInputChange} />
               <div className="interactions">
-                <button className="m_button primary"><Icon icon="fas fa-plus" />Add room</button>
+                <button className="m_button primary" onClick={this.newRoom}><Icon icon="fas fa-plus" />Add room</button>
               </div>
             </Modal>
 

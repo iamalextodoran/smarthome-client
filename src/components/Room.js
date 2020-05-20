@@ -206,11 +206,13 @@ export default class Room extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   fetch(`/users/1`)
-  //     .then(response => response.json())
-  //     .then(data => this.setState({ rooms: data.Rooms }))
-  // }
+  componentDidMount() {
+    // fetch(`/users/1`)
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ rooms: data.Rooms }));
+    this.setState({ RoomId: parseInt(this.props.match.params.roomId) })
+  }
+
   deleteRoom = (room) => {
     console.log('Deleted ', room.id)
   }
@@ -227,8 +229,34 @@ export default class Room extends Component {
 
   }
 
+  handleInputChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  newDevice = () => {
+    const data = {
+      name: this.state.name,
+      type: this.state.type,
+      description: this.state.description,
+      value: this.state.value,
+      warm: this.state.warm,
+      RoomId: this.state.RoomId
+    }
+
+    fetch('devices', {
+      method: 'POST',
+      mode: "cors",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch(error => console.error('Error:', error));
+    this.setState({ name: '', type: '', description: '', value: '', warm: '', showModal: false })
+  }
+
   render() {
-    const idToMatch = parseInt(this.props.match.params.roomId)
+    const idToMatch = parseInt(this.props.match.params.roomId);
     const room = this.state.rooms.filter(room => room.id === idToMatch)[0];
     const lights = room.Devices.filter(device => device.type === "Light");
     const blinds = room.Devices.filter(device => device.type === "Blind");
@@ -283,13 +311,13 @@ export default class Room extends Component {
             <Modal isShowing={this.state.showModal}>
               <span class="close" onClick={() => this.setState({ showModal: !this.state.showModal })}>&times;</span>
               <h1>Add new device</h1>
-              <Input placeholder="Name" width="75%" />
-              <Input placeholder="Description" width="75%" />
-              <Input placeholder="Type" width="75%" />
-              <Input placeholder="Value" width="75%" />
-              <Input placeholder="Warm" width="75%" />
+              <Input placeholder="Name" value={this.state.name} name="name" width="75%" onChange={this.handleInputChange} />
+              <Input placeholder="Description" value={this.state.description} name="description" width="75%" onChange={this.handleInputChange} />
+              <Input placeholder="Type" value={this.state.type} name="type" width="75%" onChange={this.handleInputChange} />
+              <Input placeholder="Value" value={this.state.value} name="value" width="75%" onChange={this.handleInputChange} />
+              <Input placeholder="Warm" value={this.state.warm} name="warm" width="75%" onChange={this.handleInputChange} />
               <div className="interactions">
-                <button className="m_button primary"><Icon icon="fas fa-plus" />Add room</button>
+                <button className="m_button primary" onClick={this.newDevice}><Icon icon="fas fa-plus" />Add room</button>
               </div>
             </Modal>
           </div>
