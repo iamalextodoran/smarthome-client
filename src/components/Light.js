@@ -202,12 +202,13 @@ export default class Light extends Component {
   }
 
 
-  componentWillMount() {
-    fetch(`/rooms`)
-      .then(response => response.json())
-      .then(data => this.setState({ rooms: data }));
-    this.setState({ isAnyLightOn: this.countAllLightsOn() > 0 ? true : false })
-  }
+  // componentWillMount() {
+  //   fetch(`/rooms`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ rooms: data }));
+  //   this.setState({ isAnyLightOn: this.countAllLightsOn() > 0 ? true : false })
+  // }
+  
   componentDidUpdate() {
     this.countAllLightsOn()
   }
