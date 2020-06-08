@@ -12,11 +12,14 @@ import Login from './pages/Login';
 import Top from './components/Top';
 import Footer from './components/Footer';
 import Left from './components/Left';
-import Toast, { notify } from './components/Toast';
+import { Provider } from 'react-redux'
+
+import store from './store'
 
 function App() {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
       <Switch>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
@@ -39,6 +42,7 @@ function App() {
         <Route component={NoMatch} />
       </Switch>
     </Router>
+    </Provider>
   );
 }
 
