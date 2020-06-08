@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import Lights from '../components/Lights';
 import Blinds from '../components/Blinds';
 import Windows from '../components/Windows';
-import Temperatures from '../components/Temperatures';
 import Top from '../components/Top';
 import Footer from '../components/Footer';
 import Left from '../components/Left';
+import { connect } from 'react-redux'
+import { fetchRooms } from "../actions/roomsActions";
 
-export default class Devices extends Component {
+class Devices extends Component {
 	render() {
 		return (
 			<React.Fragment>
@@ -15,10 +16,9 @@ export default class Devices extends Component {
 				<div className="layout-row layout-xs-column">
 					<Left />
 					<div className="layout-row layout-align-end-start flex-wrap flex-70">
-						<Lights />
-						<Blinds />
-						<Windows />
-						{/* <Temperatures /> */}
+						<Lights rooms={this.props.rooms.rooms}/>
+						<Blinds rooms={this.props.rooms.rooms}/>
+						<Windows rooms={this.props.rooms.rooms}/>
 					</div>
 				</div>
 				<Footer />
@@ -26,3 +26,9 @@ export default class Devices extends Component {
 		)
 	}
 }
+
+const mapStateToProps = state => ({
+  rooms: state.rooms
+})
+
+export default connect(mapStateToProps, { fetchRooms })(Devices);

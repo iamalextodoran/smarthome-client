@@ -5,6 +5,7 @@ import Icon from './Icon';
 import Dropdown from './Dropdown';
 import { connect } from 'react-redux'
 import { fetchRooms, createRoom } from "../actions/roomsActions";
+
 class Menu extends Component {
   render() {
     return (

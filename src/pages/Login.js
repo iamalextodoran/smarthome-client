@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../styles/card.scss'
 import Input from '../components/Input'
 import Button from '../components/Button'
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Modal from '../components/Modal';
 
 export default class Login extends Component {

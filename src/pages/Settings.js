@@ -8,15 +8,12 @@ import '../styles/card.scss'
 import '../styles/user.scss'
 
 export default class Settings extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
-      showPrimary: false,
-      showAccent: false,
-      primaryColor: localStorage.getItem('primaryColor') || 'coral',
-      accentColor: localStorage.getItem('accentColor') || 'deeppink',
-    }
+  state = {
+    darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
+    showPrimary: false,
+    showAccent: false,
+    primaryColor: localStorage.getItem('primaryColor') || 'coral',
+    accentColor: localStorage.getItem('accentColor') || 'deeppink',
   }
 
   displayPrimaryColor = () => {
@@ -54,7 +51,6 @@ export default class Settings extends Component {
   onAccentColorHover = (color) => {
     this.setState({ accentColor: color.hex });
   }
-
 
   darkModeToggle = () => {
     let darkMode = localStorage.getItem('darkMode');
@@ -131,28 +127,28 @@ export default class Settings extends Component {
                   <p>Picture</p>
                 </div>
                 <div className="profile" style={{ width: "106px", height: "106px" }} >
-                  <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" style={{ width: "100px", height: "100px" }} />
+                  <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" alt="nume" style={{ width: "100px", height: "100px" }} />
                 </div>
                 <div>
                 </div>
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
-                  <p>First name</p>
+                  <p>Name</p>
                 </div>
-                <Input />
+                <Input value={"Alex"}/>
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
-                  <p>Last name</p>
+                  <p>Email</p>
                 </div>
-                <Input />
+                <Input value="eu@yahoo.com"/>
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
                   <p>City name</p>
                 </div>
-                <Input />
+                <Input value={"Cluj"}/>
               </div>
               <div className="interactions">
                 <button className="m_button medium primary">Submit</button>
