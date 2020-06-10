@@ -1,4 +1,9 @@
-import { FETCH_DEVICES } from "../actions/types";
+import {
+  FETCH_DEVICES,
+  NEW_DEVICE,
+  EDIT_DEVICE,
+  DELETE_DEVICE,
+} from "../actions/types";
 
 const initialState = {
   devices: [],
@@ -11,6 +16,25 @@ export default function (state = initialState, action) {
         ...state,
         devices: action.payload,
       };
+
+    case NEW_DEVICE:
+      return {
+        ...state,
+        devices: action.payload,
+      };
+
+    case EDIT_DEVICE:
+      return {
+        ...state,
+        devices: action.payload,
+      };
+
+    case DELETE_DEVICE:
+      return {
+        ...state,
+        devices: action.payload,
+      };
+
     default:
       return state;
   }

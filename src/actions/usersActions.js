@@ -1,4 +1,4 @@
-import { FETCH_USERS, NEW_USER } from "./types";
+import { FETCH_USERS, NEW_USER, EDIT_USER, DELETE_USER } from "./types";
 
 export const fetchUsers = () => (dispatch) => {
   console.log("fetching users");
@@ -23,6 +23,38 @@ export const createUser = (newData) => (dispatch) => {
     .then((data) =>
       dispatch({
         type: NEW_USER,
+        payload: data,
+      })
+    );
+};
+
+export const editUser = (id, newData) => (dispatch) => {
+  fetch(`/users/${id}`, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newData),
+  })
+    .then((response) => response.json())
+    .then((data) =>
+      dispatch({
+        type: EDIT_USER,
+        payload: data,
+      })
+    );
+};
+
+export const deleteUser = (id, newData) => (dispatch) => {
+  fetch(`/users/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newData),
+  })
+    .then((response) => response.json())
+    .then((data) =>
+      dispatch({
+        type: DELETE_USER,
         payload: data,
       })
     );
