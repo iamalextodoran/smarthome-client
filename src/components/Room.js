@@ -4,11 +4,12 @@ import Top from './Top';
 import Footer from './Footer';
 import Slider from './Slider';
 import Toggle from './Toggle';
+import Toast, { notify } from './Toast';
 import Icon from './Icon';
 import Input from './Input';
 import Modal from './Modal';
 import { connect } from 'react-redux'
-import { fetchRooms, createRoom } from "../actions/roomsActions";
+import { fetchRooms, createRoom, deleteRoom } from "../actions/roomsActions";
 
 class Room extends Component {
   state = {
@@ -19,7 +20,10 @@ class Room extends Component {
     this.setState({ RoomId: parseInt(this.props.match.params.roomId) })
   }
 
-  deleteRoom = () => {
+  deleteRoom = (room) => {
+    this.props.deleteRoom(room)
+    // notify("Done", "primary")
+    // window.location.replace("/");
   }
 
   editRoom = () => {
@@ -70,15 +74,15 @@ class Room extends Component {
         <div className="layout-row layout-xs-column">
           <Left />
           <div className="layout-row layout-align-end-start flex-wrap flex-70">
-            {<div className="card">
+            {<div className="card" key={room.id}>
               <div className="layout-row layout-align-space-between-center">
                 <div className="layout-row">
                   <h1>{room.name}</h1>
                   <h3 style={{ marginLeft: "10px" }}>{room.temperature} °C</h3>
                 </div>
                 <div>
-                  <Icon icon="fas fa-edit" onClick={this.editRoom(room)} />
-                  <Icon icon="fas fa-trash" onClick={this.deleteRoom(room)} />
+                  <Icon icon="fas fa-edit" onClick={this.editRoom(room.id)} />
+                  <Icon icon="fas fa-trash" onClick={this.deleteRoom(room.id)} />
                 </div>
               </div>
               <p>{room.description}</p>
@@ -86,7 +90,7 @@ class Room extends Component {
               <div>
 
                 {lights.length > 0 ? lights.map(light => (
-                  <div>
+                  <div key={light.id}>
                     <p>{light.name} </p>
                     <Slider description="brightness" value={light.value} />
                     <Slider description="warmness" value={light.warm} />
@@ -94,14 +98,14 @@ class Room extends Component {
                 )) : <p>No lights found</p>}
 
                 {blinds.length > 0 ? blinds.map(blind => (
-                  <div className="layout-row layout-align-space-between-center">
+                  <div key={blind.id} className="layout-row layout-align-space-between-center">
                     <p>{blind.name} {blind.value === 0 ? "closed" : "open"}</p>
                     <Toggle onChange={this.handleBlinds} checked={blind.value === 0 ? false : true} />
                   </div>
                 )) : <p>No blinds found</p>}
 
                 {windows.length > 0 ? windows.map(window => (
-                  <div className="layout-row layout-align-space-between-center">
+                  <div key={window.id} className="layout-row layout-align-space-between-center">
                     <p>{window.name} {window.value === 0 ? "closed" : "open"}</p>
                     <Toggle onChange={this.handleWindows} checked={window.value === 0 ? false : true} />
                   </div>
@@ -135,4 +139,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms, createRoom })(Room);
+export default connect(mapStateToProps, { fetchRooms, createRoom, deleteRoom })(Room);

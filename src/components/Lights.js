@@ -16,7 +16,7 @@ export default class Lights extends Component {
       <div className="card">
         <h1>Lights</h1>
         {this.props.rooms.map(room => (
-          <div>
+          <div key={room.id}>
             <p><strong>{room.name}</strong></p>
             <div className="">
               {room.Devices.filter(device => device.type === "Light").length > 0 ? room.Devices.filter(device => device.type === "Light").map(light => (

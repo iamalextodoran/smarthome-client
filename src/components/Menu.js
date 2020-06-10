@@ -13,7 +13,7 @@ class Menu extends Component {
         <div className="menu big layout-row layout-align-end-end">
           <NavLink exact activeClassName="m_button_not_raised primary" className="m_button_not_raised" to="/">Home</NavLink>
           <Dropdown name="Rooms">
-            {this.props.rooms.rooms.map(room => <NavLink activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
+            {this.props.rooms.rooms.map(room => <NavLink key={ room.id } activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
             <NavLink className="dropdown-item" to="#"><Icon icon="fas fa-plus" size="15" />Add room</NavLink>
           </Dropdown>
           <NavLink activeClassName="m_button_not_raised primary" className="m_button_not_raised" to="/devices">Devices</NavLink>
@@ -22,7 +22,7 @@ class Menu extends Component {
         <div className="menu small">
           <NavLink exact className="menu-item" activeClassName="menu-item-active" to="/"><Icon icon="fas fa-home" size="25" /></NavLink>
           <Dropdown displayIcon icon="fas fa-square">
-            {this.props.rooms.rooms.map(room => <NavLink activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
+            {this.props.rooms.rooms.map(room => <NavLink key={ room.id } activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
             <NavLink className="dropdown-item" to="#"><Icon icon="fas fa-plus" size="15" />Add room</NavLink>
           </Dropdown>
           <NavLink className="menu-item" activeClassName="menu-item-active" to="/devices"><Icon icon="fas fa-toolbox" size="25" /></NavLink>

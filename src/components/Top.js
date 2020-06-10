@@ -4,17 +4,11 @@ import User from "./User";
 import Menu from "./Menu";
 
 import { connect } from "react-redux";
-import { fetchUsers, createUser } from "../actions/usersActions";
+import { fetchUsers, fetchUser, createUser } from "../actions/usersActions";
+import { fetchRooms } from "../actions/roomsActions";
+import { fetchDevices } from "../actions/devicesActions";
 
 class Top extends Component {
-  componentWillMount() {
-    this.props.fetchUsers();
-  }
-
-  componentDidMount() {
-    console.log(this.props.users);
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -30,8 +24,16 @@ class Top extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  users: state.users
-})
+const mapStateToProps = (state) => ({
+  users: state.users,
+  rooms: state.rooms,
+  devices: state.devices,
+});
 
-export default connect(mapStateToProps, { fetchUsers, createUser })(Top);
+export default connect(mapStateToProps, {
+  fetchUsers,
+  fetchRooms,
+  fetchDevices,
+  fetchUser,
+  createUser,
+})(Top);

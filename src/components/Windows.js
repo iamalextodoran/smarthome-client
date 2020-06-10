@@ -11,10 +11,10 @@ export default class Blinds extends Component {
 				<h1>Windows</h1>
 				<div className="">
 					{this.props.rooms.map(room => (
-						<div>
+						<div key={room.id}>
 							<p><strong>{room.name}</strong></p>
 							{room.Devices.filter(device => device.type === "Blind").length > 0 ? room.Devices.filter(device => device.type === "Blind").map(window => (
-								<div className="layout-row layout-align-space-between-center">
+								<div key={ window.id } className="layout-row layout-align-space-between-center">
 									<p>{window.name}: {window.value === 0 ? "closed" : "open"}</p>
 									<Toggle onChange={this.handleWindow} checked={window.value === 0 ? false : true} />
 								</div>
@@ -26,8 +26,8 @@ export default class Blinds extends Component {
 				<div className="interactions">
 					<button className="m_button accent">
 						<Icon icon="fas fa-times" />
-			Close all windows
-		  </button>
+						Close all windows
+		  		</button>
 				</div>
 			</div>
 		)

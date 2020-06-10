@@ -9,10 +9,10 @@ export default class Blinds extends Component {
 				<h1>Blinds</h1>
 				<div className="">
 					{this.props.rooms.map(room => (
-						<div>
+						<div key={ room.id }>
 							<p><strong>{room.name}</strong></p>
 							{room.Devices.filter(device => device.type === "Blind").length > 0 ? room.Devices.filter(device => device.type === "Blind").map(blind => (
-								<div className="layout-row layout-align-space-between-center">
+								<div key={ blind.id } className="layout-row layout-align-space-between-center">
 									<p>{blind.name}: {blind.value === 0 ? "closed" : "open"}</p>
 									<Toggle onChange={this.handleBlind} checked={blind.value === 0 ? false : true} />
 								</div>

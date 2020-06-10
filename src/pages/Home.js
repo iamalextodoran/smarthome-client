@@ -11,11 +11,6 @@ class Home extends Component {
   state = {
     showModal: false,
   }
-  
-  componentWillMount() {
-    this.props.fetchRooms()
-    console.log(this.props.rooms)
-  }
 
   handleInputChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
