@@ -5,16 +5,11 @@ import Toggle from './Toggle'
 import Toast, { notify } from './Toast'
 import { connect } from 'react-redux'
 import { fetchRooms } from "../actions/roomsActions";
+import { editDevice } from "../actions/devicesActions";
 
 class Light extends Component {
   state = {
     isAnyLightOn: true,
-    lightsOn: 21,
-    totalLights: 30,
-  }
-  
-  componentDidUpdate() {
-    this.countAllLightsOn()
   }
 
   lightSwitch = () => {
@@ -43,20 +38,21 @@ class Light extends Component {
     return result
   }
 
+  // countOnlyOnLights = (on) => {
+  //   let result = 0;
+  //   this.props.rooms.rooms.map(room => {
+  //     !on ? result += room.Devices.filter(device => device.type === "Light").filter(light => light.value > 0).length : result += room.Devices.filter(device => device.type === "Light").length
+  //   })
+  //   return result
+  // }
+
   updateLightsOn = (newValue) => {
-    let id = [];
+    let lights = [];
     const data = { value: newValue };
     this.props.rooms.rooms.map((room) => {
-      id = room.Devices.filter(device => device.type === "Light")
-      id.map(item => {
-        fetch('devices/' + item.id, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        })
-          .then(response => response.json())
-          .then(data => console.log('Success:', data))
-          .catch(error => console.error('Error:', error));
+      lights = room.Devices.filter(device => device.type === "Light")
+      lights.map(item => {
+        this.props.editDevice(item.id, data)
       })
     })
   }
@@ -82,4 +78,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms })(Light);
+export default connect(mapStateToProps, { fetchRooms, editDevice })(Light);
