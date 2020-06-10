@@ -1,4 +1,4 @@
-import { FETCH_USERS, NEW_USER, EDIT_USER, DELETE_USER } from "./types";
+import { FETCH_USERS, FETCH_USER, NEW_USER, EDIT_USER, DELETE_USER } from "./types";
 
 export const fetchUsers = () => (dispatch) => {
   console.log("fetching users");
@@ -7,6 +7,18 @@ export const fetchUsers = () => (dispatch) => {
     .then((data) =>
       dispatch({
         type: FETCH_USERS,
+        payload: data,
+      })
+    );
+};
+
+export const fetchUser = (id) => (dispatch) => {
+  console.log("fetching user");
+  fetch(`/users/` + id)
+    .then((response) => response.json())
+    .then((data) =>
+      dispatch({
+        type: FETCH_USER,
         payload: data,
       })
     );

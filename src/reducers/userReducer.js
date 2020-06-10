@@ -1,5 +1,6 @@
 import {
   FETCH_USERS,
+  FETCH_USER,
   NEW_USER,
   EDIT_USER,
   DELETE_USER,
@@ -15,6 +16,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         users: action.payload,
+      };
+    case FETCH_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
 
     case NEW_USER:
@@ -34,7 +40,7 @@ export default function (state = initialState, action) {
         ...state,
         users: action.payload,
       };
-      
+
     default:
       return state;
   }
