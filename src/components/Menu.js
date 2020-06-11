@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Icon from './Icon';
 import Dropdown from './Dropdown';
 import { connect } from 'react-redux'
-import { fetchRooms, createRoom } from "../actions/roomsActions";
+import { fetchRooms } from "../actions/roomsActions";
 
 class Menu extends Component {
   render() {
@@ -14,16 +14,14 @@ class Menu extends Component {
           <NavLink exact activeClassName="m_button_not_raised primary" className="m_button_not_raised" to="/">Home</NavLink>
           <Dropdown name="Rooms">
             {this.props.rooms.rooms.map(room => <NavLink key={ room.id } activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
-            <NavLink className="dropdown-item" to="#"><Icon icon="fas fa-plus" size="15" />Add room</NavLink>
           </Dropdown>
           <NavLink activeClassName="m_button_not_raised primary" className="m_button_not_raised" to="/devices">Devices</NavLink>
         </div>
 
         <div className="menu small">
-          <NavLink exact className="menu-item" activeClassName="menu-item-active" to="/"><Icon icon="fas fa-home" size="25" /></NavLink>
+          <NavLink exact activeClassName="menu-item-active" className="menu-item" to="/"><Icon icon="fas fa-home" size="25" /></NavLink>
           <Dropdown displayIcon icon="fas fa-square">
             {this.props.rooms.rooms.map(room => <NavLink key={ room.id } activeClassName="dropdown-active-item" className="dropdown-item" to={'../room/' + room.id}>{room.name}</NavLink>)}
-            <NavLink className="dropdown-item" to="#"><Icon icon="fas fa-plus" size="15" />Add room</NavLink>
           </Dropdown>
           <NavLink className="menu-item" activeClassName="menu-item-active" to="/devices"><Icon icon="fas fa-toolbox" size="25" /></NavLink>
         </div>
@@ -33,7 +31,8 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => ({
+  users: state.users,
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms, createRoom })(Menu);
+export default connect(mapStateToProps, { fetchRooms })(Menu);

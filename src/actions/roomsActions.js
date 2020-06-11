@@ -1,8 +1,7 @@
 import { FETCH_ROOMS, NEW_ROOM, EDIT_ROOM, DELETE_ROOM } from "./types";
 
-export const fetchRooms = () => (dispatch) => {
-  console.log("fetching rooms");
-  fetch(`/rooms`)
+export const fetchRooms = (id) => (dispatch) => {
+  fetch(`/${id}/rooms`)
     .then((response) => response.json())
     .then((data) =>
       dispatch({

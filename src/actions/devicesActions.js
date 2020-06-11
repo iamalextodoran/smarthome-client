@@ -1,7 +1,6 @@
 import { FETCH_DEVICES, NEW_DEVICE, EDIT_DEVICE, DELETE_DEVICE } from "./types";
 
 export const fetchDevices = () => (dispatch) => {
-  console.log("fetching devices");
   fetch(`/devices`)
     .then((response) => response.json())
     .then((data) =>

@@ -10,7 +10,7 @@ class Temperature extends Component {
   state = {
     setTemperature: 22,
     actualTemperature: 24,
-    selectedMode: 'Eco',
+    selectedMode: this.props.users && this.props.users.user.selectedMode,
     setTemperatureEco: 16,
     setTemperatureDay: 19,
     setTemperatureNight: 22,

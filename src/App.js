@@ -12,7 +12,7 @@ import Top from "./components/Top";
 import Footer from "./components/Footer";
 import Left from "./components/Left";
 import { connect } from "react-redux";
-import { fetchUsers, fetchUser, createUser } from "./actions/usersActions";
+import { fetchUsers, fetchUser } from "./actions/usersActions";
 import { fetchRooms } from "./actions/roomsActions";
 import { fetchDevices } from "./actions/devicesActions";
 
@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props.fetchUsers();
-    this.props.fetchRooms();
+    this.props.fetchRooms(1);
     this.props.fetchDevices();
     this.props.fetchUser(1);
   }
@@ -68,5 +68,4 @@ export default connect(mapStateToProps, {
   fetchRooms,
   fetchDevices,
   fetchUser,
-  createUser,
 })(App);

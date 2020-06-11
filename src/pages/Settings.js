@@ -6,8 +6,9 @@ import Footer from '../components/Footer';
 import { GithubPicker } from 'react-color';
 import '../styles/card.scss'
 import '../styles/user.scss'
+import { connect } from "react-redux";
 
-export default class Settings extends Component {
+class Settings extends Component {
   state = {
     darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
     showPrimary: false,
@@ -127,7 +128,7 @@ export default class Settings extends Component {
                   <p>Picture</p>
                 </div>
                 <div className="profile" style={{ width: "106px", height: "106px" }} >
-                  <img src="https://source.unsplash.com/ToqoQSH-WYQ/500x500" alt="nume" style={{ width: "100px", height: "100px" }} />
+                  <img src={this.props.users.user && this.props.users.user.image } alt="nume" style={{ width: "100px", height: "100px" }} />
                 </div>
                 <div>
                 </div>
@@ -136,19 +137,19 @@ export default class Settings extends Component {
                 <div style={{ minWidth: "100px" }}>
                   <p>Name</p>
                 </div>
-                <Input value={"Alex"}/>
+                <Input value={this.props.users.user && this.props.users.user.name } />
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
                   <p>Email</p>
                 </div>
-                <Input value="eu@yahoo.com"/>
+                <Input value={this.props.users.user && this.props.users.user.email } />
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
                   <p>City name</p>
                 </div>
-                <Input value={"Cluj"}/>
+                <Input value={this.props.users.user && this.props.users.user.city } />
               </div>
               <div className="interactions">
                 <button className="m_button medium primary">Submit</button>
@@ -161,3 +162,12 @@ export default class Settings extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  users: state.users,
+  user: state.user,
+  rooms: state.rooms,
+  store: state.devices,
+});
+
+export default connect(mapStateToProps, { })(Settings);

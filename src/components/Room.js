@@ -21,7 +21,7 @@ class Room extends Component {
   }
 
   deleteRoom = (room) => {
-    this.props.deleteRoom(room)
+    // this.props.deleteRoom(room)
     // notify("Done", "primary")
     // window.location.replace("/");
   }

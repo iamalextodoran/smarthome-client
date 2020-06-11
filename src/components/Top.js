@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types'
 import Header from "./Header";
 import User from "./User";
 import Menu from "./Menu";
@@ -15,8 +16,8 @@ class Top extends Component {
         <Header />
         <div className="layout-row layout-align-space-between-center">
           <User
-            name="Alex"
-            picture="https://source.unsplash.com/ToqoQSH-WYQ/500x500"
+            name={this.props.users.user && this.props.users.user.name }
+            picture={this.props.users.user && this.props.users.user.image }
           />
           <Menu />
         </div>
@@ -24,10 +25,16 @@ class Top extends Component {
     );
   }
 }
+
+Top.propTypes = {
+  users: PropTypes.object
+}
+
 const mapStateToProps = (state) => ({
   users: state.users,
+  user: state.user,
   rooms: state.rooms,
-  devices: state.devices,
+  store: state.devices,
 });
 
 export default connect(mapStateToProps, {

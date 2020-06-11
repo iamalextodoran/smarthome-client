@@ -7,16 +7,15 @@ class Weather extends Component {
   state = {
     weather: '',
     bit: '',
-    city: 'Baia-Mare',
     isLoaded: false,
   };
 
   componentDidMount() {
-    fetch(`https://api.weatherbit.io/v2.0/current?city=${this.state.city}&key=d50c57c063ec458dab88e7a1c530219c`)
+    fetch(`https://api.weatherbit.io/v2.0/current?city=${ this.props.users.user && this.props.users.user.city || 'Cluj-Napoca'}&key=d50c57c063ec458dab88e7a1c530219c`)
       .then(response => response.json())
       .then(data => this.setState({ bit: data.data[0], weather: data.data[0].weather }));
-    this.setState({ isLoaded: true })
-  }
+      this.setState({ isLoaded: true });
+    }
 
   render() {
     return (
@@ -38,7 +37,7 @@ class Weather extends Component {
             <p style={{ marginTop: "-25px" }}>Feels like {this.state.bit.app_temp} °C</p>
           </div>
         </div>
-        </React.Fragment> : <div className="layout-row layout-align-space-between-center"> <p>Is loading</p></div>}
+        </React.Fragment> : <div className="layout-column layout-align-center-center"> <p>Loading</p></div>}
       </div>
     )
   }
