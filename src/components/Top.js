@@ -6,7 +6,7 @@ import Menu from "./Menu";
 
 import { connect } from "react-redux";
 import { fetchUsers, fetchUser, createUser } from "../actions/usersActions";
-import { fetchRooms } from "../actions/roomsActions";
+import { fetchRoomsforUser } from "../actions/roomsActions";
 import { fetchDevices } from "../actions/devicesActions";
 
 class Top extends Component {
@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   fetchUsers,
-  fetchRooms,
+  fetchRoomsforUser,
   fetchDevices,
   fetchUser,
   createUser,

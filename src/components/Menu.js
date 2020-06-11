@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Icon from './Icon';
 import Dropdown from './Dropdown';
 import { connect } from 'react-redux'
-import { fetchRooms } from "../actions/roomsActions";
+import { fetchRoomsforUser } from "../actions/roomsActions";
 
 class Menu extends Component {
   render() {
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms })(Menu);
+export default connect(mapStateToProps, { fetchRoomsforUser })(Menu);

@@ -5,7 +5,7 @@ import Input from '../components/Input'
 import Modal from '../components/Modal'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { fetchRooms, createRoom } from "../actions/roomsActions";
+import { fetchRoomsforUser, createRoom } from "../actions/roomsActions";
 
 class Home extends Component {
   state = {
@@ -16,12 +16,16 @@ class Home extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  newRoom = () => {
+    this.props.createRoom({ name: "test", description: "Test descriere", image: "https://source.unsplash.com/JIUjvqe2ZHg", temperature: 23, UserId: 1 });
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="layout-row layout-align-end-start flex-wrap flex-70">
           <div className="layout-row layout-align-space-between-start flex-wrap">
-            {this.props.rooms.rooms ? this.props.rooms.rooms.map((room) => (
+            {this.props.rooms.rooms.length > 0 ? this.props.rooms.rooms.map((room) => (
               <div key={room.id} className="card flex-33" style={{ minHeight: "425px" }}>
                 <h1>{room.name}</h1>
                 <p>{room.description}</p>
@@ -42,10 +46,10 @@ class Home extends Component {
                   </NavLink>
                 </div>
               </div>
-            ), [this.props.rooms]) : <p>No rooms found</p>}
+            ), [this.props.rooms]) : <div className="card flex-33" style={{ minHeight: "425px" }}><p>No rooms found</p></div>}
 
-            <div id="new" className="card flex-33 layout-column layout-align-center-center" style={{ minHeight: "425px" }}>
-              <Icon icon="fas fa-plus" size="60" onClick={() => this.setState({ showModal: !this.state.showModal })} />
+            <div id="new" className="card flex-33 layout-column layout-align-center-center" style={{ minHeight: "425px" }}  onClick={() => this.setState({ showModal: !this.state.showModal })} >
+              <Icon icon="fas fa-plus" size="60"/>
             </div>
 
             <Modal isShowing={this.state.showModal}>
@@ -54,8 +58,9 @@ class Home extends Component {
               <Input placeholder="Name" width="75%" name="name" value={this.state.name} onChange={this.handleInputChange} />
               <Input placeholder="Description" width="75%" name="description" value={this.state.description} onChange={this.handleInputChange} />
               <Input placeholder="Image link" width="75%" name="image" value={this.state.image} onChange={this.handleInputChange} />
+              <Input placeholder="Temperature" width="75%" name="temperature" value={this.state.temperature} onChange={this.handleInputChange} />
               <div className="interactions">
-                <button className="m_button primary" onClick={this.props.createRoom}><Icon icon="fas fa-plus" />Add room</button>
+                <button className="m_button primary" onClick={() => this.newRoom}><Icon icon="fas fa-plus" />Add room</button>
               </div>
             </Modal>
 
@@ -69,4 +74,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms, createRoom })(Home);
+export default connect(mapStateToProps, { fetchRoomsforUser, createRoom })(Home);
