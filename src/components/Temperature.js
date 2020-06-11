@@ -3,12 +3,14 @@ import '../styles/card.scss'
 import Icon from './Icon'
 import Radio from './Radio'
 import Toast, { notify } from './Toast';
-
-export default class Temperature extends Component {
+import { editUser} from '../actions/usersActions'
+import { connect } from "react-redux";
+import { fetchUsers, fetchUser, createUser } from "../actions/usersActions";
+class Temperature extends Component {
   state = {
     setTemperature: 22,
     actualTemperature: 24,
-    selectedMode: 'Eco',
+    selectedMode: this.props.users && this.props.users.user.selectedMode,
     setTemperatureEco: 16,
     setTemperatureDay: 19,
     setTemperatureNight: 22,
@@ -44,15 +46,7 @@ export default class Temperature extends Component {
 
   updateTemperatureMode = (value) => {
     const data = { temperatureMode: value };
-
-    return fetch('users/1', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => console.log('Success:', data))
-      .catch(error => console.error('Error:', error));
+    this.props.editUser(1, data)
   }
 
   setThermometerColor = () => {
@@ -83,3 +77,8 @@ export default class Temperature extends Component {
     )
   }
 }
+const mapStateToProps = state => ({
+  user: state.users
+})
+
+export default connect(mapStateToProps, { fetchUsers, fetchUser, createUser, editUser })(Temperature);
