@@ -11,10 +11,9 @@ class Weather extends Component {
   };
 
   componentDidMount() {
-    fetch(`https://api.weatherbit.io/v2.0/current?city=${ this.props.users.user && this.props.users.user.city || 'Cluj-Napoca'}&key=d50c57c063ec458dab88e7a1c530219c`)
+    fetch(`https://api.weatherbit.io/v2.0/current?city=${ this.props.users.user ? this.props.users.user.city : 'Cluj-Napoca'}&key=d50c57c063ec458dab88e7a1c530219c`)
       .then(response => response.json())
-      .then(data => this.setState({ bit: data.data[0], weather: data.data[0].weather }));
-      this.setState({ isLoaded: true });
+      .then(data => this.setState({ bit: data.data[0], weather: data.data[0].weather, isLoaded: true }));
     }
 
   render() {

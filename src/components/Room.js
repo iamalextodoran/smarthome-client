@@ -1,32 +1,36 @@
 import React, { Component } from 'react'
-import Left from './Left';
-import Top from './Top';
-import Footer from './Footer';
 import Slider from './Slider';
 import Toggle from './Toggle';
-import Toast, { notify } from './Toast';
 import Icon from './Icon';
 import Input from './Input';
 import Modal from './Modal';
 import { connect } from 'react-redux'
-import { fetchRooms, createRoom, deleteRoom } from "../actions/roomsActions";
+import { fetchRoomsforUser, createRoom, editRoom, deleteRoom } from "../actions/roomsActions";
+import { createDevice } from "../actions/devicesActions";
 
 class Room extends Component {
   state = {
-    showModal: false
+    showModal: false,
+    showDeleteModal: false,
   }
 
+  // constructor(props) {
+  //   super(props);
+  //   this.props.rooms.rooms ? this.setState({ isLoaded: true}) : console.log("Not loaded");
+  // }
+
   componentDidMount() {
-    this.setState({ RoomId: parseInt(this.props.match.params.roomId) })
+    
   }
 
   deleteRoom = (room) => {
-    // this.props.deleteRoom(room)
-    // notify("Done", "primary")
-    // window.location.replace("/");
+    this.props.deleteRoom(room)
+    window.location.href = "/";
   }
 
-  editRoom = () => {
+  editRoom = (room, data) => {
+    this.props.editRoom(room, data)
+    window.location.href = `/rooms/${room}`
   }
 
   handleBlinds = () => {
@@ -46,18 +50,10 @@ class Room extends Component {
       description: this.state.description,
       value: this.state.value,
       warm: this.state.warm,
-      RoomId: this.state.RoomId
+      RoomId: parseInt(this.props.match.params.roomId)
     }
 
-    fetch('devices', {
-      method: 'POST',
-      mode: "cors",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => console.log('Success:', data))
-      .catch(error => console.error('Error:', error));
+    this.props.createDevice(data)
     this.setState({ name: '', type: '', description: '', value: '', warm: '', showModal: false })
   }
 
@@ -70,10 +66,7 @@ class Room extends Component {
 
     return (
       <React.Fragment>
-        <Top />
-        <div className="layout-row layout-xs-column">
-          <Left />
-          <div className="layout-row layout-align-end-start flex-wrap flex-70">
+        <div className="layout-row layout-align-end-start flex-wrap flex-70">
             {<div className="card" key={room.id}>
               <div className="layout-row layout-align-space-between-center">
                 <div className="layout-row">
@@ -81,10 +74,33 @@ class Room extends Component {
                   <h3 style={{ marginLeft: "10px" }}>{room.temperature} °C</h3>
                 </div>
                 <div>
-                  <Icon icon="fas fa-edit" onClick={this.editRoom(room.id)} />
-                  <Icon icon="fas fa-trash" onClick={this.deleteRoom(room.id)} />
+                  <Icon icon="fas fa-edit" onClick={() => this.setState({ showEditModal: true })} />
+                  <Icon icon="fas fa-trash" onClick={() => this.setState({ showDeleteModal: true })} />
                 </div>
               </div>
+
+              <Modal isShowing={this.state.showDeleteModal}>
+                <span className="close" onClick={() => this.setState({ showDeleteModal: false })}>&times;</span>
+                <h1>Delete room?</h1>
+                <p>Are you sure you want to delete {room.name}</p>
+                <div className="interactions">
+                  <button className="m_button primary" onClick={() => this.deleteRoom(room.id)}><Icon icon="fas fa-plus" />Yes</button>
+                  <button className="m_button" onClick={() => this.setState({ showDeleteModal: false })}><Icon icon="fas fa-plus" />No</button>
+                </div>
+             </Modal>
+
+             <Modal isShowing={this.state.showEditModal}>
+                <span className="close" onClick={() => this.setState({ showEditModal: false })}>&times;</span>
+                <h1>Edit {room.name}</h1>
+                <p>Are you sure you want to edit {room.name}</p>
+                <p>Are you sure you want to edit {room.name}</p>
+                <p>Are you sure you want to edit {room.name}</p>
+                <div className="interactions">
+                  <button className="m_button primary" onClick={() => this.editRoom(room.id)}><Icon icon="fas fa-edit" />Submit</button>
+                  <button className="m_button" onClick={() => this.setState({ showEditModal: false })}>Cancel</button>
+                </div>
+             </Modal>
+            
               <p>{room.description}</p>
               <img src={room.image} alt={room.name} style={{ minWidth: "200px", width: "100%", maxWidth: "500px", borderRadius: "20px" }} />
               <div>
@@ -128,8 +144,6 @@ class Room extends Component {
               </div>
             </Modal>
           </div>
-        </div>
-        <Footer />
       </React.Fragment>
     )
   }
@@ -139,4 +153,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms, createRoom, deleteRoom })(Room);
+export default connect(mapStateToProps, { fetchRoomsforUser, createRoom, editRoom, createDevice, deleteRoom })(Room);

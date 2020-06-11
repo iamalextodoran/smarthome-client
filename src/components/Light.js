@@ -4,7 +4,7 @@ import Icon from './Icon'
 import Toggle from './Toggle'
 import Toast, { notify } from './Toast'
 import { connect } from 'react-redux'
-import { fetchRooms } from "../actions/roomsActions";
+import { fetchRoomsforUser } from "../actions/roomsActions";
 import { editDevice } from "../actions/devicesActions";
 
 class Light extends Component {
@@ -78,4 +78,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRooms, editDevice })(Light);
+export default connect(mapStateToProps, { fetchRoomsforUser, editDevice })(Light);
