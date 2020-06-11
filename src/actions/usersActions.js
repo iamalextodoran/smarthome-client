@@ -12,7 +12,7 @@ export const fetchUsers = () => (dispatch) => {
 };
 
 export const fetchUser = (id) => (dispatch) => {
-  fetch(`/${id}/`)
+  fetch(`/api/${id}/`)
     .then((response) => response.json())
     .then((data) =>
       dispatch({
