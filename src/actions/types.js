@@ -13,3 +13,5 @@ export const FETCH_DEVICES = 'FETCH_DEVICES';
 export const NEW_DEVICE = 'NEW_DEVICE';
 export const EDIT_DEVICE = 'EDIT_DEVICE';
 export const DELETE_DEVICE = 'DELETE_DEVICE';
+
+export const FETCH_WEATHER = 'FETCH_WEATHER';

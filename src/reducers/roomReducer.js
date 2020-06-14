@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
     case NEW_ROOM:
       return {
         ...state,
-        rooms: action.payload,
+        newRoom: action.payload,
       };
 
     case EDIT_ROOM:

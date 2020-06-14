@@ -6,21 +6,18 @@ import Input from './Input';
 import Modal from './Modal';
 import { connect } from 'react-redux'
 import { fetchRoomsforUser, createRoom, editRoom, deleteRoom } from "../actions/roomsActions";
-import { createDevice } from "../actions/devicesActions";
+import { createDevice, editDevice } from "../actions/devicesActions";
 
 class Room extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props) {
+      this.props.fetchRoomsforUser(1)
+    }
+  }
+
   state = {
     showModal: false,
     showDeleteModal: false,
-  }
-
-  // constructor(props) {
-  //   super(props);
-  //   this.props.rooms.rooms ? this.setState({ isLoaded: true}) : console.log("Not loaded");
-  // }
-
-  componentDidMount() {
-    
   }
 
   deleteRoom = (room) => {
@@ -33,10 +30,12 @@ class Room extends Component {
     window.location.href = `/rooms/${room}`
   }
 
-  handleBlinds = () => {
-  }
+	handleBlind = (device) => {
+		device.value > 0 ? this.props.editDevice(device.id, { value: 0} ) : this.props.editDevice(device.id, { value: 100} );
+	}
 
-  handleWindows = () => {
+  handleWindow = (device) => {
+		device.value > 0 ? this.props.editDevice(device.id, { value: 0} ) : this.props.editDevice(device.id, { value: 100} );
   }
 
   handleInputChange = (e) => {
@@ -116,14 +115,14 @@ class Room extends Component {
                 {blinds.length > 0 ? blinds.map(blind => (
                   <div key={blind.id} className="layout-row layout-align-space-between-center">
                     <p>{blind.name} {blind.value === 0 ? "closed" : "open"}</p>
-                    <Toggle onChange={this.handleBlinds} checked={blind.value === 0 ? false : true} />
+                    <Toggle onChange={() => this.handleBlind(blind)} checked={blind.value === 0 ? false : true} />
                   </div>
                 )) : <p>No blinds found</p>}
 
                 {windows.length > 0 ? windows.map(window => (
                   <div key={window.id} className="layout-row layout-align-space-between-center">
                     <p>{window.name} {window.value === 0 ? "closed" : "open"}</p>
-                    <Toggle onChange={this.handleWindows} checked={window.value === 0 ? false : true} />
+                    <Toggle onChange={() => this.handleWindow(window)} checked={window.value === 0 ? false : true} />
                   </div>
                 )) : <p>No windows found</p>}
               </div>
@@ -140,7 +139,7 @@ class Room extends Component {
               <Input placeholder="Value" value={this.state.value} name="value" width="75%" onChange={this.handleInputChange} />
               <Input placeholder="Warm" value={this.state.warm} name="warm" width="75%" onChange={this.handleInputChange} />
               <div className="interactions">
-                <button className="m_button primary" onClick={this.newDevice}><Icon icon="fas fa-plus" />Add room</button>
+                <button className="m_button primary" onClick={() => this.newDevice()}><Icon icon="fas fa-plus" />Add room</button>
               </div>
             </Modal>
           </div>
@@ -153,4 +152,4 @@ const mapStateToProps = state => ({
   rooms: state.rooms
 })
 
-export default connect(mapStateToProps, { fetchRoomsforUser, createRoom, editRoom, createDevice, deleteRoom })(Room);
+export default connect(mapStateToProps, { fetchRoomsforUser, createRoom, editRoom, editDevice, createDevice, deleteRoom })(Room);

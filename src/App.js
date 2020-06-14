@@ -10,13 +10,13 @@ import { connect } from "react-redux";
 import { fetchUsers, fetchUser } from "./actions/usersActions";
 import { fetchRoomsforUser, createRoom } from "./actions/roomsActions";
 import { fetchDevices } from "./actions/devicesActions";
+import { fetchWeather } from "./actions/weatherActions";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     this.props.fetchUsers();
     this.props.fetchRoomsforUser(1);
-    this.props.fetchDevices();
+    this.props.fetchDevices(1);
     this.props.fetchUser(1);
   }
 
@@ -47,4 +47,5 @@ export default connect(mapStateToProps, {
   fetchRoomsforUser,
   fetchDevices,
   fetchUser,
+  fetchWeather
 })(App);

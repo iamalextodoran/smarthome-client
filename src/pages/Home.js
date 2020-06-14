@@ -8,6 +8,11 @@ import { connect } from 'react-redux'
 import { fetchRoomsforUser, createRoom } from "../actions/roomsActions";
 
 class Home extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props) {
+      this.props.fetchRoomsforUser(1)
+    }
+  }
   state = {
     showModal: false,
   }
@@ -17,7 +22,16 @@ class Home extends Component {
   }
 
   newRoom = () => {
-    this.props.createRoom({ name: "test", description: "Test descriere", image: "https://source.unsplash.com/JIUjvqe2ZHg", temperature: 23, UserId: 1 });
+    const data = { 
+      name: this.state.name,
+      description: this.state.description,
+      image: this.state.image,
+      temperature: this.state.temperature,
+      UserId: 1 
+    };
+    
+    this.props.createRoom(data);
+    this.setState({ name: '', description: '', image: '', value: '', temperature: '', showModal: false })
   }
 
   render() {
@@ -60,7 +74,7 @@ class Home extends Component {
               <Input placeholder="Image link" width="75%" name="image" value={this.state.image} onChange={this.handleInputChange} />
               <Input placeholder="Temperature" width="75%" name="temperature" value={this.state.temperature} onChange={this.handleInputChange} />
               <div className="interactions">
-                <button className="m_button primary" onClick={() => this.newRoom}><Icon icon="fas fa-plus" />Add room</button>
+                <button className="m_button primary" onClick={this.newRoom}><Icon icon="fas fa-plus" />Add room</button>
               </div>
             </Modal>
 

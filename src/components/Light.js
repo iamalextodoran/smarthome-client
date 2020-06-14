@@ -8,18 +8,13 @@ import { fetchRoomsforUser } from "../actions/roomsActions";
 import { editDevice } from "../actions/devicesActions";
 
 class Light extends Component {
-  state = {
-    isAnyLightOn: true,
-  }
-
   lightSwitch = () => {
     if (this.countAllLightsOn() > 0) {
-      notify("Done", "primary")
       this.updateLightsOn(0)
     } else {
       this.updateLightsOn(100)
     }
-    this.setState({ isAnyLightOn: !this.state.isAnyLightOn })
+    notify("Done", "primary")
   }
 
   countAllLights = () => {
@@ -38,14 +33,6 @@ class Light extends Component {
     return result
   }
 
-  // countOnlyOnLights = (on) => {
-  //   let result = 0;
-  //   this.props.rooms.rooms.map(room => {
-  //     !on ? result += room.Devices.filter(device => device.type === "Light").filter(light => light.value > 0).length : result += room.Devices.filter(device => device.type === "Light").length
-  //   })
-  //   return result
-  // }
-
   updateLightsOn = (newValue) => {
     let lights = [];
     const data = { value: newValue };
@@ -62,12 +49,12 @@ class Light extends Component {
       <div className="card">
         <Toast />
         <div className="layout-row layout-align-space-between-center">
-          <Icon icon="fas fa-lightbulb" size="40" color={this.state.isAnyLightOn ? "grey" : "gold"} />
+          <Icon icon="fas fa-lightbulb" size="40" color={this.countAllLightsOn() > 0 ? "gold" : "grey"} />
           <div className="layout-column layout-align-end-end">
             <h2 style={{ paddingLeft: "5px" }}>Lights</h2>
             <p style={{ marginLeft: "0px", marginTop: "-25px" }}>{this.countAllLightsOn()} out of {this.countAllLights()}</p>
           </div>
-          <Toggle id="1" name="lights" onChange={this.lightSwitch} checked={this.state.isAnyLightOn} />
+          <Toggle id="1" name="lights" onChange={this.lightSwitch} checked={this.countAllLightsOn() > 0 ? true : false} />
         </div>
       </div>
     )
@@ -75,7 +62,8 @@ class Light extends Component {
 }
 
 const mapStateToProps = state => ({
-  rooms: state.rooms
+  rooms: state.rooms,
+  devices: state.devices
 })
 
 export default connect(mapStateToProps, { fetchRoomsforUser, editDevice })(Light);
