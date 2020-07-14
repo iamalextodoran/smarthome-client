@@ -83,17 +83,18 @@ class Room extends Component {
                 <h1>Delete room?</h1>
                 <p>Are you sure you want to delete {room.name}</p>
                 <div className="interactions">
-                  <button className="m_button primary" onClick={() => this.deleteRoom(room.id)}><Icon icon="fas fa-plus" />Yes</button>
-                  <button className="m_button" onClick={() => this.setState({ showDeleteModal: false })}><Icon icon="fas fa-plus" />No</button>
+                  <button className="m_button primary" onClick={() => this.deleteRoom(room.id)}><Icon icon="fas fa-trash" />Yes</button>
+                  <button className="m_button" onClick={() => this.setState({ showDeleteModal: false })}>No</button>
                 </div>
              </Modal>
 
              <Modal isShowing={this.state.showEditModal}>
                 <span className="close" onClick={() => this.setState({ showEditModal: false })}>&times;</span>
                 <h1>Edit {room.name}</h1>
-                <p>Are you sure you want to edit {room.name}</p>
-                <p>Are you sure you want to edit {room.name}</p>
-                <p>Are you sure you want to edit {room.name}</p>
+                <Input placeholder="Name" width="75%" name="name" value={room.name} onChange={this.handleInputChange} />
+                <Input placeholder="Description" width="75%" name="description" value={room.description} onChange={this.handleInputChange} />
+                <Input placeholder="Image link" width="75%" name="image" value={room.image} onChange={this.handleInputChange} />
+                <Input placeholder="Temperature" width="75%" name="temperature" value={room.temperature} onChange={this.handleInputChange} />
                 <div className="interactions">
                   <button className="m_button primary" onClick={() => this.editRoom(room.id)}><Icon icon="fas fa-edit" />Submit</button>
                   <button className="m_button" onClick={() => this.setState({ showEditModal: false })}>Cancel</button>
