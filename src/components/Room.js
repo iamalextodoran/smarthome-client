@@ -14,10 +14,15 @@ class Room extends Component {
       this.props.fetchRoomsforUser(1)
     }
   }
+  constructor(props){
+    super(props);
+    !this.props.rooms.rooms && this.setState({ loaded: false });
+  }
 
   state = {
     showModal: false,
     showDeleteModal: false,
+    showEditModal: false,
   }
 
   deleteRoom = (room) => {
@@ -26,8 +31,7 @@ class Room extends Component {
   }
 
   editRoom = (room, data) => {
-    this.props.editRoom(room, data)
-    window.location.href = `/rooms/${room}`
+    this.setState({ showEditModal: false })
   }
 
 	handleBlind = (device) => {
@@ -91,10 +95,10 @@ class Room extends Component {
              <Modal isShowing={this.state.showEditModal}>
                 <span className="close" onClick={() => this.setState({ showEditModal: false })}>&times;</span>
                 <h1>Edit {room.name}</h1>
-                <Input placeholder="Name" width="75%" name="name" value={room.name} onChange={this.handleInputChange} />
-                <Input placeholder="Description" width="75%" name="description" value={room.description} onChange={this.handleInputChange} />
-                <Input placeholder="Image link" width="75%" name="image" value={room.image} onChange={this.handleInputChange} />
-                <Input placeholder="Temperature" width="75%" name="temperature" value={room.temperature} onChange={this.handleInputChange} />
+                <Input placeholder="Name" width="75%" name="name" value={room.name} onChange={(e) => this.props.room(room.id, { value: e.target.value} )}/>
+                <Input placeholder="Description" width="75%" name="description" value={room.description} onChange={(e) => this.props.room(room.id, { value: e.target.value} )}/>
+                <Input placeholder="Image link" width="75%" name="image" value={room.image} onChange={(e) => this.props.room(room.id, { value: e.target.value} )}/>
+                <Input placeholder="Temperature" width="75%" name="temperature" value={room.temperature} onChange={(e) => this.props.room(room.id, { value: e.target.value} )}/>
                 <div className="interactions">
                   <button className="m_button primary" onClick={() => this.editRoom(room.id)}><Icon icon="fas fa-edit" />Submit</button>
                   <button className="m_button" onClick={() => this.setState({ showEditModal: false })}>Cancel</button>
@@ -108,8 +112,8 @@ class Room extends Component {
                 {lights.length > 0 ? lights.map(light => (
                   <div key={light.id}>
                     <p>{light.name} </p>
-                    <Slider description="brightness" value={light.value} />
-                    <Slider description="warmness" value={light.warm} />
+                    <Slider description="brightness" value={light.value} onChange={(e) => this.props.editDevice(light.id, { value: e.target.value} )}/>
+                    <Slider description="warmness" value={light.warm} onChange={(e) => this.props.editDevice(light.id, { warm: e.target.value} )}/>
                   </div>
                 )) : <p>No lights found</p>}
 

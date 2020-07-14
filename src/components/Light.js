@@ -14,7 +14,8 @@ class Light extends Component {
     } else {
       this.updateLightsOn(100)
     }
-    notify("Done", "primary")
+    notify("Done", "primary");
+    this.props.fetchRoomsforUser(1);
   }
 
   countAllLights = () => {

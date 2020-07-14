@@ -19,7 +19,7 @@ class App extends Component {
     this.props.fetchDevices(1);
     this.props.fetchUser(1);
   }
-
+  
   render() {
     return (
       <Router>

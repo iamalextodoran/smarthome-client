@@ -7,14 +7,24 @@ import { GithubPicker } from 'react-color';
 import '../styles/card.scss'
 import '../styles/user.scss'
 import { connect } from "react-redux";
+import { fetchUser, editUser } from "../actions/usersActions";
 
 class Settings extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props) {
+      this.props.fetchUser(1)
+    }
+  }
+
   state = {
     darkModeOn: localStorage.getItem('darkMode') !== null ? true : false,
     showPrimary: false,
     showAccent: false,
     primaryColor: localStorage.getItem('primaryColor') || 'coral',
     accentColor: localStorage.getItem('accentColor') || 'deeppink',
+    city: this.props.users.user && this.props.users.user.city,
+    email: this.props.users.user && this.props.users.user.email,
+    name:  this.props.users.user && this.props.users.user.name,
   }
 
   displayPrimaryColor = () => {
@@ -65,6 +75,7 @@ class Settings extends Component {
       localStorage.setItem('darkMode', null);
       this.setState({ darkModeOn: false });
     }
+    
     darkMode = localStorage.getItem('darkMode');
 
     if (darkMode !== 'true') {
@@ -72,6 +83,16 @@ class Settings extends Component {
     } else {
       disableDarkMode();
     }
+  }
+
+  submitUserchanges = () => {
+    const newData = {
+      name: this.state.name, 
+      email: this.state.email, 
+      city: this.state.city
+    }
+    this.props.editUser(1, newData);
+    this.props.fetchUser(1)
   }
 
   render() {
@@ -137,22 +158,22 @@ class Settings extends Component {
                 <div style={{ minWidth: "100px" }}>
                   <p>Name</p>
                 </div>
-                <Input value={this.props.users.user && this.props.users.user.name } />
+                <Input value={ this.state.name } onChange={(e) => this.setState({ name: e.target.value })}/>
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
                   <p>Email</p>
                 </div>
-                <Input value={this.props.users.user && this.props.users.user.email } />
+                <Input value={ this.state.email } onChange={(e) => this.setState({ email: e.target.value })}/>
               </div>
               <div className="layout-row layout-align-space-between-center">
                 <div style={{ minWidth: "100px" }}>
                   <p>City name</p>
                 </div>
-                <Input value={this.props.users.user && this.props.users.user.city } />
+                <Input value={ this.state.city } onChange={(e) => this.setState({ city: e.target.value })}/>
               </div>
               <div className="interactions">
-                <button className="m_button medium primary">Submit</button>
+                <button className="m_button medium primary" onClick={this.submitUserchanges} >Submit</button>
               </div>
             </div>
           </div>
@@ -170,4 +191,4 @@ const mapStateToProps = (state) => ({
   store: state.devices,
 });
 
-export default connect(mapStateToProps, { })(Settings);
+export default connect(mapStateToProps, { fetchUser, editUser })(Settings);
