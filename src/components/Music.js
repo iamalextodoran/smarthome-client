@@ -9,7 +9,7 @@ export default class Music extends Component {
     artistList: ["MGK", "G-Eazy", "Eminem", "Sandu Ciorba", "Florin Salam"],
     songList: ["Smoke and drive", "Moana", "Lose yourself", "Aragaz cu butelie", "Toate pozele cu tine"],
     songIndex: 0,
-    volume: 69,
+    volume: 100,
   }
 
   prevSong = () => {

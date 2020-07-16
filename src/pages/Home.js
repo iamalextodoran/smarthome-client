@@ -60,9 +60,9 @@ class Home extends Component {
                   </NavLink>
                 </div>
               </div>
-            ), [this.props.rooms]) : <div className="card flex-33" style={{ minHeight: "425px" }}><p>No rooms found</p></div>}
+            ), [this.props.rooms]) : <div className="card flex-33" style={{ minHeight: "442px" }}><p>No rooms found</p></div>}
 
-            <div id="new" className="card flex-33 layout-column layout-align-center-center" style={{ minHeight: "425px" }}  onClick={() => this.setState({ showModal: !this.state.showModal })} >
+            <div id="new" className="card flex-33 layout-column layout-align-center-center" style={{ minHeight: "442px" }}  onClick={() => this.setState({ showModal: !this.state.showModal })} >
               <Icon icon="fas fa-plus" size="60"/>
             </div>
 
